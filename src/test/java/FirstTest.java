@@ -6,7 +6,10 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.*;
+import org.testng.asserts.SoftAssert;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.concurrent.TimeUnit;
 
 public class FirstTest {
@@ -42,7 +45,6 @@ public class FirstTest {
 
     @AfterClass(alwaysRun = true)
     public void afterClass() {
-        presentationSleep();
         driver.quit();
     }
 
@@ -68,10 +70,14 @@ public class FirstTest {
     public void redirectToInstagramPageTest() {
         driver.findElement(By.xpath("//a[text() = 'Про нас']")).click();
         driver.findElement(By.xpath("//div[@class = 'social-info']//a[@href = 'https://www.instagram.com/teach.in.ukrainian/']")).click();
+        ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
         new WebDriverWait(driver, 10).until(ExpectedConditions.urlContains("instagram"));
         String actualResult = driver.getCurrentUrl();
-        Assert.assertEquals(actualResult, "https://www.instagram.com/teach.in.ukrainian/");
         boolean isDisplayed = driver.findElement(By.xpath("//h2[text() = 'teach.in.ukrainian']")).isDisplayed();
-        Assert.assertTrue(isDisplayed);
+        SoftAssert softAssert = new SoftAssert();
+        softAssert.assertEquals(actualResult, "https://www.instagram.com/teach.in.ukrainian/");
+        softAssert.assertTrue(isDisplayed);
+        softAssert.assertAll();
     }
 }
