@@ -1,0 +1,11 @@
+# Default ignored files
+/shelf/
+/workspace.xml
+.idea/
+.DS_Store
+*.iml
+/bin/
+.classpath
+.project
+.settings
+test-output
