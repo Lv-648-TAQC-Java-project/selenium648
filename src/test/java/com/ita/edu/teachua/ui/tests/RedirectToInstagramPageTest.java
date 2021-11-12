@@ -1,9 +1,8 @@
-package test;
+package com.ita.edu.teachua.ui.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.Test;
-import pages.AboutUsPage;
-import pages.MainPage;
+import com.ita.edu.teachua.ui.pages.MainPage;
 
 public class RedirectToInstagramPageTest {
 
@@ -18,6 +17,5 @@ public class RedirectToInstagramPageTest {
                 .switchWindowToInstagram()
                 .getUrl();
         Assert.assertEquals(actualResult, INSTA_URL, "Not correct URL");
-        mainPage.afterMet();
     }
 }

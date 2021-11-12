@@ -1,4 +1,4 @@
-package pages;
+package com.ita.edu.teachua.ui.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -30,11 +30,11 @@ public class AboutUsPage extends BaseClass {
         return this;
     }
 
-    public String getUrl(){
+    public String getUrl() {
         return driver.getCurrentUrl();
     }
 
-    public AboutUsPage switchWindowToInstagram(){
+    public AboutUsPage switchWindowToInstagram() {
         ArrayList<String> tabs = new ArrayList<String>(driver.getWindowHandles());
         driver.switchTo().window(tabs.get(1));
         new WebDriverWait(driver, 10).until(ExpectedConditions.urlContains("instagram"));
