@@ -1,43 +1,32 @@
 package com.ita.edu.teachua.ui.pages;
 
-import org.openqa.selenium.By;
+import com.ita.edu.teachua.ui.elements.LinkElement;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-public class MainPage extends BaseClass {
+import java.util.concurrent.TimeUnit;
 
-    private WebElement aboutUsButton;
-    private WebElement loginDropdown;
+public class MainPage {
+    protected WebDriver driver;
+    private WebDriverWait wait;
+
+
+
 
     public MainPage(WebDriver driver) {
-        super(driver);
-        initElements();
+        this.driver = driver;
+        maximazeWindow();
+//        setWait();
     }
 
-    private void initElements() {
-        aboutUsButton = driver.findElement(By.xpath("//a[text() = 'Про нас']"));
-        loginDropdown = driver.findElement(By.xpath("//div[@class = 'ant-dropdown-trigger user-profile']/span[@role]"));
+    public void maximazeWindow() {
+        driver.manage().window().maximize();
+    }
+
+    public void setWait() {
+        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
     }
 
 
-    public WebElement getLoginDropdown() {
-        return loginDropdown;
-    }
 
-    public GuestDropdown clickLoginDropdown() {
-        new WebDriverWait(driver, 10).until(ExpectedConditions.visibilityOf(getLoginDropdown()));
-        getLoginDropdown().click();
-        return new GuestDropdown(driver);
-    }
-
-    public WebElement getAboutUsButton() {
-        return aboutUsButton;
-    }
-
-    public AboutUsPage clickAboutUsButton() {
-        getAboutUsButton().click();
-        return new AboutUsPage(driver);
-    }
 }
