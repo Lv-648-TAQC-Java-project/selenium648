@@ -4,17 +4,17 @@ import com.ita.edu.teachua.ui.locators.Locator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class LinkElement extends BaseElement {
+public class ButtonElement extends BaseElement {
 
-    public LinkElement(WebDriver driver, Locator locator) {
+    public ButtonElement(WebDriver driver, Locator locator) {
         super(driver, locator);
     }
 
-    public LinkElement(WebElement element, Locator locator) {
+    public ButtonElement(WebElement element, Locator locator) {
         super(element, locator);
     }
 
-    public LinkElement(WebElement element) {
+    public ButtonElement(WebElement element) {
         super(element);
     }
 
@@ -24,5 +24,13 @@ public class LinkElement extends BaseElement {
 
     public boolean isDisplayed() {
         return this.element.isDisplayed();
+    }
+
+    public boolean isActive() {
+        return this.element.isEnabled();
+    }
+
+    public void sendKeys(String key) {
+        this.element.sendKeys(key);
     }
 }

@@ -4,9 +4,7 @@ import com.ita.edu.teachua.utils.ValueProvider;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.testng.annotations.AfterClass;
-import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.*;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -22,17 +20,16 @@ public class TestRunner {
         valueProvider = new ValueProvider();
     }
 
-    @BeforeClass
-    public void beforeClass() {
+    @BeforeMethod
+    public void beforeMethod() {
         driver = new ChromeDriver();
         driver.manage().window().maximize();
         driver.manage().timeouts().implicitlyWait(2, TimeUnit.SECONDS);
         driver.get(valueProvider.getBaseUrl());
-
     }
 
-    @AfterClass
-    public void afterClass() {
+    @AfterMethod
+    public void afterMethod() {
         if (driver != null) {
             driver.quit();
         }

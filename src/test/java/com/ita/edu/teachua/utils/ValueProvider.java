@@ -1,7 +1,6 @@
 package com.ita.edu.teachua.utils;
 
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.util.Properties;
 
@@ -13,7 +12,7 @@ public class ValueProvider {
         properties.load(fileInputStream);
     }
 
-    public String getBaseUrl(){
+    public String getBaseUrl() {
         return properties.getProperty("baseURL");
     }
 }
