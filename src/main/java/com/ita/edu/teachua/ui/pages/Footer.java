@@ -2,9 +2,8 @@ package com.ita.edu.teachua.ui.pages;
 
 import org.openqa.selenium.WebDriver;
 
-public class MainPage extends BasePage {
-    public MainPage(WebDriver driver) {
+public class Footer extends BasePage {
+    public Footer(WebDriver driver) {
         super(driver);
     }
-
 }

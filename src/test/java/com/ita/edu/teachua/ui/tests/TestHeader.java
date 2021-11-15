@@ -10,20 +10,20 @@ public class TestHeader extends TestRunner {
     public void checkAboutUsLink() {
         Header header = new Header(driver);
         header.clickOnAboutUs();
-        Assert.assertEquals(driver.getCurrentUrl(),"https://speak-ukrainian.org.ua/about");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://speak-ukrainian.org.ua/about");
     }
 
     @Test
     public void checkClubsLink() {
         Header header = new Header(driver);
         header.clickOnClubs();
-        Assert.assertEquals(driver.getCurrentUrl(),"https://speak-ukrainian.org.ua/clubs");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://speak-ukrainian.org.ua/clubs");
     }
 
     @Test
     public void checkServicesLink() {
         Header header = new Header(driver);
         header.clickOnServices();
-        Assert.assertEquals(driver.getCurrentUrl(),"https://speak-ukrainian.org.ua/service");
+        Assert.assertEquals(driver.getCurrentUrl(), "https://speak-ukrainian.org.ua/service");
     }
 }

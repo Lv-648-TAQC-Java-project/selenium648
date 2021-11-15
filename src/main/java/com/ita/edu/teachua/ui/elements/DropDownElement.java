@@ -4,25 +4,21 @@ import com.ita.edu.teachua.ui.locators.Locator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class LinkElement extends BaseElement {
+public class DropDownElement extends BaseElement {
 
-    public LinkElement(WebDriver driver, Locator locator) {
+    public DropDownElement(WebDriver driver, Locator locator) {
         super(driver, locator);
     }
 
-    public LinkElement(WebElement element, Locator locator) {
+    public DropDownElement(WebElement element, Locator locator) {
         super(element, locator);
     }
 
-    public LinkElement(WebElement element) {
+    public DropDownElement(WebElement element) {
         super(element);
     }
 
     public void click() {
         this.element.click();
-    }
-
-    public boolean isDisplayed() {
-        return this.element.isDisplayed();
     }
 }
