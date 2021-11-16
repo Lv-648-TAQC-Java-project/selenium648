@@ -1,8 +1,9 @@
-package com.ita.edu.teachua.ui.pages;
+package com.ita.edu.teachua.ui.pages.register_pop_up;
 
 import com.ita.edu.teachua.ui.elements.ButtonElement;
 import com.ita.edu.teachua.ui.elements.InputElement;
 import com.ita.edu.teachua.ui.locators.pageslocators.RegisterPopUpLocators;
+import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import org.openqa.selenium.WebDriver;
 
 public class RegisterPopUp extends BasePage {

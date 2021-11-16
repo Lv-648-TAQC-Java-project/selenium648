@@ -1,9 +1,9 @@
-package com.ita.edu.teachua.ui.components;
+package com.ita.edu.teachua.ui.pages.header;
 
 import com.ita.edu.teachua.ui.elements.ButtonElement;
 import com.ita.edu.teachua.ui.locators.componentslocators.GuestDropdownLocators;
-import com.ita.edu.teachua.ui.pages.BasePage;
-import com.ita.edu.teachua.ui.pages.RegisterPopUp;
+import com.ita.edu.teachua.ui.pages.base_page.BasePage;
+import com.ita.edu.teachua.ui.pages.register_pop_up.RegisterPopUp;
 import org.openqa.selenium.WebDriver;
 
 public class GuestDropdownComponent extends BasePage {

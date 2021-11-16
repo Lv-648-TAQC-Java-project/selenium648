@@ -1,4 +1,4 @@
-package com.ita.edu.teachua.ui.pages;
+package com.ita.edu.teachua.ui.pages.base_page;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.WebDriverWait;
