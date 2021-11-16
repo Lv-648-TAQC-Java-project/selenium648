@@ -15,4 +15,7 @@ public class ValueProvider {
     public String getBaseUrl() {
         return properties.getProperty("baseURL");
     }
+    public String getAdminCredentials() {
+	return properties.getProperty("adminCredentials");
+    }
 }

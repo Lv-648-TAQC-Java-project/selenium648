@@ -8,15 +8,16 @@ import com.ita.edu.teachua.ui.pages.advanced_search.AdvancedSearchPage;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import org.openqa.selenium.WebDriver;
 
-public class Header extends BasePage {
+public class HeaderPage extends BasePage {
 
     private LinkElement aboutUs;
     private LinkElement clubsLink;
     private LinkElement services;
     private DropDownElement guestDropdown;
     private ButtonElement advancedSearchButton;
+    private DropDownElement ownerDropdown;
 
-    public Header(WebDriver driver) {
+    public HeaderPage(WebDriver driver) {
         super(driver);
         initElements();
     }
@@ -29,24 +30,29 @@ public class Header extends BasePage {
         advancedSearchButton = new ButtonElement(driver, HeaderLocators.ADVANCED_SEARCH_BUTTON);
     }
 
-    public Header clickOnClubs() {
+    public HeaderPage clickOnClubs() {
         clubsLink.click();
         return this;
     }
 
-    public Header clickOnAboutUs() {
+    public HeaderPage clickOnAboutUs() {
         aboutUs.click();
         return this;
     }
 
-    public Header clickOnServices() {
+    public HeaderPage clickOnServices() {
         services.click();
         return this;
     }
 
-    public GuestDropdownComponent clickOnLoginDropdown() {
+    public GuestDropdownComponent clickOnGuestDropdown() {
         guestDropdown.click();
         return new GuestDropdownComponent(driver);
+    }
+    public OwnerDropdownComponent clickOnOwnerDropdown() {
+	ownerDropdown = new DropDownElement(driver,HeaderLocators.OWNER_DROPDOWN);
+	ownerDropdown.click();
+        return new OwnerDropdownComponent(driver);
     }
 
     public AdvancedSearchPage clickAdvancedSearchButton() {
