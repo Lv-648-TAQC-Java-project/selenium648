@@ -3,14 +3,15 @@ package com.ita.edu.teachua.ui.locators.pageslocators;
 import com.ita.edu.teachua.ui.locators.Locator;
 import org.openqa.selenium.By;
 
-public enum LoginPopUpLocators implements Locator {
-    EMAIL_FIELD(By.id("basic_email")), // TODO
-    PASSWORD_FIELD(By.id("basic_password")),// TODO
-    LOG_IN_BUTTON(By.xpath("//span[contains(text(),'Увійти')]"));// TODO
+public enum AddLocationPopUpLocators implements Locator {
+    LOCATION_NAME_FIELD(By.id("name")),
+    CITY_DROPDOWN(By.id("cityName")),
+    DISTRICT_DROPDOWN(By.id("districtName")),
+    LOCALITY_DROPDOWN(By.id("stationName"));
 
     private final By path;
 
-    LoginPopUpLocators(By path) {
+    AddLocationPopUpLocators(By path) {
         this.path = path;
     }
 

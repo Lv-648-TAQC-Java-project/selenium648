@@ -77,32 +77,32 @@ public class RegisterPopUp extends BasePage {
     }
 
     public RegisterPopUp sendKeysFirstNameField() {
-        firstName.sendKeys("Vitalii");
+        firstName.sendKeys("Vitalii");// TODO
         return this;
     }
 
     public RegisterPopUp sendKeysLastNameField() {
-        lastName.sendKeys("Pidstavskyi");
+        lastName.sendKeys("Pidstavskyi");// TODO
         return this;
     }
 
     public RegisterPopUp sendKeysEmailField() {
-        email.sendKeys("vitalii@gmail.com");
+        email.sendKeys("vitalii@gmail.com");// TODO
         return this;
     }
 
     public RegisterPopUp sendKeysPhoneNumberField() {
-        phoneNumber.sendKeys("662745332");
+        phoneNumber.sendKeys("662745332");// TODO
         return this;
     }
 
     public RegisterPopUp sendKeysPasswordField() {
-        password.sendKeys("12345678qQ!");
+        password.sendKeys("12345678qQ!");// TODO
         return this;
     }
 
     public RegisterPopUp sendKeysPasswordConfirmField() {
-        passwordConfirm.sendKeys("12345678qQ!");
+        passwordConfirm.sendKeys("12345678qQ!");// TODO
         return this;
     }
 

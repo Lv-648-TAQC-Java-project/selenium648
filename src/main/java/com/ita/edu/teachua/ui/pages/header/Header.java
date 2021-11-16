@@ -44,9 +44,15 @@ public class Header extends BasePage {
         return this;
     }
 
-    public GuestDropdownComponent clickOnLoginDropdown() {
+    public GuestDropdownComponent clickOnGuestDropdown() {
         guestDropdown.click();
         return new GuestDropdownComponent(driver);
+    }
+
+    public OwnerDropdownComponent clickOnOwnerDropdown() {
+        DropDownElement ownerDropdown = new DropDownElement(driver, HeaderLocators.OWNER_DROPDOWN);
+        ownerDropdown.click();
+        return new OwnerDropdownComponent(driver);
     }
 
     public AdvancedSearchPage clickAdvancedSearchButton() {
