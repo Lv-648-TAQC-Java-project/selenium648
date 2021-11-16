@@ -4,7 +4,9 @@ import com.ita.edu.teachua.ui.locators.Locator;
 import org.openqa.selenium.By;
 
 public enum MainPageLocators implements Locator {
-    ;
+    SEARCH_INPUT_FIELD(By.cssSelector("input[id^='rc_select']")),
+    CLUBS_LINK(By.xpath("//a[contains(text(),'Гуртки')]")),
+    MAIN_PAGE_TITLE(By.xpath("//h2[contains(text(),'Ініціатива “Навчай українською”')]"));
 
     private final By path;
 
