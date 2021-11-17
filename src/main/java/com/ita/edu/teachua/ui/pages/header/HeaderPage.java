@@ -49,6 +49,10 @@ public class HeaderPage extends BasePage {
         guestDropdown.click();
         return new GuestDropdownComponent(driver);
     }
+    public HeaderPage authorize(String []credentials) {
+	clickOnGuestDropdown().clickOnLoginButton().FillLoginFields(credentials);
+	return new HeaderPage(driver);
+    }
     public OwnerDropdownComponent clickOnOwnerDropdown() {
 	ownerDropdown = new DropDownElement(driver,HeaderLocators.OWNER_DROPDOWN);
 	ownerDropdown.click();

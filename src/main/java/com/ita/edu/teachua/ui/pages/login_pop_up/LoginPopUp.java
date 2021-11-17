@@ -21,7 +21,7 @@ public class LoginPopUp extends BasePage {
 	passwordField = new InputElement(driver,LoginPopUpLocators.PASSWORD_FIELD);
 	submitButton = new ButtonElement(driver,LoginPopUpLocators.SUBMIT_BUTTON);
     }
-    public HeaderPage authorize(String[] adminCredentials) {
+    public HeaderPage FillLoginFields(String[] adminCredentials) {
 	emailField.clear();
 	emailField.sendKeys(adminCredentials[0]);
 	passwordField.clear();
