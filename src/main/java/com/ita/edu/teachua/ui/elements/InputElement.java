@@ -35,4 +35,5 @@ public class InputElement extends BaseElement {
     public String getValue() {
         return this.element.getAttribute("value");
     }
+
 }

@@ -21,4 +21,8 @@ public class DropDownElement extends BaseElement {
     public void click() {
         this.element.click();
     }
+
+    public boolean isDisplayed() {
+        return this.element.isDisplayed();
+    }
 }
