@@ -37,5 +37,8 @@ public class BaseElement {
     public WebElement getElement() {
         return element;
     }
+    public By getPath() {
+	return this.path;
+    }
 
 }

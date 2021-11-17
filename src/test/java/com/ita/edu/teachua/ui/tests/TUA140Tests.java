@@ -10,7 +10,7 @@ public class TUA140Tests extends TestRunner {
 
     /*
      * Verify that a 'Керівник' cannot add location to the list of locations after
-     * leaving all mandatory and optional fields empty
+     * leaving all mandatory and optional fields empty 160
      */
     @DataProvider
     public Object[][] TUA160Data() {
@@ -19,8 +19,7 @@ public class TUA140Tests extends TestRunner {
 
     @Test(dataProvider="TUA160Data")
     public void TUA160(String[] adminCredentials) {
-	HeaderPage header = new HeaderPage(driver);
-	boolean actualResult = header
+	boolean actualResult = new HeaderPage(driver)
 		.clickOnGuestDropdown()
 		.clickOnLoginButton()
 		.authorize(adminCredentials)
@@ -28,6 +27,8 @@ public class TUA140Tests extends TestRunner {
 		.clickOnAddCenter()
 		.clickOnAddLocation()
 		.checAddButton();
+	
+	
 	Assert.assertFalse(actualResult);
 	try {
 	    Thread.sleep(5000);

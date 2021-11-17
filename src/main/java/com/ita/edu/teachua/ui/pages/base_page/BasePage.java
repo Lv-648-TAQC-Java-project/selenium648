@@ -1,7 +1,11 @@
 package com.ita.edu.teachua.ui.pages.base_page;
 
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import com.ita.edu.teachua.ui.elements.BaseElement;
 
 import java.util.concurrent.TimeUnit;
 
@@ -19,8 +23,8 @@ public class BasePage {
         driver.manage().window().maximize();
     }
 
-    public void setWait() {
-        driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+    public WebElement waitVisibilityOfElementLocated(BaseElement element, int seconds) {
+	return new WebDriverWait(driver,seconds).until(ExpectedConditions.visibilityOfElementLocated(element.getPath()));
     }
 
 
