@@ -10,21 +10,14 @@ import org.testng.asserts.SoftAssert;
 public class CheckAdvancedSearchParametersTest extends TestRunner{
     @Test
     public void verifyAllParametersActiveAdvancedSearch(){
-        MainPage mainPage = new MainPage(driver);
         SoftAssert softAssert = new SoftAssert();
-        AdvancedSearchPage advancedSearchPage = mainPage.clickAdvancedSearchButton();
-        boolean cityDropdownIsDisplayed = advancedSearchPage.citiesDropdownIsDisplayed();
-        boolean districtLabelIsDisplayed = advancedSearchPage.districtLabelIsDisplayed();
-        boolean metroStationIsDisplayed = advancedSearchPage.metroStationIsDisplayed();
-        boolean remoteLabelIsDisplayed = advancedSearchPage.remoteLabelIsDisplayed();
-        boolean categoriesLabelIsDisplayed = advancedSearchPage.categoriesLabelIsDisplayed();
-        boolean ageLabelIsDisplayed = advancedSearchPage.ageLabelIsDisplayed();
-        softAssert.assertTrue(cityDropdownIsDisplayed);
-        softAssert.assertTrue(districtLabelIsDisplayed);
-        softAssert.assertTrue(metroStationIsDisplayed);
-        softAssert.assertTrue(remoteLabelIsDisplayed);
-        softAssert.assertTrue(categoriesLabelIsDisplayed);
-        softAssert.assertTrue(ageLabelIsDisplayed);
+        AdvancedSearchPage advancedSearchPage = new MainPage(driver).clickAdvancedSearchButton();
+        softAssert.assertTrue(advancedSearchPage.getCitiesDropdown().isDisplayed(), "Cities dropdown is not displayed");
+        softAssert.assertTrue(advancedSearchPage.getDistrictLabel().isDisplayedLabel(), "District label is not displayed");
+        softAssert.assertTrue(advancedSearchPage.getMetroStationLabel().isDisplayedLabel(), "Metro station label is not displayed");
+        softAssert.assertTrue(advancedSearchPage.getRemoteLabel().isDisplayedLabel(), "Remote label is not displayed");
+        softAssert.assertTrue(advancedSearchPage.getCategoriesLabel().isDisplayedLabel(), "Categories label is not displayed");
+        softAssert.assertTrue(advancedSearchPage.getAgeLabel().isDisplayedLabel(), "Age label is not displayed");
         softAssert.assertAll();
     }
 }

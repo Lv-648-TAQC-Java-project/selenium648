@@ -29,27 +29,27 @@ public class AdvancedSearchPage extends BasePage {
         ageLabel = new LabelElement(driver, AdvancedSearchPageLocators.AGE_LABEL);
     }
 
-    public boolean citiesDropdownIsDisplayed() {
-        return citiesDropdown.isDisplayed();
+    public DropDownElement getCitiesDropdown(){
+        return citiesDropdown;
     }
 
-    public boolean districtLabelIsDisplayed() {
-        return districtLabel.isDisplayedLabel();
+    public LabelElement getDistrictLabel(){
+        return districtLabel;
     }
 
-    public boolean metroStationIsDisplayed() {
-        return metroStationLabel.isDisplayedLabel();
+    public LabelElement getMetroStationLabel() {
+        return metroStationLabel;
     }
 
-    public boolean remoteLabelIsDisplayed() {
-        return remoteLabel.isDisplayedLabel();
+    public LabelElement getRemoteLabel() {
+        return remoteLabel;
     }
 
-    public boolean categoriesLabelIsDisplayed() {
-        return categoriesLabel.isDisplayedLabel();
+    public LabelElement getCategoriesLabel() {
+        return categoriesLabel;
     }
 
-    public boolean ageLabelIsDisplayed() {
-        return ageLabel.isDisplayedLabel();
+    public LabelElement getAgeLabel() {
+        return ageLabel;
     }
 }
