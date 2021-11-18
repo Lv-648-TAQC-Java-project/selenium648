@@ -36,4 +36,8 @@ public class InputElement extends BaseElement {
         return this.element.getAttribute("value");
     }
 
+    public void pressEnter() {
+        this.element.sendKeys(Keys.ENTER);
+    }
+
 }

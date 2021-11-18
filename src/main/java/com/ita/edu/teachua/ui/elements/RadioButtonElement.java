@@ -4,17 +4,16 @@ import com.ita.edu.teachua.ui.locators.Locator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class DropDownElement extends BaseElement {
-
-    public DropDownElement(WebDriver driver, Locator locator) {
+public class RadioButtonElement extends BaseElement{
+    public RadioButtonElement(WebDriver driver, Locator locator) {
         super(driver, locator);
     }
 
-    public DropDownElement(WebElement element, Locator locator) {
+    public RadioButtonElement(WebElement element, Locator locator) {
         super(element, locator);
     }
 
-    public DropDownElement(WebElement element) {
+    public RadioButtonElement(WebElement element) {
         super(element);
     }
 
@@ -26,7 +25,7 @@ public class DropDownElement extends BaseElement {
         return this.element.isDisplayed();
     }
 
-    public boolean isEnabled() {
-        return this.element.isEnabled();
+    public String getAtribute(String atribute) {
+        return this.element.getAttribute(atribute);
     }
 }
