@@ -1,13 +1,9 @@
 package com.ita.edu.teachua.ui.tests;
 
-import com.ita.edu.teachua.ui.pages.clubs_page.ClubsPage;
 import com.ita.edu.teachua.ui.pages.main_page.MainPage;
-import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
-
-import java.util.List;
 
 public class TestBasicSearch extends TestRunner {
     @DataProvider
@@ -23,40 +19,28 @@ public class TestBasicSearch extends TestRunner {
         };
     }
 
-    @Test(invocationCount = 10, dataProvider = "clubsNameSearchTestDataProvider")
-    public void checkSearchWithNameOfClubs(String data) {
-        int attempts = 5;
-        ClubsPage clubsPage = new MainPage(driver)
+    @Test(invocationCount = 1, dataProvider = "clubsNameSearchTestDataProvider")
+    public void checkSearchWithNameOfClubsClipBoard(String data) {
+        boolean isPresent = new MainPage(driver)
                 .clickOnClubs()
-                .inputStringInSearchField(data);
-        boolean actual = readAndCheckClubs(clubsPage, data);
-        while (!actual && attempts != 0) {
-            attempts--;
-            actual = readAndCheckClubs(clubsPage, data);
-        }
-        Assert.assertTrue(actual);
+                .pasteClipBoardStringInSearchField(data)
+                .isClubPresent(data);
+        Assert.assertTrue(isPresent);
     }
 
-    public boolean readAndCheckClubs(ClubsPage clubsPage, String data) {
-        List<WebElement> titles = clubsPage.getAllTitlesOfCards();
-        boolean isPresent = false;
-        String res = "";
-        for (WebElement t : titles) {
-            try {
-                res = t.getText();
-            } catch (org.openqa.selenium.StaleElementReferenceException e) {
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
-                isPresent = readAndCheckClubs(clubsPage, data);
-                break;
-            }
-            if (res.equals(data)) {
-                isPresent = true;
-            }
-        }
-        return isPresent;
+    @Test(
+            //threadPoolSize = 4,
+            invocationCount = 4, dataProvider = "clubsNameSearchTestDataProvider")
+    public void checkSearchWithNameOfClubsTyping(String data) {
+//        int attempts = 5;
+        boolean isPresent = new MainPage(driver)
+                .clickOnClubs()
+                .inputStringInSearchField(data)
+                .isClubPresent(data);
+//        while (!actual && attempts != 0) {
+//            attempts--;
+//            actual = readAndCheckClubs(clubsPage, data);
+//        }
+        Assert.assertTrue(isPresent);
     }
 }
