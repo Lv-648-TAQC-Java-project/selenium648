@@ -33,8 +33,13 @@ public class AddCenterPopUp extends BasePage {
 	return this;
     }
     public boolean errorsIsDisplayed() {
-	errorBlock = new DivElement(driver,AddCenterPopUpLocators.CENTER_NAME_ERROR_BLOCK);
-	return waitVisibilityOfElementLocated(errorBlock,5).isDisplayed();
-	//return errorBlock.getText();
+	errorBlock = new DivElement(waitVisibilityOfElementLocated(AddCenterPopUpLocators.CENTER_NAME_ERROR_BLOCK,15));
+	return errorBlock.isDisplayed();
     }
 }
+
+
+
+//errorBlock = new DivElement(driver,AddCenterPopUpLocators.CENTER_NAME_ERROR_BLOCK);
+	//return waitVisibilityOfElementLocated(errorBlock,10).isDisplayed();
+	//return errorBlock.getText();

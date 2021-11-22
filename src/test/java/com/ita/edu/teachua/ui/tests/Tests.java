@@ -4,6 +4,7 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
+import com.ita.edu.teachua.ui.pages.add_location_pop_up.AddLocationPopUp;
 import com.ita.edu.teachua.ui.pages.header.HeaderPage;
 
 public class Tests extends TestRunner {
@@ -14,43 +15,43 @@ public class Tests extends TestRunner {
      */
     @DataProvider
     public Object[][] getAdminCredentials() {
-	return new Object[][] { { valueProvider.getAdminCredentials().split(",") } };
+	return new Object[][] { { valueProvider.getAdminCredentials() } };
     }
 
     @Test(dataProvider="getAdminCredentials")
-    public void VerifyThatOwnerCannotAddLocationToTheListOfLocationsAfterLeavingFieldsEmpty(String[] adminCredentials) {
-	boolean actualResult = new HeaderPage(driver)
-		.authorize(adminCredentials)
-		.clickOnOwnerDropdown()
-		.clickOnAddCenter()
-		.clickOnAddLocation()
-		.checAddButton();
+    public void VerifyThatOwnerCannotAddLocationToTheListOfLocationsAfterLeavingFieldsEmpty(String adminCredentials) {
+	String email = adminCredentials.split(",")[0];
+	String password = adminCredentials.split(",")[1];
+	HeaderPage header = new HeaderPage(driver);
+	boolean addLocationPopUpBlockIsDisplayed = header
+		                                 .authorize(email, password)
+		                                 .clickOnOwnerDropdown()
+		                                 .clickOnAddCenter()
+		                                 //----------------------
+		                                 //preconditions^
+		                                 .clickOnAddLocation()
+		                                 .addLocationPopUpBlockIsDisplayed();// check first expected condition
+	Assert.assertTrue(addLocationPopUpBlockIsDisplayed);
 	
+	boolean addLocationButtonEnable = new AddLocationPopUp(header.getDriver())
+		                                  .checkAddButton(); // check last expected condition
 	
-	Assert.assertFalse(actualResult);
-	try {
-	    Thread.sleep(5000);
-	} catch (InterruptedException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
-	}
+	Assert.assertFalse(addLocationButtonEnable);
+	
     }
     @Test(dataProvider="getAdminCredentials")
-    public void VerifyThatErrorMessagesIsDisplayedAfterUserLeavesFieldsEmptyAndClicksNextStepButton(String[] adminCredentials) {
+    public void VerifyThatErrorMessagesIsDisplayedAfterUserLeavesFieldsEmptyAndClicksNextStepButton(String adminCredentials) {
+	String email = adminCredentials.split(",")[0];
+	String password = adminCredentials.split(",")[1];
 	boolean actualResult = new HeaderPage(driver)
-	.authorize(adminCredentials).clickOnOwnerDropdown()
-	.clickOnProfile()
-	.clickOnAddButton()
-	.clickOnAddCenter()
-	.clearCenterName()
-	.clickOnNextStepButton().errorsIsDisplayed();
+	                       .authorize(email, password).clickOnOwnerDropdown()
+	                       .clickOnProfile()
+	                       .clickOnAddButton()
+	                       .clickOnAddCenter()
+	                       .clearCenterName()
+	                       .clickOnNextStepButton()
+	                       .errorsIsDisplayed();
 	Assert.assertTrue(actualResult);
-	//System.out.println(actualResult);
-	try {
-	    Thread.sleep(5000);
-	} catch (InterruptedException e) {
-	    // TODO Auto-generated catch block
-	    e.printStackTrace();
-	}
+	
     }
 }

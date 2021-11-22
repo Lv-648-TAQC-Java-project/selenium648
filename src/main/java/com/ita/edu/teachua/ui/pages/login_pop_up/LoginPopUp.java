@@ -21,11 +21,11 @@ public class LoginPopUp extends BasePage {
 	passwordField = new InputElement(driver,LoginPopUpLocators.PASSWORD_FIELD);
 	submitButton = new ButtonElement(driver,LoginPopUpLocators.SUBMIT_BUTTON);
     }
-    public HeaderPage FillLoginFields(String[] adminCredentials) {
+    public HeaderPage FillLoginFields(String eamil, String password) {
 	emailField.clear();
-	emailField.sendKeys(adminCredentials[0]);
+	emailField.sendKeys(eamil);
 	passwordField.clear();
-	passwordField.sendKeys(adminCredentials[1]);
+	passwordField.sendKeys(password);
 	submitButton.click();
 	return new HeaderPage(driver);
     }

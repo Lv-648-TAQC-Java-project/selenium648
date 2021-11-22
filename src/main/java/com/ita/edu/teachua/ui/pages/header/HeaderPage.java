@@ -49,8 +49,8 @@ public class HeaderPage extends BasePage {
         guestDropdown.click();
         return new GuestDropdownComponent(driver);
     }
-    public HeaderPage authorize(String []credentials) {
-	clickOnGuestDropdown().clickOnLoginButton().FillLoginFields(credentials);
+    public HeaderPage authorize(String email, String password) {
+	clickOnGuestDropdown().clickOnLoginButton().FillLoginFields(email,password);
 	return new HeaderPage(driver);
     }
     public OwnerDropdownComponent clickOnOwnerDropdown() {

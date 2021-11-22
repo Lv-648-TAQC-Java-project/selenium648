@@ -4,8 +4,8 @@ import com.ita.edu.teachua.ui.locators.Locator;
 import org.openqa.selenium.By;
 
 public enum AddLocationPopUpLocators implements Locator {
-    ADD_BUTTON(By.cssSelector("button[disabled]"));
-
+    ADD_BUTTON(By.cssSelector("button[disabled]")),
+    ADD_LOCATION_BLOCK_HEADER(By.xpath("//div[contains(text(),'Додати локацію')]"));
     private final By path;
 
     AddLocationPopUpLocators(By path) {
