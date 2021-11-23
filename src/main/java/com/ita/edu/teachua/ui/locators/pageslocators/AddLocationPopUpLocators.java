@@ -3,15 +3,12 @@ package com.ita.edu.teachua.ui.locators.pageslocators;
 import com.ita.edu.teachua.ui.locators.Locator;
 import org.openqa.selenium.By;
 
-public enum MainPageLocators implements Locator {
-
-    ADVANCED_SEARCH_BUTTON(By.xpath("//span[@title='Розширений пошук']"));
-    ;
-
-
+public enum AddLocationPopUpLocators implements Locator {
+    ADD_BUTTON(By.cssSelector("button[disabled]")),
+    ADD_LOCATION_BLOCK_HEADER(By.xpath("//div[contains(text(),'Додати локацію')]"));
     private final By path;
 
-    MainPageLocators(By path) {
+    AddLocationPopUpLocators(By path) {
         this.path = path;
     }
 

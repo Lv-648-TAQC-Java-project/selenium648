@@ -24,4 +24,5 @@ public class MainPage extends BasePage {
         return new AdvancedSearchPage(driver);
     }
 
+
 }

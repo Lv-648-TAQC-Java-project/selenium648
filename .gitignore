@@ -17,3 +17,7 @@ buildNumber.properties
 .project
 .settings
 test-output
+
+
+# project
+data.properties
