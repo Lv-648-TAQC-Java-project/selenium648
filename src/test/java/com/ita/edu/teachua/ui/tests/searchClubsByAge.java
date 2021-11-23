@@ -6,17 +6,18 @@ import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
-public class searchClubsByAge extends TestRunner{
+public class searchClubsByAge extends TestRunner {
 
     @DataProvider
     public Object[][] checkByAgeDataProvider() {
-        return new Object[][] {
+        return new Object[][]{
                 {"2", "2"},
                 {"18", "18"},
                 {"1", "2"},
                 {"19", "18"}
         };
     }
+
     @Test(dataProvider = "checkByAgeDataProvider")
     public void checkByValidAgeDataProvider(String input, String expectedResult) {
         String actualResult = new MainPage(driver).clickAdvancedSearchButton()

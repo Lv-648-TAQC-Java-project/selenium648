@@ -2,10 +2,6 @@ package com.ita.edu.teachua.ui.pages.advanced_search;
 
 import com.ita.edu.teachua.ui.elements.*;
 import com.ita.edu.teachua.ui.locators.pageslocators.AdvancedSearchPageLocators;
-import com.ita.edu.teachua.ui.elements.ButtonElement;
-import com.ita.edu.teachua.ui.elements.InputElement;
-import com.ita.edu.teachua.ui.locators.pageslocators.AdvancedSearchPageLocators;
-import com.ita.edu.teachua.ui.locators.pageslocators.HeaderLocators;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
@@ -182,26 +178,26 @@ public class AdvancedSearchPage extends BasePage {
     }
 
 
-    public AdvancedSearchPage verifyThatUserIsOnAdvancedSearchPage(){
+    public AdvancedSearchPage verifyThatUserIsOnAdvancedSearchPage() {
         String actual = driver.getCurrentUrl();
         String expected = "https://speak-ukrainian.org.ua/dev/clubs";
         Assert.assertEquals(expected, actual);
         return this;
     }
 
-    public AdvancedSearchPage verifyThatWorkshopRadioButtonIsChosenByDefault(){
+    public AdvancedSearchPage verifyThatWorkshopRadioButtonIsChosenByDefault() {
         workShopRadioButton = new ButtonElement(driver, AdvancedSearchPageLocators.WORKSHOP_RADIO_BUTTON);
         workShopRadioButton.isSelected();
         return this;
     }
 
-    public AdvancedSearchPage clickOnCenterRadioButton(){
+    public AdvancedSearchPage clickOnCenterRadioButton() {
         centerRadioButton = new ButtonElement(driver, AdvancedSearchPageLocators.CENTER_RADIO_BUTTON);
         centerRadioButton.click();
         return this;
     }
 
-    public AdvancedSearchPage verifyThatCenterRadioButtonIsChosen(){
+    public AdvancedSearchPage verifyThatCenterRadioButtonIsChosen() {
         centerRadioButton = new ButtonElement(driver, AdvancedSearchPageLocators.CENTER_RADIO_BUTTON);
         centerRadioButton.isSelected();
         try {
@@ -212,7 +208,7 @@ public class AdvancedSearchPage extends BasePage {
         return this;
     }
 
-    public AdvancedSearchPage clickOnListIcon(){
+    public AdvancedSearchPage clickOnListIcon() {
         listIcon = new ButtonElement(driver, AdvancedSearchPageLocators.LIST_ICON_IN_MENU_BAR);
         listIcon.click();
         return this;
@@ -227,6 +223,7 @@ public class AdvancedSearchPage extends BasePage {
         }
         return false;
     }
+
     public boolean isAdvanceSearchFieldDisappear() {
         int searchFields = driver.findElements(AdvancedSearchPageLocators.ADVANCED_SEARCH_FIELD_TITLE.getPath()).size();
         return searchFields == 0;

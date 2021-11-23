@@ -1,15 +1,13 @@
 package com.ita.edu.teachua.ui.tests;
 
 import com.ita.edu.teachua.ui.pages.advanced_search.AdvancedSearchPage;
-import com.ita.edu.teachua.ui.pages.header.HeaderPage;
 import com.ita.edu.teachua.ui.pages.main_page.MainPage;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
-public class CheckAdvancedSearchParametersTest extends TestRunner{
+public class CheckAdvancedSearchParametersTest extends TestRunner {
     @Test
-    public void verifyAllParametersActiveAdvancedSearch(){
+    public void verifyAllParametersActiveAdvancedSearch() {
         SoftAssert softAssert = new SoftAssert();
         AdvancedSearchPage advancedSearchPage = new MainPage(driver).clickAdvancedSearchButton();
         softAssert.assertTrue(advancedSearchPage.getClubsRadioButton().getAtribute("class").contains("checked"), "Clubs radio button is not selected");

@@ -4,7 +4,7 @@ import com.ita.edu.teachua.ui.locators.Locator;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class RadioButtonElement extends BaseElement{
+public class RadioButtonElement extends BaseElement {
     public RadioButtonElement(WebDriver driver, Locator locator) {
         super(driver, locator);
     }

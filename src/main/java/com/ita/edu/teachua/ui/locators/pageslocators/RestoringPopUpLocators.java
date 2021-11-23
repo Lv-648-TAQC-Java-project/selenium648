@@ -9,7 +9,7 @@ public enum RestoringPopUpLocators implements Locator {
 
     private final By path;
 
-    RestoringPopUpLocators (By path) {
+    RestoringPopUpLocators(By path) {
         this.path = path;
     }
 

@@ -1,8 +1,8 @@
 package com.ita.edu.teachua.ui.pages.add_center_pop_up;
 
 import com.ita.edu.teachua.ui.elements.ButtonElement;
-import com.ita.edu.teachua.ui.elements.DivElement;
 import com.ita.edu.teachua.ui.elements.CheckBoxElement;
+import com.ita.edu.teachua.ui.elements.DivElement;
 import com.ita.edu.teachua.ui.elements.InputElement;
 import com.ita.edu.teachua.ui.locators.pageslocators.AddCenterPopUpLocators;
 import com.ita.edu.teachua.ui.pages.add_location_pop_up.AddLocationPopUp;

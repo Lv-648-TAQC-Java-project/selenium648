@@ -1,10 +1,9 @@
 package com.ita.edu.teachua.ui.tests;
 
 import com.ita.edu.teachua.ui.pages.header.HeaderPage;
-import org.testng.Assert;
 import org.testng.annotations.Test;
 
-public class TestOwnerProfilePage extends TestRunner{
+public class TestOwnerProfilePage extends TestRunner {
 
     @Test
     public void testAddLocationByOwner() {
