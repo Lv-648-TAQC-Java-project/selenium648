@@ -3,13 +3,13 @@ package com.ita.edu.teachua.ui.locators.pageslocators;
 import com.ita.edu.teachua.ui.locators.Locator;
 import org.openqa.selenium.By;
 
-public enum ProfilePageLocators implements Locator {
-    ADD_BUTTON(By.xpath("//span[contains(text(),'Додати')]"))
-    ;
+public enum RestoringPopUpLocators implements Locator {
+    EDIT_EMAIL_FIELD(By.id("edit_email")),
+    RESTORE(By.cssSelector("form[id='edit'] button[type='submit']"));
 
     private final By path;
 
-    ProfilePageLocators(By path) {
+    RestoringPopUpLocators (By path) {
         this.path = path;
     }
 

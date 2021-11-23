@@ -3,13 +3,13 @@ package com.ita.edu.teachua.ui.locators.componentslocators;
 import com.ita.edu.teachua.ui.locators.Locator;
 import org.openqa.selenium.By;
 
-public enum LocalityDropdownLocators implements Locator {
+public enum AddDropdownComponentLocators implements Locator {
 
-    AKADEMMISTECHKO_BUTTON(By.xpath("//div[@class='ant-select-item-option-content'][contains(text(),'Академмістечко')]"));
+    ADD_CENTER_BUTTON(By.xpath("//div[contains(text(),'Додати центр')]"));
 
     private final By path;
 
-    LocalityDropdownLocators(By path) {
+    AddDropdownComponentLocators(By path) {
         this.path = path;
     }
 

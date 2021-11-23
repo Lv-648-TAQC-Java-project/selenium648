@@ -5,7 +5,8 @@ import org.openqa.selenium.By;
 
 public enum OwnerDropdownLocators implements Locator {
 
-    ADD_CENTER(By.xpath("//div[contains(text(),'Додати центр')]"));
+    ADD_CENTER(By.xpath("//div[contains(text(),'Додати центр')]")),
+    MY_PROFILE(By.xpath("//a[contains(text(),'Мій Профіль')]"));
 
     private final By path;
 

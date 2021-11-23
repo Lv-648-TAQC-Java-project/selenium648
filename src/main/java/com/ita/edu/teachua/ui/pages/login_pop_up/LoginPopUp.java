@@ -2,6 +2,7 @@ package com.ita.edu.teachua.ui.pages.login_pop_up;
 
 import com.ita.edu.teachua.ui.elements.ButtonElement;
 import com.ita.edu.teachua.ui.elements.InputElement;
+import com.ita.edu.teachua.ui.elements.LinkElement;
 import com.ita.edu.teachua.ui.locators.pageslocators.LoginPopUpLocators;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import com.ita.edu.teachua.ui.pages.header.Header;
@@ -12,6 +13,7 @@ public class LoginPopUp extends BasePage {
     private InputElement email;
     private InputElement password;
     private ButtonElement logInButton;
+    private LinkElement forgotPassword;
 
     public LoginPopUp(WebDriver driver) {
         super(driver);
@@ -22,6 +24,7 @@ public class LoginPopUp extends BasePage {
         email = new InputElement(driver, LoginPopUpLocators.EMAIL_FIELD);
         password = new InputElement(driver, LoginPopUpLocators.PASSWORD_FIELD);
         logInButton = new ButtonElement(driver, LoginPopUpLocators.LOG_IN_BUTTON);
+        forgotPassword = new LinkElement(driver, LoginPopUpLocators.FORGOT_PASSWORD);
     }
 
     public void clickRegisterButton() {

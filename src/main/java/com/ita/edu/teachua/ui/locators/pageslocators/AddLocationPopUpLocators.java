@@ -7,7 +7,11 @@ public enum AddLocationPopUpLocators implements Locator {
     LOCATION_NAME_FIELD(By.id("name")),
     CITY_DROPDOWN(By.id("cityName")),
     DISTRICT_DROPDOWN(By.id("districtName")),
-    LOCALITY_DROPDOWN(By.id("stationName"));
+    LOCALITY_DROPDOWN(By.id("stationName")),
+    ADDRESS_FIELD(By.id("address")),
+    COORDINATES_FIELD(By.id("coordinates")),
+    PHONE_FIELD(By.id("phone")),
+    ADD_BUTTON(By.xpath("//button[@class='ant-btn flooded-button add-club-content-next']"));
 
     private final By path;
 
