@@ -26,8 +26,9 @@ public class GuestDropdownComponent extends BasePage {
         registerButton.click();
         return new RegisterPopUp(driver);
     }
+
     public LoginPopUp clickOnLoginButton() {
-	loginButton.click();
+        loginButton.click();
         return new LoginPopUp(driver);
     }
 
