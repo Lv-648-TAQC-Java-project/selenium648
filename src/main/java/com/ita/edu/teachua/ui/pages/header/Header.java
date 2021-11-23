@@ -6,6 +6,7 @@ import com.ita.edu.teachua.ui.elements.LinkElement;
 import com.ita.edu.teachua.ui.locators.pageslocators.HeaderLocators;
 import com.ita.edu.teachua.ui.pages.advanced_search.AdvancedSearchPage;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
+import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.WebDriver;
 
 public class Header extends BasePage {
@@ -14,7 +15,6 @@ public class Header extends BasePage {
     private LinkElement clubsLink;
     private LinkElement services;
     private DropDownElement guestDropdown;
-    private ButtonElement advancedSearchButton;
 
     public Header(WebDriver driver) {
         super(driver);
@@ -26,7 +26,6 @@ public class Header extends BasePage {
         clubsLink = new LinkElement(driver, HeaderLocators.CLUBS_LINK);
         services = new LinkElement(driver, HeaderLocators.SERVICES_LINK);
         guestDropdown = new DropDownElement(driver, HeaderLocators.GUEST_DROPDOWN);
-        advancedSearchButton = new ButtonElement(driver, HeaderLocators.ADVANCED_SEARCH_BUTTON);
     }
 
     public Header clickOnClubs() {
@@ -50,7 +49,7 @@ public class Header extends BasePage {
     }
 
     public AdvancedSearchPage clickAdvancedSearchButton() {
-        advancedSearchButton.click();
+        driver.findElement(HeaderLocators.ADVANCED_SEARCH_BUTTON.getPath()).click();
         return new AdvancedSearchPage(driver);
     }
 
