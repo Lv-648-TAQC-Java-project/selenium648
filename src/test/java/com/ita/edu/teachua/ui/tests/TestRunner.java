@@ -18,6 +18,7 @@ public class TestRunner {
     public void beforeSuite() throws IOException {
         WebDriverManager.chromedriver().setup();
         valueProvider = new ValueProvider();
+
     }
 
     @BeforeMethod
