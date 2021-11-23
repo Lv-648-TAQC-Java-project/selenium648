@@ -17,6 +17,7 @@ buildNumber.properties
 .project
 .settings
 test-output
+/resourses/
 
 
 # project
