@@ -81,4 +81,5 @@ public class HeaderPage extends BasePage {
         advancedSearchButton.click();
         return new AdvancedSearchPage(driver);
     }
+
 }

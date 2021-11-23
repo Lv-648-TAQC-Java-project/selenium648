@@ -220,11 +220,20 @@ public class AdvancedSearchPage extends BasePage {
 
     public boolean checkThatCentersAreDisplayedAsAList() {
         List<WebElement> centerBlocks = driver.findElements(By.cssSelector(".ant-card.ant-card-bordered.card.center-list-rectangle-item"));
-        for(WebElement j : centerBlocks){
-            if(j.isDisplayed()){
+        for (WebElement j : centerBlocks) {
+            if (j.isDisplayed()) {
                 return true;
             }
         }
         return false;
     }
+    public boolean isAdvanceSearchFieldDisappear() {
+        int searchFields = driver.findElements(AdvancedSearchPageLocators.ADVANCED_SEARCH_FIELD_TITLE.getPath()).size();
+        return searchFields == 0;
+    }
+
+    public String getTitleOfAdvancedSearchField() {
+        return driver.findElement(AdvancedSearchPageLocators.ADVANCED_SEARCH_FIELD_TITLE.getPath()).getText();
+    }
+
 }
