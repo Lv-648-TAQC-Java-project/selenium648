@@ -3,10 +3,19 @@ package com.ita.edu.teachua.ui.pages.header;
 import com.ita.edu.teachua.ui.elements.ButtonElement;
 import com.ita.edu.teachua.ui.elements.DropDownElement;
 import com.ita.edu.teachua.ui.elements.LinkElement;
+import com.ita.edu.teachua.ui.locators.componentslocators.OwnerDropdownLocators;
 import com.ita.edu.teachua.ui.locators.pageslocators.HeaderLocators;
 import com.ita.edu.teachua.ui.pages.advanced_search.AdvancedSearchPage;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
+
+import org.openqa.selenium.StaleElementReferenceException;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.util.concurrent.TimeUnit;
 
 public class HeaderPage extends BasePage {
 
@@ -48,6 +57,18 @@ public class HeaderPage extends BasePage {
     public GuestDropdownComponent clickOnGuestDropdown() {
         guestDropdown.click();
         return new GuestDropdownComponent(driver);
+    }
+    public OwnerDropdownComponent clickOnUserLoginDropdown()  {
+        for(int i=0;i<3;i++){
+            userDropdown=new DropDownElement(new WebDriverWait(driver,10).until(ExpectedConditions.elementToBeClickable(HeaderLocators.PROFILE_DROPDOWN.getPath())));
+            try {
+            userDropdown.click();
+            break;
+        } catch (StaleElementReferenceException | TimeoutException e) {
+            e.printStackTrace();
+        }
+        }
+        return new OwnerDropdownComponent(driver);
     }
     public HeaderPage authorize(String email, String password) {
 	clickOnGuestDropdown().clickOnLoginButton().FillLoginFields(email,password);
