@@ -9,9 +9,7 @@ public class Tests extends TestRunner {
 
 
     @Test()
-    public void VerifyThatOwnerCannotAddLocationToTheListOfLocationsAfterLeavingFieldsEmpty(String adminCredentials) {
-        String email = adminCredentials.split(",")[0];
-        String password = adminCredentials.split(",")[1];
+    public void VerifyThatOwnerCannotAddLocationToTheListOfLocationsAfterLeavingFieldsEmpty() {
         HeaderPage header = new HeaderPage(driver);
         boolean addLocationPopUpBlockIsDisplayed = header
                 .authorize(valueProvider.getAdminEmail(), valueProvider.getAdminPassword())
@@ -31,9 +29,7 @@ public class Tests extends TestRunner {
     }
 
     @Test()
-    public void VerifyThatErrorMessagesIsDisplayedAfterUserLeavesFieldsEmptyAndClicksNextStepButton(String adminCredentials) {
-        String email = adminCredentials.split(",")[0];
-        String password = adminCredentials.split(",")[1];
+    public void VerifyThatErrorMessagesIsDisplayedAfterUserLeavesFieldsEmptyAndClicksNextStepButton() {
         boolean actualResult = new HeaderPage(driver)
                 .authorize(valueProvider.getAdminEmail(), valueProvider.getAdminPassword())
                 .clickOnOwnerDropdown()
