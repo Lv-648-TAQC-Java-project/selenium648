@@ -29,4 +29,12 @@ public class CheckBoxElement extends BaseElement {
     public String getAtribute(String atribute) {
         return this.element.getAttribute(atribute);
     }
+
+    public boolean isDisplayed() {
+        return this.element.isDisplayed();
+    }
+
+    public boolean isEnabled() {
+        return this.element.isEnabled();
+    }
 }

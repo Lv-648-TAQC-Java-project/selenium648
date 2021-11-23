@@ -5,8 +5,9 @@ import org.openqa.selenium.By;
 
 public enum MainPageLocators implements Locator {
 
-
+    ADVANCED_SEARCH_BUTTON(By.xpath("//span[@title='Розширений пошук']"));
     ;
+
 
     private final By path;
 
