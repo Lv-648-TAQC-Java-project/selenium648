@@ -8,8 +8,8 @@ public enum HeaderLocators implements Locator {
     ABOUT_US_LINK(By.xpath("//a[contains(text(),'Про нас')]")),
     SERVICES_LINK(By.xpath("//a[contains(text(),'Послуги українською')]")),
     ADVANCED_SEARCH_BUTTON(By.xpath("//span[@title='Розширений пошук']")),
-    GUEST_DROPDOWN(By.xpath("//div[@class = 'ant-dropdown-trigger user-profile']/span[@role]"));
-
+    GUEST_DROPDOWN(By.xpath("//div[@class = 'ant-dropdown-trigger user-profile']/span[@role]")),
+    PROFILE_DROPDOWN(By.xpath("//div[@class='ant-dropdown-trigger user-profile']/span[@role]"));
     private final By path;
 
     HeaderLocators(By path) {
