@@ -26,7 +26,10 @@ public enum AdvancedSearchPageLocators implements Locator {
     DEVELOPMENT_CENTER_RADIOBUTTON(By.xpath("//label[contains(@class,'ant-checkbox-wrapper')]//span[contains(text(),'Центр розвитку')]")),
     OTHER_RADIOBUTTON(By.xpath("//label[contains(@class,'ant-checkbox-wrapper')]//span[contains(text(),'Інше')]")),
     AGE_LABEL(By.xpath("//label[@for= 'basic_age']")),
-    AGE_INPUT(By.cssSelector("input[role='spinbutton']"));
+    AGE_INPUT(By.cssSelector("input[role='spinbutton']")),
+    WORKSHOP_RADIO_BUTTON(By.xpath("//span[@class='ant-radio ant-radio-checked']")),
+    CENTER_RADIO_BUTTON(By.xpath("//span[@class='ant-radio']")),
+    LIST_ICON_IN_MENU_BAR(By.cssSelector("label[class='ant-radio-button-wrapper club-view-button']"));
 
     private final By path;
 

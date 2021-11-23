@@ -9,6 +9,7 @@ import com.ita.edu.teachua.ui.locators.pageslocators.MainPageLocators;
 import com.ita.edu.teachua.ui.pages.advanced_search.AdvancedSearchPage;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import org.openqa.selenium.WebDriver;
+import org.testng.Assert;
 
 import java.awt.*;
 
@@ -24,6 +25,13 @@ public class MainPage extends BasePage {
 
     private void initElements() {
         advancedSearchButton = new ButtonElement(driver, MainPageLocators.ADVANCED_SEARCH_BUTTON);
+
+    }
+    public MainPage verifyThatUserIsOnManePage(){
+        String actual = driver.getCurrentUrl();
+        String expected = "https://speak-ukrainian.org.ua/dev/";
+        Assert.assertEquals(expected, actual);
+        return this;
 
     }
     public AdvancedSearchPage clickAdvancedSearchButton() {

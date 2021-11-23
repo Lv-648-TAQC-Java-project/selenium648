@@ -6,7 +6,7 @@ import com.ita.edu.teachua.ui.elements.LinkElement;
 import com.ita.edu.teachua.ui.locators.pageslocators.LoginPopUpLocators;
 import com.ita.edu.teachua.ui.locators.pageslocators.RestoringPopUpLocators;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
-import com.ita.edu.teachua.ui.pages.header.Header;
+import com.ita.edu.teachua.ui.pages.header.HeaderPage;
 import org.openqa.selenium.WebDriver;
 
 public class RestoringPopUp extends BasePage {
