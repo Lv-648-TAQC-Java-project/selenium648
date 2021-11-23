@@ -17,17 +17,17 @@ public class AdvancedSearchPage extends BasePage {
     private LabelElement remoteLabel;
     private CheckBoxElement availableOnlineCheckBox;
     private LabelElement categoriesLabel;
-    private RadioButtonElement sportSectionsCheckBox;
-    private RadioButtonElement danceChoreographyCheckBox;
-    private RadioButtonElement earlyDevelopStudiesCheckBox;
-    private RadioButtonElement programmingStemCheckBox;
-    private RadioButtonElement artDesignCheckBox;
-    private RadioButtonElement vocalMusicCheckBox;
-    private RadioButtonElement actorsTheaterCheckBox;
-    private RadioButtonElement personalDevelopmentCheckBox;
-    private RadioButtonElement journalismEditVideoCheckBox;
-    private RadioButtonElement developCenterCheckBox;
-    private RadioButtonElement otherCheckBox;
+    private CheckBoxElement sportSectionsCheckBox;
+    private CheckBoxElement danceChoreographyCheckBox;
+    private CheckBoxElement earlyDevelopStudiesCheckBox;
+    private CheckBoxElement programmingStemCheckBox;
+    private CheckBoxElement artDesignCheckBox;
+    private CheckBoxElement vocalMusicCheckBox;
+    private CheckBoxElement actorsTheaterCheckBox;
+    private CheckBoxElement personalDevelopmentCheckBox;
+    private CheckBoxElement journalismEditVideoCheckBox;
+    private CheckBoxElement developCenterCheckBox;
+    private CheckBoxElement otherCheckBox;
     private LabelElement ageLabel;
     private InputElement ageInput;
 
@@ -47,22 +47,22 @@ public class AdvancedSearchPage extends BasePage {
         remoteLabel = new LabelElement(driver, AdvancedSearchPageLocators.REMOTE_LABEL);
         availableOnlineCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.AVAILABLE_ONLINE_RADIOBUTTON);
         categoriesLabel = new LabelElement(driver, AdvancedSearchPageLocators.CATEGORIES_LABEL);
-        sportSectionsCheckBox = new RadioButtonElement(driver, AdvancedSearchPageLocators.SPORT_SECTIONS_RADIOBUTTON);
-        danceChoreographyCheckBox = new RadioButtonElement(driver, AdvancedSearchPageLocators.DANCE_CHOREOGRAPHY_RADIOBUTTON);
-        earlyDevelopStudiesCheckBox = new RadioButtonElement(driver, AdvancedSearchPageLocators.EARLY_DEVELOPMENT_STUDIES_RADIOBUTTON);
-        programmingStemCheckBox = new RadioButtonElement(driver, AdvancedSearchPageLocators.PROGRAMING_STEM_RADIOBUTTON);
-        artDesignCheckBox = new RadioButtonElement(driver, AdvancedSearchPageLocators.ART_DESIGN_RADIOBUTTON);
-        vocalMusicCheckBox = new RadioButtonElement(driver, AdvancedSearchPageLocators.VOCAL_MUSIC_RADIOBUTTON);
-        actorsTheaterCheckBox = new RadioButtonElement(driver, AdvancedSearchPageLocators.ACTORS_THEATER_RADIOBUTTON);
-        personalDevelopmentCheckBox = new RadioButtonElement(driver, AdvancedSearchPageLocators.PERSONAL_DEVELOPMENT_RADIOBUTTON);
-        journalismEditVideoCheckBox = new RadioButtonElement(driver, AdvancedSearchPageLocators.JOURNALISM_EDITING_VIDEO_RADIOBUTTON);
-        developCenterCheckBox = new RadioButtonElement(driver, AdvancedSearchPageLocators.DEVELOPMENT_CENTER_RADIOBUTTON);
-        otherCheckBox = new RadioButtonElement(driver, AdvancedSearchPageLocators.OTHER_RADIOBUTTON);
+        sportSectionsCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.SPORT_SECTIONS_RADIOBUTTON);
+        danceChoreographyCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.DANCE_CHOREOGRAPHY_RADIOBUTTON);
+        earlyDevelopStudiesCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.EARLY_DEVELOPMENT_STUDIES_RADIOBUTTON);
+        programmingStemCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.PROGRAMING_STEM_RADIOBUTTON);
+        artDesignCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.ART_DESIGN_RADIOBUTTON);
+        vocalMusicCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.VOCAL_MUSIC_RADIOBUTTON);
+        actorsTheaterCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.ACTORS_THEATER_RADIOBUTTON);
+        personalDevelopmentCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.PERSONAL_DEVELOPMENT_RADIOBUTTON);
+        journalismEditVideoCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.JOURNALISM_EDITING_VIDEO_RADIOBUTTON);
+        developCenterCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.DEVELOPMENT_CENTER_RADIOBUTTON);
+        otherCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.OTHER_RADIOBUTTON);
         ageLabel = new LabelElement(driver, AdvancedSearchPageLocators.AGE_LABEL);
         ageInput = new InputElement(driver, AdvancedSearchPageLocators.AGE_INPUT);
     }
 
-    public RadioButtonElement getVocalMusicCheckBox() {
+    public CheckBoxElement getVocalMusicCheckBox() {
         return vocalMusicCheckBox;
     }
 
@@ -86,43 +86,43 @@ public class AdvancedSearchPage extends BasePage {
         return availableOnlineCheckBox;
     }
 
-    public RadioButtonElement getSportSectionsCheckBox() {
+    public CheckBoxElement getSportSectionsCheckBox() {
         return sportSectionsCheckBox;
     }
 
-    public RadioButtonElement getDanceChoreographyCheckBox() {
+    public CheckBoxElement getDanceChoreographyCheckBox() {
         return danceChoreographyCheckBox;
     }
 
-    public RadioButtonElement getEarlyDevelopStudiesCheckBox() {
+    public CheckBoxElement getEarlyDevelopStudiesCheckBox() {
         return earlyDevelopStudiesCheckBox;
     }
 
-    public RadioButtonElement getProgrammingStemCheckBox() {
+    public CheckBoxElement getProgrammingStemCheckBox() {
         return programmingStemCheckBox;
     }
 
-    public RadioButtonElement getArtDesignCheckBox() {
+    public CheckBoxElement getArtDesignCheckBox() {
         return artDesignCheckBox;
     }
 
-    public RadioButtonElement getActorsTheaterCheckBox() {
+    public CheckBoxElement getActorsTheaterCheckBox() {
         return actorsTheaterCheckBox;
     }
 
-    public RadioButtonElement getPersonalDevelopmentCheckBox() {
+    public CheckBoxElement getPersonalDevelopmentCheckBox() {
         return personalDevelopmentCheckBox;
     }
 
-    public RadioButtonElement getJournalismEditVideoCheckBox() {
+    public CheckBoxElement getJournalismEditVideoCheckBox() {
         return journalismEditVideoCheckBox;
     }
 
-    public RadioButtonElement getDevelopCenterCheckBox() {
+    public CheckBoxElement getDevelopCenterCheckBox() {
         return developCenterCheckBox;
     }
 
-    public RadioButtonElement getOtherCheckBox() {
+    public CheckBoxElement getOtherCheckBox() {
         return otherCheckBox;
     }
 
