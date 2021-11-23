@@ -38,7 +38,7 @@ public class TestUserChanges extends TestRunner {
         ProfileEditPopUp edit = profile
                 .authorize(valueProvider.getAdminEmail(), valueProvider.getAdminPassword())
                 .clickOnUserLoginDropdown()
-                .clickMyProfile()
+                .clickOnProfile()
                 .clickEditProfile();
         String actual = edit
                 .fillPhone(data)

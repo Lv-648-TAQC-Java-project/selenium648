@@ -34,10 +34,6 @@ public class CheckBoxElement extends BaseElement {
         return this.element.isDisplayed();
     }
 
-    public boolean isDisplayed() {
-        return this.element.isDisplayed();
-    }
-
     public boolean isEnabled() {
         return this.element.isEnabled();
     }

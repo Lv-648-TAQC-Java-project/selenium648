@@ -16,7 +16,7 @@ public class Tests extends TestRunner {
         boolean addLocationPopUpBlockIsDisplayed = header
                 .authorize(valueProvider.getAdminEmail(), valueProvider.getAdminPassword())
                 .clickOnOwnerDropdown()
-                .clickOnAddCenter()
+                .clickOnAddCenterButton()
                 //----------------------
                 //preconditions^
                 .clickOnAddLocation()
@@ -39,7 +39,7 @@ public class Tests extends TestRunner {
                 .clickOnOwnerDropdown()
                 .clickOnProfile()
                 .clickOnAddButton()
-                .clickOnAddCenter()
+                .clickOnAddCenterButton()
                 .clearCenterName()
                 .clickOnNextStepButton()
                 .errorsIsDisplayed();

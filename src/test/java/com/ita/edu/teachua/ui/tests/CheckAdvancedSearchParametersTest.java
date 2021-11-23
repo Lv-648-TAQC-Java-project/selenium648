@@ -1,7 +1,7 @@
 package com.ita.edu.teachua.ui.tests;
 
 import com.ita.edu.teachua.ui.pages.advanced_search.AdvancedSearchPage;
-import com.ita.edu.teachua.ui.pages.header.Header;
+import com.ita.edu.teachua.ui.pages.header.HeaderPage;
 import com.ita.edu.teachua.ui.pages.main_page.MainPage;
 import org.testng.Assert;
 import org.testng.annotations.Test;

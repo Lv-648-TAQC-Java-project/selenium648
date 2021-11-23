@@ -18,8 +18,8 @@ public class OwnerDropdownComponent extends BasePage {
     }
 
     private void initElements() {
-        addCenterButton = new ButtonElement(driver, OwnerDropdownLocators.ADD_CENTER);
-        profileButton = new ButtonElement(driver, OwnerDropdownLocators.MY_PROFILE);
+        addCenterButton = new ButtonElement(driver, OwnerDropdownLocators.ADD_CENTER_BUTTON);
+        profileButton = new ButtonElement(driver, OwnerDropdownLocators.MY_PROFILE_BUTTON);
     }
 
     public AddCenterPopUp clickOnAddCenterButton() {

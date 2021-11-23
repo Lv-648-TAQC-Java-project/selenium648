@@ -7,6 +7,8 @@ import com.ita.edu.teachua.ui.elements.InputElement;
 import com.ita.edu.teachua.ui.locators.pageslocators.AddCenterPopUpLocators;
 import com.ita.edu.teachua.ui.pages.add_location_pop_up.AddLocationPopUp;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
+import com.ita.edu.teachua.ui.pages.profile_page.ProfilePage;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 
 public class AddCenterPopUp extends BasePage {
