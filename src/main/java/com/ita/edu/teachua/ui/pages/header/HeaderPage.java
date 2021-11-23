@@ -54,6 +54,12 @@ public class HeaderPage extends BasePage {
         return new GuestDropdownComponent(driver);
     }
 
+    public OwnerDropdownComponent clickOnOwnerDropdown() {
+        DropDownElement ownerDropdown = new DropDownElement(driver, HeaderLocators.OWNER_DROPDOWN);
+        ownerDropdown.click();
+        return new OwnerDropdownComponent(driver);
+    }
+
     public OwnerDropdownComponent clickOnUserLoginDropdown() {
         for (int i = 0; i < 3; i++) {
             guestDropdown = new DropDownElement(new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(HeaderLocators.GUEST_DROPDOWN.getPath())));
@@ -82,5 +88,4 @@ public class HeaderPage extends BasePage {
         advancedSearchButton.click();
         return new AdvancedSearchPage(driver);
     }
-
 }

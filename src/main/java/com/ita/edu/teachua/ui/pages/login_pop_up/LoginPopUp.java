@@ -9,6 +9,12 @@ import com.ita.edu.teachua.ui.pages.header.HeaderPage;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPopUp extends BasePage {
+
+    private InputElement email;
+    private InputElement password;
+    private ButtonElement logInButton;
+    private LinkElement forgotPassword;
+
     private InputElement emailField;
     private InputElement passwordField;
     private ButtonElement submitButton;
@@ -19,14 +25,45 @@ public class LoginPopUp extends BasePage {
     }
 
     private void initElements() {
+        logInButton = new ButtonElement(driver, LoginPopUpLocators.LOG_IN_BUTTON);
+        forgotPassword = new LinkElement(driver, LoginPopUpLocators.FORGOT_PASSWORD);
         emailField = new InputElement(driver, LoginPopUpLocators.EMAIL_FIELD);
         passwordField = new InputElement(driver, LoginPopUpLocators.PASSWORD_FIELD);
         submitButton = new ButtonElement(driver, LoginPopUpLocators.SUBMIT_BUTTON);
     }
 
-    public HeaderPage FillLoginFields(String eamil, String password) {
+    public void clickRegisterButton() {
+        logInButton.click();
+    }
+
+    public LoginPopUp clickEmailField() {
+        emailField.click();
+        return this;
+    }
+
+    public LoginPopUp clickPasswordField() {
+        passwordField.click();
+        return this;
+    }
+
+    public LoginPopUp sendKeysEmailField(String emailValue) {
+        emailField.sendKeys(emailValue);
+        return this;
+    }
+
+    public LoginPopUp sendKeysPasswordField(String passwordValue) {
+        passwordField.sendKeys(passwordValue);
+        return this;
+    }
+
+    public HeaderPage clickLogInButton() {
+        logInButton.click();
+        return new HeaderPage(driver);
+    }
+
+    public HeaderPage FillLoginFields(String email, String password) {
         emailField.clear();
-        emailField.sendKeys(eamil);
+        emailField.sendKeys(email);
         passwordField.clear();
         passwordField.sendKeys(password);
         submitButton.click();
