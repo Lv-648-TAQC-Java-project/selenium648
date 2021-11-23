@@ -2,10 +2,15 @@ package com.ita.edu.teachua.ui.pages.advanced_search;
 
 import com.ita.edu.teachua.ui.elements.*;
 import com.ita.edu.teachua.ui.locators.pageslocators.AdvancedSearchPageLocators;
+import com.ita.edu.teachua.ui.elements.ButtonElement;
+import com.ita.edu.teachua.ui.elements.InputElement;
+import com.ita.edu.teachua.ui.locators.pageslocators.AdvancedSearchPageLocators;
+import com.ita.edu.teachua.ui.locators.pageslocators.HeaderLocators;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import org.openqa.selenium.WebDriver;
 
 public class AdvancedSearchPage extends BasePage {
+
 
     private RadioButtonElement clubsRadioButton;
     private LabelElement cityLabel;
@@ -36,8 +41,15 @@ public class AdvancedSearchPage extends BasePage {
         initElements();
     }
 
+    public AdvancedSearchPage setValueAgeInput(String input) {
+        ageInput = new InputElement(driver, AdvancedSearchPageLocators.AGE_INPUT);
+        ageInput.sendKeys(input);
+        return this;
+    }
+
+
     private void initElements() {
-        clubsRadioButton = new RadioButtonElement(driver,AdvancedSearchPageLocators.CLUB_RADIOBUTTON);
+        clubsRadioButton = new RadioButtonElement(driver, AdvancedSearchPageLocators.CLUB_RADIOBUTTON);
         cityLabel = new LabelElement(driver, AdvancedSearchPageLocators.CITY_LABEL);
         citiesDropdown = new DropDownElement(driver, AdvancedSearchPageLocators.CITIES_DROPDOWN);
         districtLabel = new LabelElement(driver, AdvancedSearchPageLocators.DISTRICT_LABEL);
@@ -124,11 +136,6 @@ public class AdvancedSearchPage extends BasePage {
 
     public CheckBoxElement getOtherCheckBox() {
         return otherCheckBox;
-    }
-
-    public AdvancedSearchPage setValueAgeInput(String age) {
-        ageInput.sendKeys(age);
-        return this;
     }
 
     public InputElement getAgeInput() {

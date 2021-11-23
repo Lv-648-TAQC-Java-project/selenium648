@@ -3,15 +3,13 @@ package com.ita.edu.teachua.ui.locators.pageslocators;
 import com.ita.edu.teachua.ui.locators.Locator;
 import org.openqa.selenium.By;
 
-public enum MainPageLocators implements Locator {
-
-    ADVANCED_SEARCH_BUTTON(By.xpath("//span[@title='Розширений пошук']")),
-    SEARCH_INPUT(By.xpath("//*[@id='rc_select_0']"));
-
+public enum SearchInputLocators implements Locator {
+    SEARCH_INPUT(By.cssSelector("#rc_select_9"))
+    ;
 
     private final By path;
 
-    MainPageLocators(By path) {
+    SearchInputLocators(By path) {
         this.path = path;
     }
 
@@ -19,5 +17,4 @@ public enum MainPageLocators implements Locator {
     public By getPath() {
         return path;
     }
-
 }

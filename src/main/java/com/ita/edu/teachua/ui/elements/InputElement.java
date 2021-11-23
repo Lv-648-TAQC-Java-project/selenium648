@@ -31,13 +31,13 @@ public class InputElement extends BaseElement {
     public void sendKeys(String text) {
         this.element.sendKeys(text);
     }
+    public void pressEnter() {
+        this.element.sendKeys(Keys.ENTER);
+    }
 
     public String getValue() {
         return this.element.getAttribute("value");
     }
 
-    public void pressEnter() {
-        this.element.sendKeys(Keys.ENTER);
-    }
 
 }
