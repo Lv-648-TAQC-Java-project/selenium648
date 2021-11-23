@@ -4,8 +4,10 @@ import com.ita.edu.teachua.ui.locators.Locator;
 import org.openqa.selenium.By;
 
 public enum OwnerDropdownLocators implements Locator {
-    MY_PROFILE(By.xpath("//a[contains(text(),'Мій Профіль')]"))
-    ;
+    REGISTER_BUTTON(By.xpath("//span/div[contains(text(),'Зареєструватися')]")),
+    LOGIN_BUTTON(By.xpath("//span/div[contains(text(),'Увійти')]")),
+    ADD_CENTER_BUTTON(By.xpath("//span/div[contains(text(),'Додати центр')]")),
+    MY_PROFILE_BUTTON(By.xpath("//span/a[contains(text(),'Мій Профіль')]"));
 
     private final By path;
 

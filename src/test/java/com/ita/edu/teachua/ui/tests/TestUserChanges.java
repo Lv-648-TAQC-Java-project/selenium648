@@ -1,7 +1,7 @@
 package com.ita.edu.teachua.ui.tests;
 
 import com.ita.edu.teachua.ui.pages.edit_profile_pop_up.ProfileEditPopUp;
-import com.ita.edu.teachua.ui.pages.header.Header;
+import com.ita.edu.teachua.ui.pages.header.HeaderPage;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
@@ -34,12 +34,9 @@ public class TestUserChanges extends TestRunner {
 
     @Test(dataProvider = "phoneDataProvider")
     public void TestUserCheckInvalidDataForFieldPhone(String data, String expected) {
-        Header profile = new Header(driver);
+        HeaderPage profile = new HeaderPage(driver);
         ProfileEditPopUp edit = profile
-                .clickOnLoginDropdown()
-                .clickLoginPopUp()
-                .inputData(valueProvider.getAdminEmail(), valueProvider.getAdminPassword())
-                .clickSubmitButton()
+                .authorize(valueProvider.getAdminEmail(), valueProvider.getAdminPassword())
                 .clickOnUserLoginDropdown()
                 .clickMyProfile()
                 .clickEditProfile();

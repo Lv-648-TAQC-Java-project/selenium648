@@ -4,10 +4,9 @@ import com.ita.edu.teachua.ui.locators.Locator;
 import org.openqa.selenium.By;
 
 public enum LoginPopUpLocators implements Locator {
-    EMAIL(By.xpath("//input[@id='basic_email']")),
-    PASSWORD(By.xpath("//input[@id='basic_password']")),
-    LOGIN_POP_UP_BUTTON(By.xpath("//button[@type='submit']"))
-    ;
+    EMAIL_FIELD(By.id("basic_email")),
+    PASSWORD_FIELD(By.id("basic_password")),
+    SUBMIT_BUTTON(By.cssSelector("button[type='submit']"));
 
     private final By path;
 

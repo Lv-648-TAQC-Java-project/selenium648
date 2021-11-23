@@ -38,4 +38,8 @@ public class BaseElement {
         return element;
     }
 
+    public By getPath() {
+        return this.path;
+    }
+
 }

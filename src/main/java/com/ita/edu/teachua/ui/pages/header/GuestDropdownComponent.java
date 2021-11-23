@@ -11,6 +11,7 @@ public class GuestDropdownComponent extends BasePage {
 
     private ButtonElement registerButton;
     private ButtonElement loginButton;
+
     public GuestDropdownComponent(WebDriver driver) {
         super(driver);
         initElements();
@@ -18,14 +19,15 @@ public class GuestDropdownComponent extends BasePage {
 
     private void initElements() {
         registerButton = new ButtonElement(driver, GuestDropdownLocators.REGISTER_BUTTON);
-        loginButton=new ButtonElement(driver, GuestDropdownLocators.LOGIN_BUTTON);
+        loginButton = new ButtonElement(driver, GuestDropdownLocators.LOGIN_BUTTON);
     }
 
-    public RegisterPopUp clickRegisterButton() {
+    public RegisterPopUp clickOnRegisterButton() {
         registerButton.click();
         return new RegisterPopUp(driver);
     }
-    public LoginPopUp clickLoginPopUp(){
+
+    public LoginPopUp clickOnLoginButton() {
         loginButton.click();
         return new LoginPopUp(driver);
     }
