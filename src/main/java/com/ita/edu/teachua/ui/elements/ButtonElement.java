@@ -29,6 +29,9 @@ public class ButtonElement extends BaseElement {
     public boolean isActive() {
         return this.element.isEnabled();
     }
+    public boolean isSelected() {
+        return this.element.isSelected();
+    }
 
     public void sendKeys(String key) {
         this.element.sendKeys(key);
