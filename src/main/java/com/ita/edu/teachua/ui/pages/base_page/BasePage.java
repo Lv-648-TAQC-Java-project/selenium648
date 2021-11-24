@@ -33,5 +33,12 @@ public class BasePage {
         return driver;
     }
 
+    public void sleep(long ms) {
+        try {
+            Thread.sleep(ms); // For Presentation ONLY
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
 
 }

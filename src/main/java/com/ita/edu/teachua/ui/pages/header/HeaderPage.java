@@ -3,7 +3,7 @@ package com.ita.edu.teachua.ui.pages.header;
 import com.ita.edu.teachua.ui.elements.ButtonElement;
 import com.ita.edu.teachua.ui.elements.DropDownElement;
 import com.ita.edu.teachua.ui.elements.LinkElement;
-import com.ita.edu.teachua.ui.locators.pageslocators.HeaderLocators;
+import com.ita.edu.teachua.ui.locators.pageslocators.headerlocators.HeaderLocators;
 import com.ita.edu.teachua.ui.pages.advanced_search.AdvancedSearchPage;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import org.openqa.selenium.StaleElementReferenceException;
@@ -68,6 +68,7 @@ public class HeaderPage extends BasePage {
 
     public HeaderPage authorize(String email, String password) {
         clickOnGuestDropdown().clickOnLoginButton().FillLoginFields(email, password);
+        sleep(3000);
         return new HeaderPage(driver);
     }
 
@@ -81,5 +82,6 @@ public class HeaderPage extends BasePage {
         advancedSearchButton.click();
         return new AdvancedSearchPage(driver);
     }
+
 
 }

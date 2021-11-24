@@ -4,7 +4,7 @@
     <!--parallel="methods" thread-count="2"-->
     <test name="Test Basics 1">
         <classes>
-            <class name="com.ita.edu.teachua.ui.tests.TestBasicSearch"/>
+            <class name="com.ita.edu.teachua.ui.tests.BasicSearchTest"/>
         </classes>
     </test> <!-- Test -->
 </suite> <!-- Suite -->
