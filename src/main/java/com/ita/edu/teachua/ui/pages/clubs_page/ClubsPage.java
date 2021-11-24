@@ -1,7 +1,8 @@
 package com.ita.edu.teachua.ui.pages.clubs_page;
 
 import com.ita.edu.teachua.ui.elements.InputElement;
-import com.ita.edu.teachua.ui.locators.pageslocators.ClubsPageLocators;
+import com.ita.edu.teachua.ui.locators.pageslocators.clubslocators.ClubsPageLocators;
+import com.ita.edu.teachua.ui.locators.pageslocators.mainpagelocators.MainPageLocators;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
@@ -32,7 +33,7 @@ public class ClubsPage extends BasePage {
     }
 
     public void init() {
-        search = new InputElement(driver, ClubsPageLocators.SEARCH_INPUT_FIELD);
+        search = new InputElement(driver, MainPageLocators.SEARCH_INPUT_FIELD);
     }
 
     public List<WebElement> getAllTitlesOfCards() {

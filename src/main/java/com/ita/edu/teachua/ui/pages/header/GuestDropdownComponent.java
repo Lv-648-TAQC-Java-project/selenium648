@@ -1,10 +1,8 @@
 package com.ita.edu.teachua.ui.pages.header;
 
 import com.ita.edu.teachua.ui.elements.ButtonElement;
-import com.ita.edu.teachua.ui.locators.componentslocators.GuestDropdownLocators;
+import com.ita.edu.teachua.ui.locators.pageslocators.headerlocators.GuestDropdownLocators;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
-import com.ita.edu.teachua.ui.pages.login_pop_up.LoginPopUp;
-import com.ita.edu.teachua.ui.pages.register_pop_up.RegisterPopUp;
 import org.openqa.selenium.WebDriver;
 
 public class GuestDropdownComponent extends BasePage {
@@ -22,14 +20,14 @@ public class GuestDropdownComponent extends BasePage {
         loginButton = new ButtonElement(driver, GuestDropdownLocators.LOGIN_BUTTON);
     }
 
-    public RegisterPopUp clickOnRegisterButton() {
+    public RegisterPopUpComponent clickOnRegisterButton() {
         registerButton.click();
-        return new RegisterPopUp(driver);
+        return new RegisterPopUpComponent(driver);
     }
 
-    public LoginPopUp clickOnLoginButton() {
+    public LoginPopUpComponent clickOnLoginButton() {
         loginButton.click();
-        return new LoginPopUp(driver);
+        return new LoginPopUpComponent(driver);
     }
 
 }

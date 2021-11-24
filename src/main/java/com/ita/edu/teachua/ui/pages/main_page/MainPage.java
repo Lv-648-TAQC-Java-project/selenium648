@@ -3,7 +3,7 @@ package com.ita.edu.teachua.ui.pages.main_page;
 import com.ita.edu.teachua.ui.elements.ButtonElement;
 import com.ita.edu.teachua.ui.elements.InputElement;
 import com.ita.edu.teachua.ui.elements.LinkElement;
-import com.ita.edu.teachua.ui.locators.pageslocators.MainPageLocators;
+import com.ita.edu.teachua.ui.locators.pageslocators.mainpagelocators.MainPageLocators;
 import com.ita.edu.teachua.ui.pages.advanced_search.AdvancedSearchPage;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import com.ita.edu.teachua.ui.pages.clubs_page.ClubsPage;

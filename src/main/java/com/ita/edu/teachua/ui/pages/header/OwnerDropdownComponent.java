@@ -1,9 +1,9 @@
 package com.ita.edu.teachua.ui.pages.header;
 
 import com.ita.edu.teachua.ui.elements.ButtonElement;
-import com.ita.edu.teachua.ui.locators.componentslocators.OwnerDropdownLocators;
-import com.ita.edu.teachua.ui.pages.add_center_pop_up.AddCenterPopUp;
+import com.ita.edu.teachua.ui.locators.pageslocators.headerlocators.OwnerDropdownLocators;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
+import com.ita.edu.teachua.ui.pages.profile_page.AddCenterPopUpComponent;
 import com.ita.edu.teachua.ui.pages.profile_page.ProfilePage;
 import org.openqa.selenium.WebDriver;
 
@@ -22,9 +22,9 @@ public class OwnerDropdownComponent extends BasePage {
         profileButton = new ButtonElement(driver, OwnerDropdownLocators.MY_PROFILE_BUTTON);
     }
 
-    public AddCenterPopUp clickOnAddCenterButton() {
+    public AddCenterPopUpComponent clickOnAddCenterButton() {
         addCenterButton.click();
-        return new AddCenterPopUp(driver);
+        return new AddCenterPopUpComponent(driver);
     }
 
     public ProfilePage clickOnProfile() {

@@ -1,7 +1,7 @@
 package com.ita.edu.teachua.ui.pages.advanced_search;
 
 import com.ita.edu.teachua.ui.elements.*;
-import com.ita.edu.teachua.ui.locators.pageslocators.AdvancedSearchPageLocators;
+import com.ita.edu.teachua.ui.locators.pageslocators.advancedsearchlocators.AdvancedSearchPageLocators;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
