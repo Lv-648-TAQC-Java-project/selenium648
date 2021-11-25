@@ -3,6 +3,7 @@ package com.ita.edu.teachua.ui.pages.main_page;
 import com.ita.edu.teachua.ui.elements.ButtonElement;
 import com.ita.edu.teachua.ui.elements.InputElement;
 import com.ita.edu.teachua.ui.elements.LinkElement;
+import com.ita.edu.teachua.ui.locators.pageslocators.advancedsearchlocators.AdvancedSearchPageLocators;
 import com.ita.edu.teachua.ui.locators.pageslocators.mainpagelocators.MainPageLocators;
 import com.ita.edu.teachua.ui.pages.advanced_search.AdvancedSearchPage;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
@@ -42,12 +43,12 @@ public class MainPage extends BasePage {
         clubsLink = new LinkElement(driver, MainPageLocators.CLUBS_LINK);
     }
 
-    public MainPage verifyThatUserIsOnManePage() {
-        String actual = driver.getCurrentUrl();
-        String expected = "https://speak-ukrainian.org.ua/dev/";
-        Assert.assertEquals(expected, actual);
-        return this;
+    public String getMainPageUrL() {
+         return driver.getCurrentUrl();
+    }
 
+    public String getTitleOfAdvancedSearchField() {
+        return driver.findElement(AdvancedSearchPageLocators.ADVANCED_SEARCH_FIELD_TITLE.getPath()).getText();
     }
 
     public AdvancedSearchPage clickAdvancedSearchButton() {
