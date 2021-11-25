@@ -21,10 +21,15 @@ public class BasePage {
         driver.manage().window().maximize();
     }
 
+    public WebElement waitVisibilityOf(WebElement element, int seconds) {
+        return new WebDriverWait(driver, seconds).until(ExpectedConditions.visibilityOf(element));
+    }
     public WebElement waitVisibilityOfElementLocated(Locator locator, int seconds) {
         return new WebDriverWait(driver, seconds).until(ExpectedConditions.visibilityOfElementLocated(locator.getPath()));
     }
-
+    public WebElement waitElementToBeClickable(Locator locator, int seconds) {
+        return new WebDriverWait(driver, seconds).until(ExpectedConditions.elementToBeClickable(locator.getPath()));
+    }
     public WebElement waitPresenceOfElementLocated(Locator locator, int seconds) {
         return new WebDriverWait(driver, seconds).until(ExpectedConditions.presenceOfElementLocated(locator.getPath()));
     }

@@ -15,6 +15,7 @@ public class AddDropdownComponent extends BasePage {
 
     public AddCenterPopUpComponent clickOnAddCenterButton() {
         addCenterButton = new ButtonElement(driver, AddDropdownComponentLocators.ADD_CENTER_BUTTON);
+        waitElementToBeClickable(AddDropdownComponentLocators.ADD_CENTER_BUTTON,5);
         addCenterButton.click();
         return new AddCenterPopUpComponent(driver);
     }
