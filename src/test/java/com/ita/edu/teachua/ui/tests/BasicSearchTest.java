@@ -29,7 +29,7 @@ public class BasicSearchTest extends TestRunner {
         Assert.assertTrue(isPresent);
     }
 
-    @Test(invocationCount = 5, dataProvider = "clubsNameSearchTestDataProvider")
+    @Test(invocationCount = 1, dataProvider = "clubsNameSearchTestDataProvider")
     public void checkSearchWithNameOfClubsTyping(String data) {
         boolean isPresent = new MainPage(driver)
                 .inputStringInSearchField(data)

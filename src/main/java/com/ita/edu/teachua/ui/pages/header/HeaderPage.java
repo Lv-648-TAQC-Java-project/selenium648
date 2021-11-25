@@ -12,6 +12,8 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 public class HeaderPage extends BasePage {
 
     private LinkElement aboutUs;
@@ -55,7 +57,7 @@ public class HeaderPage extends BasePage {
 
     public OwnerDropdownComponent clickOnUserLoginDropdown() {
         for (int i = 0; i < 3; i++) {
-            guestDropdown = new DropDownElement(new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(HeaderLocators.GUEST_DROPDOWN.getPath())));
+            guestDropdown = new DropDownElement(new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(HeaderLocators.GUEST_DROPDOWN.getPath())));
             try {
                 guestDropdown.click();
                 break;
@@ -67,7 +69,7 @@ public class HeaderPage extends BasePage {
     }
 
     public HeaderPage authorize(String email, String password) {
-        clickOnGuestDropdown().clickOnLoginButton().FillLoginFields(email, password);
+        clickOnGuestDropdown().clickOnLoginButton().fillLoginFields(email, password);
         sleep(3000);
         return new HeaderPage(driver);
     }
