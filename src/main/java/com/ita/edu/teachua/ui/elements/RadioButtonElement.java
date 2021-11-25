@@ -25,6 +25,10 @@ public class RadioButtonElement extends BaseElement {
         return this.element.isDisplayed();
     }
 
+    public boolean isSelected() {
+        return this.element.isSelected();
+    }
+
     public String getAttribute(String attribute) {
         return this.element.getAttribute(attribute);
     }
