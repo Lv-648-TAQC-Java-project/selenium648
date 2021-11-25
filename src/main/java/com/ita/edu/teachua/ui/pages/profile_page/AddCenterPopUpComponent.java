@@ -25,10 +25,9 @@ public class AddCenterPopUpComponent extends BasePage {
     }
 
 
-        //nameField = new InputElement(driver, AddCenterPopUpComponentLocators.NAME_FIELD);
-        //phoneNumber = new InputElement(driver, AddCenterPopUpComponentLocators.PHONE_NUMBER_FIELD);
-        //description = new InputElement(driver, AddCenterPopUpComponentLocators.DESCRIPTION_FIELD);
-
+    //nameField = new InputElement(driver, AddCenterPopUpComponentLocators.NAME_FIELD);
+    //phoneNumber = new InputElement(driver, AddCenterPopUpComponentLocators.PHONE_NUMBER_FIELD);
+    //description = new InputElement(driver, AddCenterPopUpComponentLocators.DESCRIPTION_FIELD);
 
 
     public AddLocationPopUpComponent clickOnAddLocation() {
