@@ -1,11 +1,13 @@
 package com.ita.edu.teachua.ui.tests;
 
 import com.ita.edu.teachua.ui.pages.header.HeaderPage;
+import com.ita.edu.teachua.ui.pages.header.RegisterPopUpComponent;
 import com.ita.edu.teachua.ui.pages.profile_page.AddLocationPopUpComponent;
 import com.ita.edu.teachua.ui.pages.profile_page.ProfileEditPopUpComponent;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class OwnerProfileTest extends TestRunner {
     @DataProvider
@@ -162,6 +164,40 @@ public class OwnerProfileTest extends TestRunner {
     public void testPasswordRecovery() {
         HeaderPage header = new HeaderPage(driver);
         header.clickOnGuestDropdown();
+    }
+
+
+    @Test
+    public void checkLastVerifyEnteredDataInRegistrationRemembered() {
+        HeaderPage header = new HeaderPage(driver);
+        RegisterPopUpComponent registerCheck = header.clickOnGuestDropdown()
+                .clickOnRegisterButton()
+                .clickLastNameField()
+                .fillLastName("Вайтович")
+                .clickFirstNameField()
+                .fillFirstName("Світлана")
+                .clickPhoneNumberField()
+                .fillPhoneNumber("0671234567")
+                .clickEmailField()
+                .fillEmail("svitlanawhite@gmail.com")
+                .clickPasswordField()
+                .fillPassword("12345678")
+                .clickPasswordConfirmField()
+                .fillPasswordConfirm("12345678")
+                .clickCloseButton()
+                .clickOnGuestDropdown()
+                .clickOnRegisterButton();
+        String actual1 = registerCheck.getLastNameText();
+        String actual2 = registerCheck.getFirstNameText();
+        String actual3 = registerCheck.getEmailText();
+        String actual4 = registerCheck.getPasswordText();
+        SoftAssert assertE=new SoftAssert();
+        assertE.assertEquals(actual1, "Вайтович");
+        assertE.assertEquals(actual2, "Світлана");
+        assertE.assertEquals(actual3, "svitlanawhite@gmail.com");
+        assertE.assertEquals(actual4, "12345678");
+
+
     }
 
 }
