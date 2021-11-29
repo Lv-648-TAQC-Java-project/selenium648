@@ -1,6 +1,7 @@
 package com.ita.edu.teachua.ui.elements;
 
 import com.ita.edu.teachua.ui.locators.Locator;
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
