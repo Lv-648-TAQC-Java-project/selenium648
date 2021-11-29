@@ -8,6 +8,7 @@ import com.ita.edu.teachua.ui.locators.pageslocators.profilelocators.AddLocation
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 
 public class AddLocationPopUpComponent extends BasePage {
     private ButtonElement addButton;
@@ -65,6 +66,7 @@ public class AddLocationPopUpComponent extends BasePage {
         cityDropdown.click();
         return new CityDropdownComponent(driver);
     }
+
 
     public DistrictDropdownComponent clickOnDistrictDropdown() {
         districtDropdown.click();

@@ -66,6 +66,7 @@ public class OwnerProfileTest extends TestRunner {
 
     }
 
+
     @Test()
     public void VerifyThatErrorMessagesIsDisplayedAfterUserLeavesFieldsEmptyAndClicksNextStepButton() {
         boolean actualResult = new HeaderPage(driver)
@@ -162,6 +163,32 @@ public class OwnerProfileTest extends TestRunner {
     public void testPasswordRecovery() {
         HeaderPage header = new HeaderPage(driver);
         header.clickOnGuestDropdown();
+    }
+
+    @DataProvider
+    public Object[][] verifyThatOwnerCanAddLocationToTheListOfLocationsWithValidDataDataProvider() {
+        return new Object[][]{
+                {"ТестЛокація2", "Харків", "Сумська 2/3", "50.00100346155677, 36.234188917163884", "0977777777"}
+        };
+    }
+
+    @Test(dataProvider = "verifyThatOwnerCanAddLocationToTheListOfLocationsWithValidDataDataProvider")
+    public void addLocationWithValidDataOfMandatoryFields(String name, String town, String address, String coordinates, String phoneNumber) {
+        HeaderPage headerPage = new HeaderPage(driver);
+        boolean actualResult = headerPage.authorize(valueProvider.getAdminEmail(), valueProvider.getAdminPassword())
+                .clickOnOwnerDropdown()
+                .clickOnAddCenterButton()
+                .clickOnAddLocation()
+                .sendKeysLocationNameField(name)
+                .clickOnCityDropdown()
+                .clickOnKyivButton()
+                .sendKeysAddressField(address)
+                .sendKeysCoordinatesField(coordinates)
+                .sendKeysPhoneField(phoneNumber)
+                .clickOnAddButton()
+                .getCheckBoxByName(name)
+                .isDisplayed();
+        Assert.assertTrue(actualResult);
     }
 
 }
