@@ -23,7 +23,7 @@ public class OwnerDropdownComponent extends BasePage {
 
     private void initElements() {
         addCenterButton = new ButtonElement(driver, OwnerDropdownLocators.ADD_CENTER_BUTTON);
-        profileButton = new ButtonElement(driver, OwnerDropdownLocators.MY_PROFILE_BUTTON);
+
     }
 
     public AddCenterPopUpComponent clickOnAddCenterButton() {
@@ -33,7 +33,9 @@ public class OwnerDropdownComponent extends BasePage {
 
     public ProfilePage clickOnProfile() {
         profileButton = new ButtonElement(driver, OwnerDropdownLocators.MY_PROFILE_BUTTON);
+
         //profileButton = new ButtonElement(new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(OwnerDropdownLocators.MY_PROFILE_BUTTON.getPath())));
+
         profileButton.click();
         return new ProfilePage(driver);
     }

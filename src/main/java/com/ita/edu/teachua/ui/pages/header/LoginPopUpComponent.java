@@ -13,6 +13,7 @@ public class LoginPopUpComponent extends BasePage {
     private InputElement password;
     private ButtonElement logInButton;
     private LinkElement forgotPassword;
+    private LinkElement loginSubmitButton;
 
     private InputElement emailField;
     private InputElement passwordField;
@@ -60,7 +61,7 @@ public class LoginPopUpComponent extends BasePage {
         return new HeaderPage(driver);
     }
 
-    public HeaderPage FillLoginFields(String email, String password) {
+    public HeaderPage fillLoginFields(String email, String password) {
         emailField.clear();
         emailField.sendKeys(email);
         passwordField.clear();
@@ -70,22 +71,18 @@ public class LoginPopUpComponent extends BasePage {
     }
 
     public LoginPopUpComponent inputData(String emailData, String passwordData) {
-        InputElement email = new InputElement(driver, LoginPopUpComponentLocators.EMAIL_FIELD);
+        email = new InputElement(driver, LoginPopUpComponentLocators.EMAIL_FIELD);
         email.sendKeys(emailData);
-        InputElement password = new InputElement(driver, LoginPopUpComponentLocators.PASSWORD_FIELD);
+        password = new InputElement(driver, LoginPopUpComponentLocators.PASSWORD_FIELD);
         password.sendKeys(passwordData);
         return this;
     }
 
     public HeaderPage clickSubmitButton() {
-        LinkElement loginButton = new LinkElement(driver, LoginPopUpComponentLocators.SUBMIT_BUTTON);
-        loginButton.click();
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        //  new WebDriverWait(driver,10).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[text()='Вийти']")));
+        loginSubmitButton = new LinkElement(driver, LoginPopUpComponentLocators.SUBMIT_BUTTON);
+        loginSubmitButton.click();
+        sleep(2000);
+        //  new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[text()='Вийти']")));
         return new HeaderPage(driver);
     }
 }

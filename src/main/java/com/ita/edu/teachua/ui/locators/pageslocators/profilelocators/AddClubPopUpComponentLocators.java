@@ -14,6 +14,16 @@ public enum AddClubPopUpComponentLocators implements Locator {
     END_BUTTON(By.cssSelector("button[type='submit']")),
     TICK(By.xpath("//span[@aria-label='check-circle']")),
     ERROR_IN_DESCRIPTION_FIELD(By.xpath("//div[@class='ant-form-item-explain ant-form-item-explain-connected']")),
+    /*Base info area*/
+    CLUB_NAME_INPUT(By.id("basic_name")),
+    SPORT_SECTIONS_CHECKBOX(By.cssSelector("input[value*='Спортивні секції']")),
+    CHILD_AGE_FROM_INPUT(By.id("basic_ageFrom")),
+    CHILD_AGE_TO_INPUT(By.id("basic_ageTo")),
+    NEXT_STEP_BUTTON(By.cssSelector("button[type='submit']>span")),
+    /*Base info area end*/
+    /*Contacts area start*/
+    ADD_LOCATION_BUTTON(By.className("add-club-location"))
+    /*Contacts area end*/
     ;
 
     private final By path;
@@ -27,3 +37,5 @@ public enum AddClubPopUpComponentLocators implements Locator {
         return path;
     }
 }
+}
+

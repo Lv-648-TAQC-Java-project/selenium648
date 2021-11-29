@@ -22,6 +22,7 @@ public class BaseElement {
         this.element = element.findElement(path);
     }
 
+
     public BaseElement(WebElement element) {
         this.element = element;
     }

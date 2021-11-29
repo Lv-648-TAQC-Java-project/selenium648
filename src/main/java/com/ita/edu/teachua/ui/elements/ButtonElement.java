@@ -29,7 +29,9 @@ public class ButtonElement extends BaseElement {
     public boolean isActive() {
         return this.element.isEnabled();
     }
-
+    public String getAttribute(){
+        return this.element.getAttribute("disabled");
+    }
     public void sendKeys(String key) {
         this.element.sendKeys(key);
     }

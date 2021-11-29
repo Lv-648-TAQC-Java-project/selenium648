@@ -10,7 +10,6 @@ import org.testng.annotations.BeforeSuite;
 
 import java.io.IOException;
 import java.time.Duration;
-import java.util.concurrent.TimeUnit;
 
 public class TestRunner {
 

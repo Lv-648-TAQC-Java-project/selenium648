@@ -1,56 +1,29 @@
 package com.ita.edu.teachua.ui.pages.clubs_page;
 
-import com.ita.edu.teachua.ui.elements.InputElement;
 import com.ita.edu.teachua.ui.locators.pageslocators.clubslocators.ClubsPageLocators;
-import com.ita.edu.teachua.ui.locators.pageslocators.mainpagelocators.MainPageLocators;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import java.awt.*;
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
+import java.time.Duration;
 import java.util.List;
 
 public class ClubsPage extends BasePage {
-    InputElement search;
-
 
     public ClubsPage(WebDriver driver) {
         super(driver);
-        try {
-            Thread.sleep(1000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        WebElement title = (new WebDriverWait(driver, 10)
+        WebElement title = (new WebDriverWait(driver, Duration.ofSeconds(10))
                 .until(ExpectedConditions.presenceOfElementLocated(
                         ClubsPageLocators.CLUBS_PAGE_TITLE.getPath())));
-        init();
-    }
-
-    public void init() {
-        search = new InputElement(driver, MainPageLocators.SEARCH_INPUT_FIELD);
     }
 
     public List<WebElement> getAllTitlesOfCards() {
         return driver.findElements(ClubsPageLocators.CARD_TITLE.getPath());
     }
-
-    public ClubsPage inputStringInSearchField(String input) {
-        search.sendKeys(input);
-        return new ClubsPage(driver);
-    }
-
-    public ClubsPage pasteClipBoardStringInSearchField(String input) {
-        StringSelection stringSelection = new StringSelection(input);
-        Clipboard clipboard = Toolkit.getDefaultToolkit().getSystemClipboard();
-        clipboard.setContents(stringSelection, null);
-        search.sendKeys(Keys.CONTROL + "V");
-        return new ClubsPage(driver);
+    public String getTitleOfInvalidSearchPage() {
+        return driver.findElement(ClubsPageLocators.INVALID_CLUBS_BASIC_SEARCH.getPath()).getText();
     }
 
     public boolean isClubPresent(String title) {
@@ -61,11 +34,7 @@ public class ClubsPage extends BasePage {
             try {
                 res = t.getText();
             } catch (org.openqa.selenium.StaleElementReferenceException e) {
-                try {
-                    Thread.sleep(500);
-                } catch (InterruptedException ex) {
-                    ex.printStackTrace();
-                }
+                sleep(100);
                 isPresent = isClubPresent(title);
                 break;
             }

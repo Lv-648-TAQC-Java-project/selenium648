@@ -10,8 +10,8 @@ public enum RegisterPopUpComponentLocators implements Locator {
     EMAIL_FIELD(By.id("email")),
     PASSWORD_FIELD(By.id("password")),
     PASSWORD_CONFIRM_FIELD(By.id("confirm")),
-    REGISTER_BUTTON(By.xpath("//span[contains(text(),'Зареєструватися')]"));
-
+    REGISTER_BUTTON(By.xpath("//span[contains(text(),'Зареєструватися')]")),
+    CLOSE_BUTTON(By.xpath("//span[@aria-label='close']//*[name()='svg']"));
     private final By path;
 
     RegisterPopUpComponentLocators(By path) {

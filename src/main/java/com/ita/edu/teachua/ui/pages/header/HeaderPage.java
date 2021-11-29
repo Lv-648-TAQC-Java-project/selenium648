@@ -6,11 +6,14 @@ import com.ita.edu.teachua.ui.elements.LinkElement;
 import com.ita.edu.teachua.ui.locators.pageslocators.headerlocators.HeaderLocators;
 import com.ita.edu.teachua.ui.pages.advanced_search.AdvancedSearchPage;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
+import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class HeaderPage extends BasePage {
 
@@ -18,7 +21,6 @@ public class HeaderPage extends BasePage {
     private LinkElement clubsLink;
     private LinkElement services;
     private DropDownElement guestDropdown;
-    private ButtonElement advancedSearchButton;
 
     public HeaderPage(WebDriver driver) {
         super(driver);
@@ -30,7 +32,6 @@ public class HeaderPage extends BasePage {
         clubsLink = new LinkElement(driver, HeaderLocators.CLUBS_LINK);
         services = new LinkElement(driver, HeaderLocators.SERVICES_LINK);
         guestDropdown = new DropDownElement(driver, HeaderLocators.GUEST_DROPDOWN);
-        advancedSearchButton = new ButtonElement(driver, HeaderLocators.ADVANCED_SEARCH_BUTTON);
     }
 
     public HeaderPage clickOnClubs() {
@@ -55,7 +56,7 @@ public class HeaderPage extends BasePage {
 
     public OwnerDropdownComponent clickOnUserLoginDropdown() {
         for (int i = 0; i < 3; i++) {
-            guestDropdown = new DropDownElement(new WebDriverWait(driver, 10).until(ExpectedConditions.elementToBeClickable(HeaderLocators.GUEST_DROPDOWN.getPath())));
+            guestDropdown = new DropDownElement(new WebDriverWait(driver, Duration.ofSeconds(10)).until(ExpectedConditions.elementToBeClickable(HeaderLocators.GUEST_DROPDOWN.getPath())));
             try {
                 guestDropdown.click();
                 break;
@@ -67,7 +68,7 @@ public class HeaderPage extends BasePage {
     }
 
     public HeaderPage authorize(String email, String password) {
-        clickOnGuestDropdown().clickOnLoginButton().FillLoginFields(email, password);
+        clickOnGuestDropdown().clickOnLoginButton().fillLoginFields(email, password);
         sleep(3000);
         return new HeaderPage(driver);
     }
@@ -77,11 +78,5 @@ public class HeaderPage extends BasePage {
         ownerDropdown.click();
         return new OwnerDropdownComponent(driver);
     }
-
-    public AdvancedSearchPage clickAdvancedSearchButton() {
-        advancedSearchButton.click();
-        return new AdvancedSearchPage(driver);
-    }
-
 
 }
