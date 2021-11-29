@@ -49,7 +49,7 @@ public class OwnerProfileTest extends TestRunner {
 
     }
 
-    @Test()
+    @Test(description = "TUA-160 This test case verifies that a 'Керівник' cannot add a location to the list of locations after leaving all mandatory and optional fields empty")
     public void VerifyThatOwnerCannotAddLocationToTheListOfLocationsAfterLeavingFieldsEmpty() {
         HeaderPage header = new HeaderPage(driver);
         boolean addLocationPopUpBlockIsDisplayed = header
@@ -66,8 +66,94 @@ public class OwnerProfileTest extends TestRunner {
         Assert.assertFalse(addLocationButtonEnable);
 
     }
+    @DataProvider
+    public Object[][] addClubPopUpComponentData() {
+        return new Object[][]{
+                {"ValidName",
+                        "2",
+                        "18",
+                        "ValidAddress",
+                        "49.829104498711104, 24.005058710351314",
+                        "0966666666",
+                        "name,cityName,districtName,stationName,address,coordinates,phone"
+                }
+        };
+    }
+    @Test(dataProvider = "addClubPopUpComponentData",description = "TUA-237 This test case verifies that a 'Керівник' can add a location of a club that doesn't refer to any center after filling in mandatory fields with valid data.")
+    public void VerifyThatOwnerCanAddLocationOfClub(String validName,
+                                                    String ageFrom,
+                                                    String ageTo,
+                                                    String validAddress,
+                                                    String validCoordinates,
+                                                    String validPhone,
+                                                    String addLocationPopUpComponentId) {
+        String[] locationPopUpComponentId = addLocationPopUpComponentId.split(",");
+        SoftAssert softAssert = new SoftAssert();
+       AddLocationPopUpComponent addLocationPopUpComponent = new HeaderPage(driver)
+                .authorize(valueProvider.getAdminEmail(), valueProvider.getAdminPassword())
+                .clickOnOwnerDropdown()
+                .clickOnProfile()
+                .clickOnAddButton()
+                .clickOnAddClubButton()
+                .fillClubNameField(validName)
+                .chooseSportSections()
+                .fillChildAge(ageFrom,ageTo)
+                .clickOnNextStepButton()
+                .clickOnAddLocation();
+        boolean addLocationPopUpBlockIsDisplayed = addLocationPopUpComponent
+                .addLocationPopUpBlockIsDisplayed();
+        softAssert.assertTrue(addLocationPopUpBlockIsDisplayed);
 
-    @Test()
+
+        boolean isDataAccepted = addLocationPopUpComponent
+                .clickOnLocationNameField()
+                .sendKeysLocationNameField(validName)
+                .isDataAccepted(locationPopUpComponentId[0]);
+        softAssert.assertTrue(isDataAccepted);
+
+        isDataAccepted = addLocationPopUpComponent
+                .clickOnCityDropdown()
+                .clickOnKyivButton()
+                .isDataAccepted(locationPopUpComponentId[1]);
+        softAssert.assertTrue(isDataAccepted);
+
+        isDataAccepted = addLocationPopUpComponent.clickOnDistrictDropdown()
+                .clickOnDesnianskyiButton()
+                .isDataAccepted(locationPopUpComponentId[2]);
+        softAssert.assertTrue(isDataAccepted);
+
+        isDataAccepted =addLocationPopUpComponent
+                .clickOnLocalityDropdown()
+                .clickOnAkademmistechkoButton()
+                .isDataAccepted(locationPopUpComponentId[3]);
+        softAssert.assertTrue(isDataAccepted);
+
+        isDataAccepted =addLocationPopUpComponent
+                .clickOnAddressField()
+                .sendKeysAddressField(validAddress)
+                .isDataAccepted(locationPopUpComponentId[4]);
+        softAssert.assertTrue(isDataAccepted);
+
+        isDataAccepted =addLocationPopUpComponent
+                .clickOnCoordinatesField()
+                .sendKeysCoordinatesField(validCoordinates)
+                .isDataAccepted(locationPopUpComponentId[5]);
+        softAssert.assertTrue(isDataAccepted);
+
+        isDataAccepted =addLocationPopUpComponent
+                .clickOnPhoneField()
+                .sendKeysPhoneField(validPhone)
+                .isDataAccepted(locationPopUpComponentId[6]);
+        softAssert.assertTrue(isDataAccepted);
+
+        softAssert.assertAll();
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+    @Test(description = "TUA-252 This test case verifies that user cannot create a center with invalid data in 'Назва' field")
     public void VerifyThatErrorMessagesIsDisplayedAfterUserLeavesFieldsEmptyAndClicksNextStepButton() {
         boolean actualResult = new HeaderPage(driver)
                 .authorize(valueProvider.getAdminEmail(), valueProvider.getAdminPassword())
