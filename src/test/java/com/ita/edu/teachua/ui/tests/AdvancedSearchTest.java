@@ -1,6 +1,7 @@
 package com.ita.edu.teachua.ui.tests;
 
 import com.ita.edu.teachua.ui.pages.advanced_search.AdvancedSearchPage;
+import com.ita.edu.teachua.ui.pages.advanced_search.ClubsItemComponent;
 import com.ita.edu.teachua.ui.pages.header.HeaderPage;
 import com.ita.edu.teachua.ui.pages.main_page.MainPage;
 import org.testng.Assert;
@@ -76,17 +77,28 @@ public class AdvancedSearchTest extends TestRunner {
 
     @Test
     public void checkIfCentersAreDisplayedAsAList() {
-        MainPage mainPage = new MainPage(driver);
-        boolean checkIfCentersAreDisplayedAsAList = mainPage
-                .verifyThatUserIsOnManePage()
-                .clickAdvancedSearchButton()
-                .verifyThatUserIsOnAdvancedSearchPage()
-                .verifyThatWorkshopRadioButtonIsChosenByDefault()
-                .clickOnCenterRadioButton()
-                .verifyThatCenterRadioButtonIsChosen()
-                .clickOnListIcon()
-                .checkThatCentersAreDisplayedAsAList();
-        Assert.assertTrue(checkIfCentersAreDisplayedAsAList);
-    }
 
+    SoftAssert softAssert = new SoftAssert();
+        MainPage mainPage = new MainPage(driver);
+        String urlMainPage = mainPage.getMainPageUrL();
+        softAssert.assertEquals("https://speak-ukrainian.org.ua/dev/", urlMainPage);
+
+        AdvancedSearchPage advancedSearchPage = mainPage.clickAdvancedSearchButton();
+        String title = advancedSearchPage.getTitleOfAdvancedSearchField();
+        softAssert.assertEquals(title, "Розширений пошук");
+
+        boolean checkThatWorkshopRadioButtonIsChosenByDefault =  advancedSearchPage.getWorkshopRadioButton().isDisplayed();
+        softAssert.assertTrue(checkThatWorkshopRadioButtonIsChosenByDefault, "workshop radiobutton is NOT selected");
+
+        boolean CenterRadioButtonSelected = advancedSearchPage
+                .clickOnCenterRadioButton()
+                .getCenterRadioButton().isDisplayed();
+        softAssert.assertTrue(CenterRadioButtonSelected, "center radiobutton is NOT selected");
+
+        advancedSearchPage.clickOnListIcon();
+        for(ClubsItemComponent club : advancedSearchPage.getCards()){
+            softAssert.assertTrue(club.isList());
+        }
+        softAssert.assertAll();
+    }
 }

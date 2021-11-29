@@ -36,7 +36,7 @@ public class AddLocationPopUpComponent extends BasePage {
     }
 
     public boolean checkAddButton() {
-        addButton = new ButtonElement(driver, AddLocationPopUpLocators.ADD_BUTTON);
+        addButton = new ButtonElement(driver, AddLocationPopUpLocators.ADD_BUTTON_DISABLED);
         return addButton.isActive();
     }
 

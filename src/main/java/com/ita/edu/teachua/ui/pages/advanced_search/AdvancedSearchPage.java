@@ -7,8 +7,8 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class AdvancedSearchPage extends BasePage {
@@ -37,12 +37,10 @@ public class AdvancedSearchPage extends BasePage {
     private CheckBoxElement otherCheckBox;
     private LabelElement ageLabel;
     private InputElement ageInput;
-
     private RadioButtonElement workShopRadioButton;
     private RadioButtonElement centerRadioButton;
     private ButtonElement listIcon;
     private DivElement advancedSearchBlock;
-
 
     public AdvancedSearchPage(WebDriver driver) {
         super(driver);

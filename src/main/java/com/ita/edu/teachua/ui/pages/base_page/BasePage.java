@@ -6,6 +6,8 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.time.Duration;
+
 
 public class BasePage {
     protected WebDriver driver;
@@ -21,12 +23,17 @@ public class BasePage {
         driver.manage().window().maximize();
     }
 
-    public WebElement waitVisibilityOfElementLocated(Locator locator, int seconds) {
-        return new WebDriverWait(driver, seconds).until(ExpectedConditions.visibilityOfElementLocated(locator.getPath()));
+    public WebElement waitVisibilityOf(WebElement element, int seconds) {
+        return new WebDriverWait(driver, Duration.ofSeconds(seconds)).until(ExpectedConditions.visibilityOf(element));
     }
-
+    public WebElement waitVisibilityOfElementLocated(Locator locator, int seconds) {
+        return new WebDriverWait(driver, Duration.ofSeconds(seconds)).until(ExpectedConditions.visibilityOfElementLocated(locator.getPath()));
+    }
+    public WebElement waitElementToBeClickable(Locator locator, int seconds) {
+        return new WebDriverWait(driver, Duration.ofSeconds(seconds)).until(ExpectedConditions.elementToBeClickable(locator.getPath()));
+    }
     public WebElement waitPresenceOfElementLocated(Locator locator, int seconds) {
-        return new WebDriverWait(driver, seconds).until(ExpectedConditions.presenceOfElementLocated(locator.getPath()));
+        return new WebDriverWait(driver, Duration.ofSeconds(seconds)).until(ExpectedConditions.presenceOfElementLocated(locator.getPath()));
     }
 
     public WebDriver getDriver() {

@@ -56,13 +56,11 @@ public class OwnerProfileTest extends TestRunner {
                 .authorize(valueProvider.getAdminEmail(), valueProvider.getAdminPassword())
                 .clickOnOwnerDropdown()
                 .clickOnAddCenterButton()
-                //----------------------
-                //preconditions^
                 .clickOnAddLocation()
                 .addLocationPopUpBlockIsDisplayed();// check first expected condition
         Assert.assertTrue(addLocationPopUpBlockIsDisplayed);
 
-        boolean addLocationButtonEnable = new AddLocationPopUpComponent(header.getDriver())
+        boolean addLocationButtonEnable = new AddLocationPopUpComponent(driver)
                 .checkAddButton(); // check last expected condition
 
         Assert.assertFalse(addLocationButtonEnable);

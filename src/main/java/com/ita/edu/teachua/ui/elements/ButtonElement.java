@@ -30,10 +30,6 @@ public class ButtonElement extends BaseElement {
         return this.element.isEnabled();
     }
 
-    public boolean isSelected() {
-        return this.element.isSelected();
-    }
-
     public void sendKeys(String key) {
         this.element.sendKeys(key);
     }
