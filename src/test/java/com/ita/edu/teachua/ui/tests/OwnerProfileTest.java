@@ -191,13 +191,103 @@ public class OwnerProfileTest extends TestRunner {
         String actual2 = registerCheck.getFirstNameText();
         String actual3 = registerCheck.getEmailText();
         String actual4 = registerCheck.getPasswordText();
-        SoftAssert assertE=new SoftAssert();
-        assertE.assertEquals(actual1, "Вайтович");
-        assertE.assertEquals(actual2, "Світлана");
-        assertE.assertEquals(actual3, "svitlanawhite@gmail.com");
-        assertE.assertEquals(actual4, "12345678");
+        SoftAssert softassert=new SoftAssert();
+        softassert.assertEquals(actual1, "Вайтович");
+        softassert.assertEquals(actual2, "Світлана");
+        softassert.assertEquals(actual3, "svitlanawhite@gmail.com");
+        softassert.assertEquals(actual4, "12345678");
 
 
     }
+    @DataProvider
+    public Object[][] lastNameDataProvider() {
+        return new Object[][]{
+                {"AfBbCcDdEeFfGgHhIiJjKkLlMmNn", "Прізвище не може містити більше, ніж 25 символів"},
+                {"AfBbCcDdEeFfGgHhIiJjKkLlMm", "Прізвище не може містити більше, ніж 25 символів"},
+                {"", ""},
+                {"1Admin", "Прізвище не може містити цифри"},
+                {"2Admin", "Прізвище не може містити цифри"},
+                {"3Admin", "Прізвище не може містити цифри"},
+                {"4Admin", "Прізвище не може містити цифри"},
+                {"-Lastname", "Прізвище повинно починатися та закінчуватися літерою"},
+                {"< Lastname>", "Прізвище повинно починатися та закінчуватися літерою"},
+                {"\'Lastname", "Прізвище повинно починатися та закінчуватися літерою"},
+                {"Lastname-", "Прізвище повинно починатися та закінчуватися літерою"},
+                {"<Lastname >", "Прізвище повинно починатися та закінчуватися літерою"},
+                {"Lastname\'", "Прізвище повинно починатися та закінчуватися літерою"},
+                {"!Admin", "Прізвище не може містити спеціальні символи"},
+                {"@Admin", "Прізвище не може містити спеціальні символи"},
+                {"#Admin", "Прізвище не може містити спеціальні символи"},
+                {"$Admin", "Прізвище не може містити спеціальні символи"},
+                {"%Admin", "Прізвище не може містити спеціальні символи"},
+                {"^Admin", "Прізвище не може містити спеціальні символи"},
+                {"&Admin", "Прізвище не може містити спеціальні символи"},
+                {"*Admin", "Прізвище не може містити спеціальні символи"},
+                {"(Admin", "Прізвище не може містити спеціальні символи"},
+                {"_Admin", "Прізвище не може містити спеціальні символи"},
+                {"+Admin", "Прізвище не може містити спеціальні символи"},
+                {".Admin", "Прізвище не може містити спеціальні символи"},
+                {":Admin", "Прізвище не може містити спеціальні символи"},
+                {"", "Введіть прізвище"}
+        };
+    }
 
+    @Test(dataProvider = "lastNameDataProvider")
+    public void checkErrorMsWhenFillInvalidDataIntoLastNameField(String data,String expected){
+        HeaderPage profile = new HeaderPage(driver);
+        ProfileEditPopUpComponent edit = profile
+                .authorize(valueProvider.getAdminEmail(), valueProvider.getAdminPassword())
+                .clickOnUserLoginDropdown()
+                .clickOnProfile()
+                .clickEditProfile()
+                .fillLastName(data);
+        SoftAssert softAssert=new SoftAssert();
+        softAssert.assertEquals(edit.getMessage(),expected);
+    }
+
+    @DataProvider
+    public Object[][] firstNameDataProvider() {
+        return new Object[][]{
+                {"AfBbCcDdEeFfGgHhIiJjKkLlMmNn", "Ім'я не може містити більше, ніж 25 символів"},
+                {"AfBbCcDdEeFfGgHhIiJjKkLlMm", "Ім'я не може містити більше, ніж 25 символів"},
+                {"", ""},
+                {"1Admin", "Ім'я не може містити цифри"},
+                {"2Admin", "Ім'я не може містити цифри"},
+                {"3Admin", "Ім'я не може містити цифри"},
+                {"4Admin", "Ім'я не може містити цифри"},
+                {"-Name", "Ім'я повинно починатися та закінчуватися літерою"},
+                {"< Name>", "Ім'я повинно починатися та закінчуватися літерою"},
+                {"\'Name", "Ім'я повинно починатися та закінчуватися літерою"},
+                {"Name-", "Ім'я повинно починатися та закінчуватися літерою"},
+                {"<Name >", "Ім'я повинно починатися та закінчуватися літерою"},
+                {"Name\'", "Ім'я повинно починатися та закінчуватися літерою"},
+                {"!Admin", "Ім'я не може містити спеціальні символи"},
+                {"@Admin", "Ім'я не може містити спеціальні символи"},
+                {"#Admin", "Ім'я не може містити спеціальні символи"},
+                {"$Admin", "Ім'я не може містити спеціальні символи"},
+                {"%Admin", "Ім'я не може містити спеціальні символи"},
+                {"^Admin", "Ім'я не може містити спеціальні символи"},
+                {"&Admin", "Ім'я не може містити спеціальні символи"},
+                {"*Admin", "Ім'я не може містити спеціальні символи"},
+                {"(Admin", "Ім'я не може містити спеціальні символи"},
+                {"_Admin", "Ім'я не може містити спеціальні символи"},
+                {"+Admin", "Ім'я не може містити спеціальні символи"},
+                {".Admin", "Ім'я не може містити спеціальні символи"},
+                {":Admin", "Ім'я не може містити спеціальні символи"},
+                {"", "Введіть Ім'я"}
+        };
+    }
+
+    @Test(dataProvider = "firstNameDataProvider")
+    public void checkErrorMsWhenFillInvalidDataIntoFirstNameField(String data,String expected){
+        HeaderPage profile = new HeaderPage(driver);
+        ProfileEditPopUpComponent edit = profile
+                .authorize(valueProvider.getAdminEmail(), valueProvider.getAdminPassword())
+                .clickOnUserLoginDropdown()
+                .clickOnProfile()
+                .clickEditProfile()
+                .fillFirstName(data);
+        SoftAssert softAssert=new SoftAssert();
+        softAssert.assertEquals(edit.getMessage(),expected);
+    }
 }
