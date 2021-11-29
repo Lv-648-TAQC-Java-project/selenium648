@@ -40,5 +40,4 @@ public class InputElement extends BaseElement {
         return this.element.getAttribute("value");
     }
 
-
 }

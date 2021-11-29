@@ -164,4 +164,31 @@ public class OwnerProfileTest extends TestRunner {
         header.clickOnGuestDropdown();
     }
 
+    @DataProvider
+    public Object[][] checkErrorAppearsIfUserEntersInvalidDataOfDescriptionFieldDataProvider() {
+        return new Object[][]{
+                {"incorrectvaluewertyu"},
+                {"l"},
+                {"qwertyuiopasdfghjklqwertyuiopasdfghjklj"}
+        };
+    }
+
+    @Test(dataProvider = "checkErrorAppearsIfUserEntersInvalidDataOfDescriptionFieldDataProvider")
+    public void checkErrorAppearsIfUserEntersInvalidDataOfDescriptionField(String symbols) {
+        boolean actualResult = new HeaderPage(driver).authorize(valueProvider.getAdminEmail(), valueProvider.getAdminPassword())
+                .clickOnOwnerDropdown()
+                .clickOnProfile()
+                .clickOnAddButton()
+                .clickOnAddClubButton()
+                .sendKeysClubNameInput("TestField")
+                .selectSportSectionsCheckBox()
+                .sendKeysAgeFromInput("2")
+                .sendKeysAgeToInput("5")
+                .clickNextStepButton()
+                .sendKeysPhoneInput("0444444444")
+                .clickNextStepButton()
+                .sendKeysDescriptionInput(symbols)
+                .incorrectDescriptionAlertIsDisplayed();
+        Assert.assertTrue(actualResult);
+    }
 }
