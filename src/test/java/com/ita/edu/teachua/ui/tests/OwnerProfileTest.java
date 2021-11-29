@@ -224,6 +224,32 @@ public class OwnerProfileTest extends TestRunner {
         header.clickOnGuestDropdown();
     }
 
+
+    @DataProvider
+    public Object[][] verifyThatOwnerCanAddLocationToTheListOfLocationsWithValidDataDataProvider() {
+        return new Object[][]{
+                {"ТестЛокація2", "Харків", "Сумська 2/3", "50.00100346155677, 36.234188917163884", "0977777777"}
+        };
+    }
+
+    @Test(dataProvider = "verifyThatOwnerCanAddLocationToTheListOfLocationsWithValidDataDataProvider")
+    public void addLocationWithValidDataOfMandatoryFields(String name, String town, String address, String coordinates, String phoneNumber) {
+        boolean actualResult = new HeaderPage(driver).authorize(valueProvider.getAdminEmail(), valueProvider.getAdminPassword())
+                .clickOnOwnerDropdown()
+                .clickOnAddCenterButton()
+                .clickOnAddLocation()
+                .sendKeysLocationNameField(name)
+                .clickOnCityDropdown()
+                .clickOnKyivButton()
+                .sendKeysAddressField(address)
+                .sendKeysCoordinatesField(coordinates)
+                .sendKeysPhoneField(phoneNumber)
+                .clickOnAddButton()
+                .getCheckBoxByName(name)
+                .isDisplayed();
+        Assert.assertTrue(actualResult);
+
+
     @Test
     public void checkLastVerifyEnteredDataInRegistrationRemembered() {
         HeaderPage header = new HeaderPage(driver);
@@ -347,7 +373,7 @@ public class OwnerProfileTest extends TestRunner {
         SoftAssert softAssert=new SoftAssert();
         softAssert.assertEquals(edit.getMessage(),expected);
     }
-}
+
 
     @Test(description = "TUA-359 Verify that error messages are shown while leaving empty any field in the 'Змінити пароль' pop-up")
     public void getErrorMessageInChangePasswordPopUpTest() {
