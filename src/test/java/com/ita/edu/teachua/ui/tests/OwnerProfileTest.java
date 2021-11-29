@@ -174,8 +174,7 @@ public class OwnerProfileTest extends TestRunner {
 
     @Test(dataProvider = "verifyThatOwnerCanAddLocationToTheListOfLocationsWithValidDataDataProvider")
     public void addLocationWithValidDataOfMandatoryFields(String name, String town, String address, String coordinates, String phoneNumber) {
-        HeaderPage headerPage = new HeaderPage(driver);
-        boolean actualResult = headerPage.authorize(valueProvider.getAdminEmail(), valueProvider.getAdminPassword())
+        boolean actualResult = new HeaderPage(driver).authorize(valueProvider.getAdminEmail(), valueProvider.getAdminPassword())
                 .clickOnOwnerDropdown()
                 .clickOnAddCenterButton()
                 .clickOnAddLocation()
