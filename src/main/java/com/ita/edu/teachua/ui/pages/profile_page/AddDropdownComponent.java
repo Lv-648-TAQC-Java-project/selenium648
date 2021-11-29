@@ -8,6 +8,7 @@ import org.openqa.selenium.WebDriver;
 public class AddDropdownComponent extends BasePage {
 
     private ButtonElement addCenterButton;
+    private ButtonElement addClubButton;
 
     public AddDropdownComponent(WebDriver driver) {
         super(driver);
@@ -17,5 +18,12 @@ public class AddDropdownComponent extends BasePage {
         addCenterButton = new ButtonElement(driver, AddDropdownComponentLocators.ADD_CENTER_BUTTON);
         addCenterButton.click();
         return new AddCenterPopUpComponent(driver);
+    }
+
+    public AddClubPopUpComponent clickOnAddClubButton() {
+        addClubButton = new ButtonElement(driver, AddDropdownComponentLocators.ADD_CLUB_BUTTON);
+        //waitElementToBeClickable(AddDropdownComponentLocators.ADD_CLUB_BUTTON,5);
+        addClubButton.click();
+        return new AddClubPopUpComponent(driver);
     }
 }
