@@ -4,8 +4,12 @@ import com.ita.edu.teachua.ui.elements.ButtonElement;
 import com.ita.edu.teachua.ui.elements.DropDownElement;
 import com.ita.edu.teachua.ui.elements.LinkElement;
 import com.ita.edu.teachua.ui.locators.pageslocators.headerlocators.HeaderLocators;
+import com.ita.edu.teachua.ui.pages.aboutuspage.AboutUsPage;
 import com.ita.edu.teachua.ui.pages.advanced_search.AdvancedSearchPage;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
+import com.ita.edu.teachua.ui.pages.clubs_page.ClubsPage;
+import com.ita.edu.teachua.ui.pages.services_page.ServicesPage;
+import org.checkerframework.checker.units.qual.C;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
@@ -33,19 +37,19 @@ public class HeaderPage extends BasePage {
         advancedSearchButton = new ButtonElement(driver, HeaderLocators.ADVANCED_SEARCH_BUTTON);
     }
 
-    public HeaderPage clickOnClubs() {
+    public ClubsPage clickOnClubs() {
         clubsLink.click();
-        return this;
+        return new ClubsPage(driver);
     }
 
-    public HeaderPage clickOnAboutUs() {
+    public AboutUsPage clickOnAboutUs() {
         aboutUs.click();
-        return this;
+        return new AboutUsPage(driver);
     }
 
-    public HeaderPage clickOnServices() {
+    public ServicesPage clickOnServices() {
         services.click();
-        return this;
+        return new ServicesPage(driver);
     }
 
     public GuestDropdownComponent clickOnGuestDropdown() {

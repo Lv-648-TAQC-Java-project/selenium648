@@ -1,12 +1,16 @@
 package com.ita.edu.teachua.ui.tests;
 
 import com.ita.edu.teachua.ui.pages.advanced_search.AdvancedSearchPage;
+import com.ita.edu.teachua.ui.pages.clubs_page.ClubsPage;
 import com.ita.edu.teachua.ui.pages.header.HeaderPage;
 import com.ita.edu.teachua.ui.pages.main_page.MainPage;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
+
+import java.util.List;
 
 public class AdvancedSearchTest extends TestRunner {
 
@@ -86,5 +90,38 @@ public class AdvancedSearchTest extends TestRunner {
                 .checkThatCentersAreDisplayedAsAList();
         Assert.assertTrue(checkIfCentersAreDisplayedAsAList);
     }
+
+    @Test
+    public void checkSortingClubs() {
+        HeaderPage headerPage = new HeaderPage(driver);
+        AdvancedSearchPage advSearch =  headerPage.clickAdvancedSearchButton();
+        List<WebElement> titles = advSearch.getAllTitlesOfCards();
+        boolean actual = true;
+        try {
+            driver.wait(10000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        for (int i = 0; i < advSearch.getNumberOfPagesWithClubs(); i++) {
+            for (int j = 0; j < titles.size() - 1; j++) {
+                char[] firstTitle =  titles.get(j).getText().toLowerCase().replaceAll(" ", "").toCharArray();
+                char[] secondTitle =  titles.get(j+1).getText().toLowerCase().replaceAll(" ", "").toCharArray();
+                int wordLength = Math.min(firstTitle.length, secondTitle.length);
+                for (int k = 0; k < wordLength; k++) {
+                    if (firstTitle[k] < secondTitle[k]) {
+                        break;
+                    }
+                    else if (firstTitle[k] > secondTitle[k]){
+                        actual = false;
+                        break;
+                    }
+                }
+                Assert.assertTrue(actual);
+            }
+            advSearch.clickOnNextPageButton();
+        }
+    }
+
+
 
 }

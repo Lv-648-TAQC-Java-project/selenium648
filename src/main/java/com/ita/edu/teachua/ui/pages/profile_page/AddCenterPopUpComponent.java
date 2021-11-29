@@ -24,16 +24,30 @@ public class AddCenterPopUpComponent extends BasePage {
         super(driver);
     }
 
-
-        //nameField = new InputElement(driver, AddCenterPopUpComponentLocators.NAME_FIELD);
-        //phoneNumber = new InputElement(driver, AddCenterPopUpComponentLocators.PHONE_NUMBER_FIELD);
-        //description = new InputElement(driver, AddCenterPopUpComponentLocators.DESCRIPTION_FIELD);
-
-
-
     public AddLocationPopUpComponent clickOnAddLocation() {
         addLocation = new ButtonElement(driver, AddCenterPopUpComponentLocators.ADD_LOCATION_BUTTON);
         addLocation.click();
+        return new AddLocationPopUpComponent(driver);
+    }
+
+    public AddLocationPopUpComponent fillNameField(String name) {
+        nameField = new InputElement(driver, AddCenterPopUpComponentLocators.NAME_FIELD);
+        nameField.click();
+        nameField.sendKeys(name);
+        return new AddLocationPopUpComponent(driver);
+    }
+
+    public AddLocationPopUpComponent fillPhoneNumberField(String phone) {
+        phoneNumber = new InputElement(driver, AddCenterPopUpComponentLocators.PHONE_NUMBER_FIELD);
+        phoneNumber.click();
+        phoneNumber.sendKeys(phone);
+        return new AddLocationPopUpComponent(driver);
+    }
+
+    public AddLocationPopUpComponent fillDescriptionField(String dscrb) {
+        description = new InputElement(driver, AddCenterPopUpComponentLocators.DESCRIPTION_FIELD);
+        description.click();
+        description.sendKeys(dscrb);
         return new AddLocationPopUpComponent(driver);
     }
 

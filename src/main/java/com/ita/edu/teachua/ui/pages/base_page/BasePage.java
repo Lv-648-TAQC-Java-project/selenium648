@@ -13,11 +13,11 @@ public class BasePage {
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
-        maximazeWindow();
+        maximizeWindow();
 //        setWait();
     }
 
-    public void maximazeWindow() {
+    public void maximizeWindow() {
         driver.manage().window().maximize();
     }
 

@@ -1,5 +1,6 @@
 package com.ita.edu.teachua.ui.pages.clubs_page;
 
+import com.ita.edu.teachua.ui.elements.ButtonElement;
 import com.ita.edu.teachua.ui.elements.InputElement;
 import com.ita.edu.teachua.ui.locators.pageslocators.clubslocators.ClubsPageLocators;
 import com.ita.edu.teachua.ui.locators.pageslocators.mainpagelocators.MainPageLocators;
@@ -76,4 +77,14 @@ public class ClubsPage extends BasePage {
         return isPresent;
     }
 
+    public ClubsPage clickOnNextPageButton() {
+        ButtonElement nextPageButton = new ButtonElement(driver, ClubsPageLocators.NEXT_PAGE_BUTTON);
+        nextPageButton.click();
+        return this;
+    }
+
+    public int getNumberOfPagesWithClubs() {
+        ButtonElement lastPageButton = new ButtonElement(driver, ClubsPageLocators.LAST_PAGE_BUTTON);
+        return Integer.parseInt(lastPageButton.getInnerText());
+    }
 }

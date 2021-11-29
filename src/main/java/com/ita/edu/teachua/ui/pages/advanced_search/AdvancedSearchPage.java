@@ -2,7 +2,9 @@ package com.ita.edu.teachua.ui.pages.advanced_search;
 
 import com.ita.edu.teachua.ui.elements.*;
 import com.ita.edu.teachua.ui.locators.pageslocators.advancedsearchlocators.AdvancedSearchPageLocators;
+import com.ita.edu.teachua.ui.locators.pageslocators.clubslocators.ClubsPageLocators;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
+import com.ita.edu.teachua.ui.pages.clubs_page.ClubsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -233,4 +235,18 @@ public class AdvancedSearchPage extends BasePage {
         return driver.findElement(AdvancedSearchPageLocators.ADVANCED_SEARCH_FIELD_TITLE.getPath()).getText();
     }
 
+    public AdvancedSearchPage clickOnNextPageButton() {
+        ButtonElement nextPageButton = new ButtonElement(driver, AdvancedSearchPageLocators.NEXT_PAGE_BUTTON);
+        nextPageButton.click();
+        return this;
+    }
+
+    public List<WebElement> getAllTitlesOfCards() {
+        return driver.findElements(ClubsPageLocators.CARD_TITLE.getPath());
+    }
+
+    public int getNumberOfPagesWithClubs() {
+        ButtonElement lastPageButton = new ButtonElement(driver, AdvancedSearchPageLocators.LAST_PAGE_BUTTON);
+        return Integer.parseInt(lastPageButton.getInnerText());
+    }
 }

@@ -8,12 +8,8 @@ import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import org.openqa.selenium.WebDriver;
 
 public class LoginPopUpComponent extends BasePage {
-
-    private InputElement email;
-    private InputElement password;
     private ButtonElement logInButton;
     private LinkElement forgotPassword;
-
     private InputElement emailField;
     private InputElement passwordField;
     private ButtonElement submitButton;
@@ -33,16 +29,6 @@ public class LoginPopUpComponent extends BasePage {
 
     public void clickRegisterButton() {
         logInButton.click();
-    }
-
-    public LoginPopUpComponent clickEmailField() {
-        emailField.click();
-        return this;
-    }
-
-    public LoginPopUpComponent clickPasswordField() {
-        passwordField.click();
-        return this;
     }
 
     public LoginPopUpComponent sendKeysEmailField(String emailValue) {

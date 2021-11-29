@@ -6,7 +6,9 @@ import org.openqa.selenium.By;
 public enum ClubsPageLocators implements Locator {
     CARD_TITLE(By.cssSelector("div[class='name']")),
     CARD_CATEGORY(By.cssSelector("span[class='name']")),
-    CLUBS_PAGE_TITLE(By.xpath("//h2[contains(text(),'Гуртки у місті Київ')]"));
+    CLUBS_PAGE_TITLE(By.xpath("//h2[contains(text(),'Гуртки у місті Київ')]")),
+    NEXT_PAGE_BUTTON(By.xpath("//li[@title='Next Page']//button[class='ant-pagination-item-link']")),
+    LAST_PAGE_BUTTON(By.xpath("//li[@title='Next Page']/preceding-sibling::*[1]"));
 
     private final By path;
 

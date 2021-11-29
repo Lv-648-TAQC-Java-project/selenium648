@@ -33,7 +33,8 @@ public enum AdvancedSearchPageLocators implements Locator {
     ADVANCED_SEARCH_FIELD_TITLE(By.xpath("//*[@class='club-list-label']")),
     IS_ONLINE_CHECKBOX(By.id("basic_isOnline")),
     REGION_DROPDOWN(By.xpath("//*[@id='basic_districtName']")),
-    ;
+    NEXT_PAGE_BUTTON(By.xpath("//li[@title='Next Page']//button[class='ant-pagination-item-link']")),
+    LAST_PAGE_BUTTON(By.xpath("//li[@title='Next Page']/preceding-sibling::*[1]"));
 
     private final By path;
 
