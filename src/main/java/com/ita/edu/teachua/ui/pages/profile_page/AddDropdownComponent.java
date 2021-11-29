@@ -21,6 +21,7 @@ public class AddDropdownComponent extends BasePage {
         addCenterButton.click();
         return new AddCenterPopUpComponent(driver);
     }
+
     public AddClubPopUpComponent clickOnAddClubButton() {
         addClubButton = new ButtonElement(driver, AddDropdownComponentLocators.ADD_CLUB_BUTTON);
         waitElementToBeClickable(AddDropdownComponentLocators.ADD_CLUB_BUTTON,5);

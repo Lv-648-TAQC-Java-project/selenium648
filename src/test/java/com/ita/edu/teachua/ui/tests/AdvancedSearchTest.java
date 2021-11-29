@@ -77,7 +77,6 @@ public class AdvancedSearchTest extends TestRunner {
 
     @Test
     public void checkIfCentersAreDisplayedAsAList() {
-
     SoftAssert softAssert = new SoftAssert();
         MainPage mainPage = new MainPage(driver);
         String urlMainPage = mainPage.getMainPageUrL();
