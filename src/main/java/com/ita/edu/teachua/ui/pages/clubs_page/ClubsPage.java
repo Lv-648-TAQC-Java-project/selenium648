@@ -22,6 +22,9 @@ public class ClubsPage extends BasePage {
     public List<WebElement> getAllTitlesOfCards() {
         return driver.findElements(ClubsPageLocators.CARD_TITLE.getPath());
     }
+    public String getTitleOfInvalidSearchPage() {
+        return driver.findElement(ClubsPageLocators.INVALID_CLUBS_BASIC_SEARCH.getPath()).getText();
+    }
 
     public boolean isClubPresent(String title) {
         List<WebElement> titles = this.getAllTitlesOfCards();
