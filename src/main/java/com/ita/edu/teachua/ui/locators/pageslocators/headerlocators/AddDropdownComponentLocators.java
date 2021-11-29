@@ -4,8 +4,11 @@ import com.ita.edu.teachua.ui.locators.Locator;
 import org.openqa.selenium.By;
 
 public enum AddDropdownComponentLocators implements Locator {
-    ADD_CLUB_BUTTON(By.xpath("//ul[@classname='menu']//div[contains(text(),'Додати гурток')]")),
-    ADD_CENTER_BUTTON(By.xpath("//ul[@classname='menu']//div[contains(text(),'Додати центр')]"));
+
+
+    ADD_CENTER_BUTTON(By.xpath("//ul[@classname='menu']//div[contains(text(),'Додати центр')]")),
+    ADD_CLUB_BUTTON(By.xpath("//ul[@classname='menu']//div[contains(text(),'Додати гурток')]"))
+    ;
 
     private final By path;
 
