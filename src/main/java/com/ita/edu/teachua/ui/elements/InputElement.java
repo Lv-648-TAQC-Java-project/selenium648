@@ -40,5 +40,8 @@ public class InputElement extends BaseElement {
         return this.element.getAttribute("value");
     }
 
+    public String getCSSValue(String value){
+        return this.element.getCssValue(value);
+    }
 
 }

@@ -33,6 +33,11 @@ public enum AdvancedSearchPageLocators implements Locator {
     ADVANCED_SEARCH_FIELD_TITLE(By.xpath("//*[@class='club-list-label']")),
     IS_ONLINE_CHECKBOX(By.id("basic_isOnline")),
     REGION_DROPDOWN(By.xpath("//*[@id='basic_districtName']")),
+    ADVANCED_SEARCH_BLOCK(By.cssSelector("aside.ant-layout-sider.ant-layout-sider-dark.club-list-sider")),
+    CENTER_ITEM(By.xpath("//*[@class='ant-card-body']")),
+    CENTER_ADDRESS(By.xpath("//*[@class='oneAddress']"))
+
+
     ;
 
     private final By path;

@@ -5,8 +5,15 @@ import org.openqa.selenium.By;
 
 public enum ProfileEditPopUpLocators implements Locator {
     PHONE_EDIT(By.xpath("//input[@id='edit_phone']")),
+    PASSWORD_EDIT_CHECKBOX(By.xpath("//input[@class='checkbox']")),
+    SAVE_CHANGE_BUTTON(By.xpath("//button[@class='ant-btn submit-button']")),
+    CURRENT_PASSWORD_ERROR_MESSAGE(By.xpath("//*[@id='edit_currentPassword']/following::div[@class='ant-form-item-explain-error']")),
+    NEW_PASSWORD_ERROR_MESSAGE(By.xpath("//*[@id='edit_password']/following::div[@class='ant-form-item-explain-error']")),
+    CONFIRM_PASSWORD_ERROR_MESSAGE(By.xpath("//*[@id='edit_confirmPassword']/following::div[@class='ant-form-item-explain-error']")),
+    CURRENT_PASSWORD_INPUT(By.xpath("//*[@id='edit_currentPassword']")),
+    NEW_PASSWORD_INPUT(By.xpath("//*[@id='edit_password']")),
+    CONFIRM_PASSWORD_INPUT(By.xpath("//*[@id='edit_confirmPassword']")),
     MESSAGE_INVALID_INPUT(By.xpath("//div[@role='alert']"));
-
 
     private final By path;
 
@@ -19,3 +26,4 @@ public enum ProfileEditPopUpLocators implements Locator {
         return path;
     }
 }
+

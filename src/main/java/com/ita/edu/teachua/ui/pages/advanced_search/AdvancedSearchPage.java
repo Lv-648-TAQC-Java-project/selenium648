@@ -4,6 +4,7 @@ import com.ita.edu.teachua.ui.elements.*;
 import com.ita.edu.teachua.ui.locators.pageslocators.advancedsearchlocators.AdvancedSearchPageLocators;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -37,9 +38,10 @@ public class AdvancedSearchPage extends BasePage {
     private LabelElement ageLabel;
     private InputElement ageInput;
 
-    private ButtonElement workShopRadioButton;
-    private ButtonElement centerRadioButton;
+    private RadioButtonElement workShopRadioButton;
+    private RadioButtonElement centerRadioButton;
     private ButtonElement listIcon;
+    private DivElement advancedSearchBlock;
 
 
     public AdvancedSearchPage(WebDriver driver) {
@@ -178,50 +180,34 @@ public class AdvancedSearchPage extends BasePage {
     }
 
 
-    public AdvancedSearchPage verifyThatUserIsOnAdvancedSearchPage() {
-        String actual = driver.getCurrentUrl();
-        String expected = "https://speak-ukrainian.org.ua/dev/clubs";
-        Assert.assertEquals(expected, actual);
-        return this;
-    }
-
-    public AdvancedSearchPage verifyThatWorkshopRadioButtonIsChosenByDefault() {
-        workShopRadioButton = new ButtonElement(driver, AdvancedSearchPageLocators.WORKSHOP_RADIO_BUTTON);
-        workShopRadioButton.isSelected();
-        return this;
+    public RadioButtonElement getWorkshopRadioButton() {
+        return new RadioButtonElement(driver, AdvancedSearchPageLocators.WORKSHOP_RADIO_BUTTON);
     }
 
     public AdvancedSearchPage clickOnCenterRadioButton() {
-        centerRadioButton = new ButtonElement(driver, AdvancedSearchPageLocators.CENTER_RADIO_BUTTON);
+        centerRadioButton = new RadioButtonElement(driver, AdvancedSearchPageLocators.CENTER_RADIO_BUTTON);
         centerRadioButton.click();
         return this;
     }
 
-    public AdvancedSearchPage verifyThatCenterRadioButtonIsChosen() {
-        centerRadioButton = new ButtonElement(driver, AdvancedSearchPageLocators.CENTER_RADIO_BUTTON);
-        centerRadioButton.isSelected();
-        try {
-            Thread.sleep(2000);
-        } catch (InterruptedException e) {
-            e.printStackTrace();
-        }
-        return this;
+    public RadioButtonElement getCenterRadioButton() {
+        return new RadioButtonElement(driver, AdvancedSearchPageLocators.CENTER_RADIO_BUTTON);
     }
 
     public AdvancedSearchPage clickOnListIcon() {
         listIcon = new ButtonElement(driver, AdvancedSearchPageLocators.LIST_ICON_IN_MENU_BAR);
         listIcon.click();
+        sleep(1000);
         return this;
     }
 
-    public boolean checkThatCentersAreDisplayedAsAList() {
+    public List<ClubsItemComponent> getCards(){
         List<WebElement> centerBlocks = driver.findElements(By.cssSelector(".ant-card.ant-card-bordered.card.center-list-rectangle-item"));
+        List<ClubsItemComponent> clubBlocks = new ArrayList<>();
         for (WebElement j : centerBlocks) {
-            if (j.isDisplayed()) {
-                return true;
-            }
+            clubBlocks.add(new ClubsItemComponent(driver, j));
         }
-        return false;
+        return clubBlocks;
     }
 
     public boolean isAdvanceSearchFieldDisappear() {
@@ -232,5 +218,15 @@ public class AdvancedSearchPage extends BasePage {
     public String getTitleOfAdvancedSearchField() {
         return driver.findElement(AdvancedSearchPageLocators.ADVANCED_SEARCH_FIELD_TITLE.getPath()).getText();
     }
+
+    public boolean isSearchBlockPresent() {
+        try {
+            advancedSearchBlock = new DivElement(driver, AdvancedSearchPageLocators.ADVANCED_SEARCH_BLOCK);
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
 
 }
