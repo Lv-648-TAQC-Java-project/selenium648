@@ -4,6 +4,7 @@ import com.ita.edu.teachua.ui.elements.ButtonElement;
 import com.ita.edu.teachua.ui.elements.DropDownElement;
 import com.ita.edu.teachua.ui.elements.LinkElement;
 import com.ita.edu.teachua.ui.locators.pageslocators.headerlocators.HeaderLocators;
+import com.ita.edu.teachua.ui.pages.aboutuspage.AboutUsPage;
 import com.ita.edu.teachua.ui.pages.advanced_search.AdvancedSearchPage;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import org.checkerframework.checker.units.qual.A;
@@ -34,19 +35,19 @@ public class HeaderPage extends BasePage {
         guestDropdown = new DropDownElement(driver, HeaderLocators.GUEST_DROPDOWN);
     }
 
-    public HeaderPage clickOnClubs() {
+    public ClubsPage clickOnClubs() {
         clubsLink.click();
-        return this;
+        return new ClubsPage(driver);
     }
 
-    public HeaderPage clickOnAboutUs() {
+    public AboutUsPage clickOnAboutUs() {
         aboutUs.click();
-        return this;
+        return new AboutUsPage(driver);
     }
 
-    public HeaderPage clickOnServices() {
+    public ServicesPage clickOnServices() {
         services.click();
-        return this;
+        return new ServicesPage(driver);
     }
 
     public GuestDropdownComponent clickOnGuestDropdown() {
@@ -78,5 +79,4 @@ public class HeaderPage extends BasePage {
         ownerDropdown.click();
         return new OwnerDropdownComponent(driver);
     }
-
 }

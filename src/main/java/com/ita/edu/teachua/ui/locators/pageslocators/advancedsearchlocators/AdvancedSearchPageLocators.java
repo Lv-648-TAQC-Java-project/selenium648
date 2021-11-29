@@ -29,19 +29,16 @@ public enum AdvancedSearchPageLocators implements Locator {
     AGE_INPUT(By.cssSelector("input[role='spinbutton']")),
     WORKSHOP_RADIO_BUTTON(By.xpath("//span[@class='ant-radio ant-radio-checked']")),
     CENTER_RADIO_BUTTON(By.xpath("//span[@class='ant-radio']")),
-
     CENTER_RADIO_BUTTON_CHECKED(By.xpath("//span[@class='ant-radio']")),
-
     LIST_ICON_IN_MENU_BAR(By.cssSelector("label[class='ant-radio-button-wrapper club-view-button']")),
     ADVANCED_SEARCH_FIELD_TITLE(By.xpath("//*[@class='club-list-label']")),
     IS_ONLINE_CHECKBOX(By.id("basic_isOnline")),
     REGION_DROPDOWN(By.xpath("//*[@id='basic_districtName']")),
     ADVANCED_SEARCH_BLOCK(By.cssSelector("aside.ant-layout-sider.ant-layout-sider-dark.club-list-sider")),
     CENTER_ITEM(By.xpath("//*[@class='ant-card-body']")),
-    CENTER_ADDRESS(By.xpath("//*[@class='oneAddress']"))
-
-
-    ;
+    CENTER_ADDRESS(By.xpath("//*[@class='oneAddress']")),
+    NEXT_PAGE_BUTTON(By.xpath("//li[@title='Next Page']//button[class='ant-pagination-item-link']")),
+    LAST_PAGE_BUTTON(By.xpath("//li[@title='Next Page']/preceding-sibling::*[1]"));
 
     private final By path;
 

@@ -34,7 +34,6 @@ public class RegisterPopUpComponent extends BasePage {
         registerButton.click();
     }
 
-
     public RegisterPopUpComponent clickFirstNameField() {
         firstName.click();
         return this;

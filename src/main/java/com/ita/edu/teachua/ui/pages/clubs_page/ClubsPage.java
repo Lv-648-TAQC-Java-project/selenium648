@@ -45,4 +45,14 @@ public class ClubsPage extends BasePage {
         return isPresent;
     }
 
+    public ClubsPage clickOnNextPageButton() {
+        ButtonElement nextPageButton = new ButtonElement(driver, ClubsPageLocators.NEXT_PAGE_BUTTON);
+        nextPageButton.click();
+        return this;
+    }
+
+    public int getNumberOfPagesWithClubs() {
+        ButtonElement lastPageButton = new ButtonElement(driver, ClubsPageLocators.LAST_PAGE_BUTTON);
+        return Integer.parseInt(lastPageButton.getInnerText());
+    }
 }
