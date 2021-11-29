@@ -1,9 +1,8 @@
 package com.ita.edu.teachua.ui.pages.profile_page;
 
-import com.ita.edu.teachua.ui.elements.ButtonElement;
-import com.ita.edu.teachua.ui.elements.DivElement;
-import com.ita.edu.teachua.ui.elements.DropDownElement;
-import com.ita.edu.teachua.ui.elements.InputElement;
+import com.ita.edu.teachua.ui.elements.*;
+import com.ita.edu.teachua.ui.locators.Locator;
+import com.ita.edu.teachua.ui.locators.pageslocators.profilelocators.AddLocationPopUpDynamicLocators;
 import com.ita.edu.teachua.ui.locators.pageslocators.profilelocators.AddLocationPopUpLocators;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import org.openqa.selenium.NoSuchElementException;
@@ -20,22 +19,11 @@ public class AddLocationPopUpComponent extends BasePage {
     private InputElement addressField;
     private InputElement coordinatesField;
     private InputElement phoneField;
+    private LabelElement fieldAcceptLabel;
 
     public AddLocationPopUpComponent(WebDriver driver) {
         super(driver);
-        initElements();
     }
-
-    private void initElements() {
-        locationNameField = new InputElement(driver, AddLocationPopUpLocators.LOCATION_NAME_FIELD);
-        cityDropdown = new DropDownElement(driver, AddLocationPopUpLocators.CITY_DROPDOWN);
-        districtDropdown = new DropDownElement(driver, AddLocationPopUpLocators.DISTRICT_DROPDOWN);
-        localityDropdown = new DropDownElement(driver, AddLocationPopUpLocators.LOCALITY_DROPDOWN);
-        addressField = new InputElement(driver, AddLocationPopUpLocators.ADDRESS_FIELD);
-        coordinatesField = new InputElement(driver, AddLocationPopUpLocators.COORDINATES_FIELD);
-        phoneField = new InputElement(driver, AddLocationPopUpLocators.PHONE_FIELD);
-    }
-
     public boolean checkAddButton() {
         addButton = new ButtonElement(driver, AddLocationPopUpLocators.ADD_BUTTON_DISABLED);
         return addButton.isActive();
@@ -53,6 +41,7 @@ public class AddLocationPopUpComponent extends BasePage {
     }
 
     public AddLocationPopUpComponent clickOnLocationNameField() {
+        locationNameField = new InputElement(driver, AddLocationPopUpLocators.LOCATION_NAME_FIELD);
         locationNameField.click();
         return this;
     }
@@ -63,22 +52,26 @@ public class AddLocationPopUpComponent extends BasePage {
     }
 
     public CityDropdownComponent clickOnCityDropdown() {
+        cityDropdown = new DropDownElement(driver, AddLocationPopUpLocators.CITY_DROPDOWN);
         cityDropdown.click();
         return new CityDropdownComponent(driver);
     }
 
 
     public DistrictDropdownComponent clickOnDistrictDropdown() {
+        districtDropdown = new DropDownElement(driver, AddLocationPopUpLocators.DISTRICT_DROPDOWN);
         districtDropdown.click();
         return new DistrictDropdownComponent(driver);
     }
 
     public LocalityDropdownComponent clickOnLocalityDropdown() {
+        localityDropdown = new DropDownElement(driver, AddLocationPopUpLocators.LOCALITY_DROPDOWN);
         localityDropdown.click();
         return new LocalityDropdownComponent(driver);
     }
 
     public AddLocationPopUpComponent clickOnAddressField() {
+        addressField = new InputElement(driver, AddLocationPopUpLocators.ADDRESS_FIELD);
         addressField.click();
         return this;
     }
@@ -89,6 +82,7 @@ public class AddLocationPopUpComponent extends BasePage {
     }
 
     public AddLocationPopUpComponent clickOnCoordinatesField() {
+        coordinatesField = new InputElement(driver, AddLocationPopUpLocators.COORDINATES_FIELD);
         coordinatesField.click();
         return this;
     }
@@ -99,6 +93,7 @@ public class AddLocationPopUpComponent extends BasePage {
     }
 
     public AddLocationPopUpComponent clickOnPhoneField() {
+        phoneField = new InputElement(driver, AddLocationPopUpLocators.PHONE_FIELD);
         phoneField.click();
         return this;
     }
@@ -112,5 +107,17 @@ public class AddLocationPopUpComponent extends BasePage {
         addButton = new ButtonElement(driver, AddLocationPopUpLocators.ADD_BUTTON);
         addButton.click();
         return new AddCenterPopUpComponent(driver);
+    }
+
+    public boolean isDataAccepted(String id) {
+
+        try {
+            fieldAcceptLabel = new LabelElement(driver,new AddLocationPopUpDynamicLocators().byId(id));
+            return true;
+        }
+        catch(NoSuchElementException e){
+            return false;
+        }
+
     }
 }
