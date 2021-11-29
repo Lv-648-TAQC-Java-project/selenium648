@@ -40,6 +40,12 @@ public class MainPage extends BasePage {
         return new AdvancedSearchPage(driver);
     }
 
+    public AdvancedSearchPage clickOnAdvancedSearchButton() {
+        ButtonElement buttonElement = new ButtonElement(driver, MainPageLocators.ADVANCED_SEARCH_BUTTON);
+        buttonElement.click();
+        return new AdvancedSearchPage(driver);
+    }
+
     public void clickSearchInput(InputElement searchInput) {
         searchInput = new InputElement(driver, MainPageLocators.SEARCH_INPUT_FIELD);
         this.searchInput = searchInput;
@@ -50,6 +56,7 @@ public class MainPage extends BasePage {
         clubsLink.click();
         return new ClubsPage(driver);
     }
+
 
     public ClubsPage inputStringInSearchField(String input) {
         searchInput = new InputElement(driver, MainPageLocators.SEARCH_INPUT_FIELD);

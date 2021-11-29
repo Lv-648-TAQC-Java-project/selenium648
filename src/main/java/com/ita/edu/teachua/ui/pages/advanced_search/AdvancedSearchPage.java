@@ -4,6 +4,7 @@ import com.ita.edu.teachua.ui.elements.*;
 import com.ita.edu.teachua.ui.locators.pageslocators.advancedsearchlocators.AdvancedSearchPageLocators;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -36,8 +37,10 @@ public class AdvancedSearchPage extends BasePage {
     private CheckBoxElement otherCheckBox;
     private LabelElement ageLabel;
     private InputElement ageInput;
+    private RadioButtonElement workShopRadioButton;
     private RadioButtonElement centerRadioButton;
     private ButtonElement listIcon;
+    private DivElement advancedSearchBlock;
 
     public AdvancedSearchPage(WebDriver driver) {
         super(driver);
@@ -213,5 +216,15 @@ public class AdvancedSearchPage extends BasePage {
     public String getTitleOfAdvancedSearchField() {
         return driver.findElement(AdvancedSearchPageLocators.ADVANCED_SEARCH_FIELD_TITLE.getPath()).getText();
     }
+
+    public boolean isSearchBlockPresent() {
+        try {
+            advancedSearchBlock = new DivElement(driver, AdvancedSearchPageLocators.ADVANCED_SEARCH_BLOCK);
+            return true;
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
 
 }

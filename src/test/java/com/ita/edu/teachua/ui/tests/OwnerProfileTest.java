@@ -6,6 +6,7 @@ import com.ita.edu.teachua.ui.pages.profile_page.ProfileEditPopUpComponent;
 import org.testng.Assert;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class OwnerProfileTest extends TestRunner {
     @DataProvider
@@ -162,6 +163,37 @@ public class OwnerProfileTest extends TestRunner {
     public void testPasswordRecovery() {
         HeaderPage header = new HeaderPage(driver);
         header.clickOnGuestDropdown();
+    }
+
+    @Test(description = "TUA-359 Verify that error messages are shown while leaving empty any field in the 'Змінити пароль' pop-up")
+    public void getErrorMessageInChangePasswordPopUpTest() {
+        HeaderPage headerPage = new HeaderPage(driver);
+        ProfileEditPopUpComponent editProfile = new ProfileEditPopUpComponent(driver);
+        SoftAssert softAssert = new SoftAssert();
+        headerPage.authorize(valueProvider.getAdminEmail(), valueProvider.getAdminPassword())
+                .clickOnOwnerDropdown()
+                .clickOnProfile()
+                .clickEditProfile()
+                .clickOnChangePasswordCheckBox()
+                .fillInCurrentPasswordInput(valueProvider.getAdminPassword())
+                .fillInNewPasswordInput("NewPassword101!")
+                .fillInConfirmPasswordInput("")
+                .clickOnSaveChangeButton();
+        softAssert.assertEquals(editProfile.getErrorMessageConfirmPasswordInput(), "Будь ласка, підтвердіть пароль");
+        softAssert.assertEquals(editProfile.getConfirmPasswordInputBorderColor(), "rgb(255, 77, 79)", "Confirm password input isn't red");
+        editProfile.fillInCurrentPasswordInput("")
+                .fillInNewPasswordInput("NewPassword101!")
+                .fillInConfirmPasswordInput("NewPassword101!")
+                .clickOnSaveChangeButton();
+        softAssert.assertEquals(editProfile.getErrorMessageCurrentPasswordInput(), "Введіть старий пароль");
+        softAssert.assertEquals(editProfile.getCurrentPasswordInputBorderColor(), "rgb(255, 77, 79)", "Current password input isn't red");
+        editProfile.fillInCurrentPasswordInput(valueProvider.getAdminPassword())
+                .fillInNewPasswordInput("")
+                .fillInConfirmPasswordInput("NewPassword101!")
+                .clickOnSaveChangeButton();
+        softAssert.assertEquals(editProfile.getErrorMessageNewPasswordInput(), "Будь ласка, введіть новий пароль");
+        softAssert.assertEquals(editProfile.getNewPasswordInputBorderColor(), "rgb(255, 77, 79)", "New password input isn't red");
+        softAssert.assertAll();
     }
 
 }
