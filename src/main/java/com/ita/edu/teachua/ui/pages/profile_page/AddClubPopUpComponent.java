@@ -39,7 +39,6 @@ public class AddClubPopUpComponent extends BasePage {
     private CheckBoxElement sportSectionsCheckBox;
     private InputElement childAgeFromInput;
     private InputElement childAgeToInput;
-    private ButtonElement nextStepButton;
     private ButtonElement addLocation;
 
     public AddClubPopUpComponent enterNameOfClub(String text){

@@ -7,6 +7,8 @@ import com.ita.edu.teachua.ui.locators.pageslocators.headerlocators.HeaderLocato
 import com.ita.edu.teachua.ui.pages.aboutuspage.AboutUsPage;
 import com.ita.edu.teachua.ui.pages.advanced_search.AdvancedSearchPage;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
+import com.ita.edu.teachua.ui.pages.clubs_page.ClubsPage;
+import com.ita.edu.teachua.ui.pages.services_page.ServicesPage;
 import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;

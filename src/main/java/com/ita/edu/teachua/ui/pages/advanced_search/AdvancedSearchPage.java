@@ -2,6 +2,7 @@ package com.ita.edu.teachua.ui.pages.advanced_search;
 
 import com.ita.edu.teachua.ui.elements.*;
 import com.ita.edu.teachua.ui.locators.pageslocators.advancedsearchlocators.AdvancedSearchPageLocators;
+import com.ita.edu.teachua.ui.locators.pageslocators.clubslocators.ClubsPageLocators;
 import com.ita.edu.teachua.ui.locators.pageslocators.profilelocators.AddClubPopUpComponentLocators;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import com.ita.edu.teachua.ui.pages.clubs_page.ClubsPage;
