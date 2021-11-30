@@ -45,5 +45,4 @@ public class ProfilePage extends BasePage {
         addClub.click();
         return new ClubPagePopUpComponent(driver);
     }
-
 }
