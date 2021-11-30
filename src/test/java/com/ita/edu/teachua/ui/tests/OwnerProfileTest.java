@@ -235,10 +235,12 @@ public class OwnerProfileTest extends TestRunner {
         };
     }
 
-    @Test(dataProvider = "verifyThatOwnerCanAddLocationToTheListOfLocationsWithValidDataDataProvider")
+    @Test(dataProvider = "verifyThatOwnerCanAddLocationToTheListOfLocationsWithValidDataDataProvider", description = "TUA-159")
     public void addLocationWithValidDataOfMandatoryFields(String name, String town, String address, String coordinates, String phoneNumber) {
         boolean actualResult = new HeaderPage(driver).authorize(valueProvider.getAdminEmail(), valueProvider.getAdminPassword())
                 .clickOnOwnerDropdown()
+                .clickOnProfile()
+                .clickOnAddButton()
                 .clickOnAddCenterButton()
                 .clickOnAddLocation()
                 .sendKeysLocationNameField(name)
@@ -250,7 +252,7 @@ public class OwnerProfileTest extends TestRunner {
                 .clickOnAddButton()
                 .getCheckBoxByName(name)
                 .isDisplayed();
-        Assert.assertTrue(actualResult);
+        Assert.assertTrue(actualResult, "Location was not create");
     }
 
 

@@ -47,12 +47,14 @@ public class AddLocationPopUpComponent extends BasePage {
     }
 
     public AddLocationPopUpComponent sendKeysLocationNameField(String locationName) {
+        locationNameField = new InputElement(driver, AddLocationPopUpLocators.LOCATION_NAME_FIELD);
         locationNameField.sendKeys(locationName);
         return this;
     }
 
     public CityDropdownComponent clickOnCityDropdown() {
         cityDropdown = new DropDownElement(driver, AddLocationPopUpLocators.CITY_DROPDOWN);
+//        cityDropdown = new DropDownElement(waitElementToBeClickable(AddLocationPopUpLocators.CITY_DROPDOWN, 10));
         cityDropdown.click();
         return new CityDropdownComponent(driver);
     }
@@ -77,6 +79,7 @@ public class AddLocationPopUpComponent extends BasePage {
     }
 
     public AddLocationPopUpComponent sendKeysAddressField(String address) {
+        addressField = new InputElement(driver, AddLocationPopUpLocators.ADDRESS_FIELD);
         addressField.sendKeys(address);
         return this;
     }
@@ -88,6 +91,7 @@ public class AddLocationPopUpComponent extends BasePage {
     }
 
     public AddLocationPopUpComponent sendKeysCoordinatesField(String coordinates) {
+        coordinatesField = new InputElement(driver, AddLocationPopUpLocators.COORDINATES_FIELD);
         coordinatesField.sendKeys(coordinates);
         return this;
     }
@@ -99,6 +103,7 @@ public class AddLocationPopUpComponent extends BasePage {
     }
 
     public AddLocationPopUpComponent sendKeysPhoneField(String phoneNumber) {
+        phoneField = new InputElement(driver, AddLocationPopUpLocators.PHONE_FIELD);
         phoneField.sendKeys(phoneNumber);
         return this;
     }
