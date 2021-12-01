@@ -10,7 +10,6 @@ import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import com.ita.edu.teachua.ui.pages.clubs_page.ClubsPage;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
-import org.testng.Assert;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -27,7 +26,7 @@ public class MainPage extends BasePage {
     }
 
     public String getMainPageUrL() {
-         return driver.getCurrentUrl();
+        return driver.getCurrentUrl();
     }
 
     public String getTitleOfAdvancedSearchField() {

@@ -22,8 +22,7 @@ public enum AddClubPopUpComponentLocators implements Locator {
     /*Base info area end*/
     /*Contacts area start*/
     ADD_LOCATION_BUTTON(By.className("add-club-location"))
-    /*Contacts area end*/
-    ;
+    /*Contacts area end*/;
 
     private final By path;
 

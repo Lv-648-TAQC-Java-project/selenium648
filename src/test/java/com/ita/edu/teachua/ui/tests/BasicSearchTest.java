@@ -52,6 +52,7 @@ public class BasicSearchTest extends TestRunner {
                 .getTitleOfInvalidSearchPage();
         Assert.assertEquals(actualResult, expectedResult);
     }
+
     @Test(dataProvider = "checkInvalidSymbolsAndQuantityDataProvider")
     public void checkInvalidSymbolsAndQuantityPaste(String input, String expectedResult) {
         String actualResult = new MainPage(driver).pasteClipBoardStringInSearchField(input)

@@ -1,13 +1,11 @@
 package com.ita.edu.teachua.ui.pages.profile_page;
 
 import com.ita.edu.teachua.ui.elements.*;
-import com.ita.edu.teachua.ui.locators.Locator;
 import com.ita.edu.teachua.ui.locators.pageslocators.profilelocators.AddLocationPopUpDynamicLocators;
 import com.ita.edu.teachua.ui.locators.pageslocators.profilelocators.AddLocationPopUpLocators;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
 
 public class AddLocationPopUpComponent extends BasePage {
     private ButtonElement addButton;
@@ -24,6 +22,7 @@ public class AddLocationPopUpComponent extends BasePage {
     public AddLocationPopUpComponent(WebDriver driver) {
         super(driver);
     }
+
     public boolean checkAddButton() {
         addButton = new ButtonElement(driver, AddLocationPopUpLocators.ADD_BUTTON_DISABLED);
         return addButton.isActive();
@@ -117,10 +116,9 @@ public class AddLocationPopUpComponent extends BasePage {
     public boolean isDataAccepted(String id) {
 
         try {
-            fieldAcceptLabel = new LabelElement(driver,new AddLocationPopUpDynamicLocators().byId(id));
+            fieldAcceptLabel = new LabelElement(driver, new AddLocationPopUpDynamicLocators().byId(id));
             return true;
-        }
-        catch(NoSuchElementException e){
+        } catch (NoSuchElementException e) {
             return false;
         }
 

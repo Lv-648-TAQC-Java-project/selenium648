@@ -2,7 +2,6 @@ package com.ita.edu.teachua.ui.tests;
 
 import com.ita.edu.teachua.ui.pages.advanced_search.AdvancedSearchPage;
 import com.ita.edu.teachua.ui.pages.advanced_search.ClubsItemComponent;
-import com.ita.edu.teachua.ui.pages.header.HeaderPage;
 import com.ita.edu.teachua.ui.pages.main_page.MainPage;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -10,9 +9,41 @@ import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import org.testng.asserts.SoftAssert;
 
+import java.time.Duration;
 import java.util.List;
 
 public class AdvancedSearchTest extends TestRunner {
+
+    @Test
+    public void verifyAllParametersActiveCenterAdvancedSearch() {
+        SoftAssert softAssert = new SoftAssert();
+        AdvancedSearchPage advancedSearchPage = new MainPage(driver).clickAdvancedSearchButton().clickOnCenterRadioButton();
+        softAssert.assertTrue(advancedSearchPage.getCityLabel().isDisplayedLabel(), "City label is not displayed");
+        softAssert.assertTrue(advancedSearchPage.getCitiesDropdown().isDisplayed(), "Cities dropdown is not displayed");
+        softAssert.assertTrue(advancedSearchPage.getDistrictLabel().isDisplayedLabel(), "District label is not displayed");
+        softAssert.assertTrue(advancedSearchPage.getDistrictDropdown().isDisplayed(), "District dropdown is not displayed");
+        softAssert.assertTrue(advancedSearchPage.getMetroStationLabel().isDisplayedLabel(), "Metro station label is not displayed");
+        softAssert.assertTrue(advancedSearchPage.getMetroDropdown().isDisplayed(), "Metro station dropdown is not displayed");
+
+        driver.manage().timeouts().implicitlyWait(Duration.ofMillis(50));
+
+        softAssert.assertNull(advancedSearchPage.getRemoteLabel(), "Remote label is displayed");
+        softAssert.assertNull(advancedSearchPage.getAvailableOnlineCheckBox(), "Available online checkbox is displayed");
+        softAssert.assertNull(advancedSearchPage.getSportSectionsCheckBox(), "Sport sections checkbox is displayed");
+        softAssert.assertNull(advancedSearchPage.getDanceChoreographyCheckBox(), "Dance checkbox check box is  displayed");
+        softAssert.assertNull(advancedSearchPage.getEarlyDevelopStudiesCheckBox(), "Early development studies checkbox check box is displayed");
+        softAssert.assertNull(advancedSearchPage.getProgrammingStemCheckBox(), "Programming, STEM checkbox check box is displayed");
+        softAssert.assertNull(advancedSearchPage.getArtDesignCheckBox(), "Art studio, design checkbox check box is displayed");
+        softAssert.assertNull(advancedSearchPage.getVocalMusicCheckBox(), "Vocal studio, music checkbox check box is displayed");
+        softAssert.assertNull(advancedSearchPage.getActorsTheaterCheckBox(), "Actors, theater checkbox check box is displayed");
+        softAssert.assertNull(advancedSearchPage.getPersonalDevelopmentCheckBox(), "Personal development checkbox check box is displayed");
+        softAssert.assertNull(advancedSearchPage.getJournalismEditVideoCheckBox(), "Journalism, editing video checkbox check box is displayed");
+        softAssert.assertNull(advancedSearchPage.getDevelopCenterCheckBox(), "Develop center checkbox check box is displayed");
+        softAssert.assertNull(advancedSearchPage.getOtherCheckBox(), "Other checkbox check box is displayed");
+        softAssert.assertNull(advancedSearchPage.getAgeLabel(), "Age label is displayed");
+
+        softAssert.assertAll();
+    }
 
     @Test(description = "TUA-224 Advanced search button opens Розширений пошук section")
     public void openAdvancedSearchFieldTest() {
@@ -50,7 +81,7 @@ public class AdvancedSearchTest extends TestRunner {
     }
 
     @Test
-    public void verifyAllParametersActiveAdvancedSearch() {
+    public void verifyAllParametersActiveClubsAdvancedSearch() {
         SoftAssert softAssert = new SoftAssert();
         AdvancedSearchPage advancedSearchPage = new MainPage(driver).clickAdvancedSearchButton();
         softAssert.assertTrue(advancedSearchPage.getClubsRadioButton().getAttribute("class").contains("checked"), "Clubs radio button is not selected");
@@ -80,7 +111,7 @@ public class AdvancedSearchTest extends TestRunner {
 
     @Test
     public void checkIfCentersAreDisplayedAsAList() {
-    SoftAssert softAssert = new SoftAssert();
+        SoftAssert softAssert = new SoftAssert();
         MainPage mainPage = new MainPage(driver);
         String urlMainPage = mainPage.getMainPageUrL();
         softAssert.assertEquals("https://speak-ukrainian.org.ua/dev/", urlMainPage);
@@ -89,7 +120,7 @@ public class AdvancedSearchTest extends TestRunner {
         String title = advancedSearchPage.getTitleOfAdvancedSearchField();
         softAssert.assertEquals(title, "Розширений пошук");
 
-        boolean checkThatWorkshopRadioButtonIsChosenByDefault =  advancedSearchPage.getWorkshopRadioButton().isDisplayed();
+        boolean checkThatWorkshopRadioButtonIsChosenByDefault = advancedSearchPage.getWorkshopRadioButton().isDisplayed();
         softAssert.assertTrue(checkThatWorkshopRadioButtonIsChosenByDefault, "workshop radiobutton is NOT selected");
 
         boolean CenterRadioButtonSelected = advancedSearchPage
@@ -98,7 +129,7 @@ public class AdvancedSearchTest extends TestRunner {
         softAssert.assertTrue(CenterRadioButtonSelected, "center radiobutton is NOT selected");
 
         advancedSearchPage.clickOnListIcon();
-        for(ClubsItemComponent club : advancedSearchPage.getCards()){
+        for (ClubsItemComponent club : advancedSearchPage.getCards()) {
             softAssert.assertTrue(club.isList());
         }
         softAssert.assertAll();
@@ -107,7 +138,7 @@ public class AdvancedSearchTest extends TestRunner {
     @Test
     public void checkSortingClubs() {
         MainPage mainPage = new MainPage(driver);
-        AdvancedSearchPage advSearch =  mainPage.clickOnAdvancedSearchButton();
+        AdvancedSearchPage advSearch = mainPage.clickOnAdvancedSearchButton();
         List<WebElement> titles = advSearch.getAllTitlesOfCards();
         boolean actual = true;
         try {
@@ -117,14 +148,13 @@ public class AdvancedSearchTest extends TestRunner {
         }
         for (int i = 0; i < advSearch.getNumberOfPagesWithClubs(); i++) {
             for (int j = 0; j < titles.size() - 1; j++) {
-                char[] firstTitle =  titles.get(j).getText().toLowerCase().replaceAll(" ", "").toCharArray();
-                char[] secondTitle =  titles.get(j+1).getText().toLowerCase().replaceAll(" ", "").toCharArray();
+                char[] firstTitle = titles.get(j).getText().toLowerCase().replaceAll(" ", "").toCharArray();
+                char[] secondTitle = titles.get(j + 1).getText().toLowerCase().replaceAll(" ", "").toCharArray();
                 int wordLength = Math.min(firstTitle.length, secondTitle.length);
                 for (int k = 0; k < wordLength; k++) {
                     if (firstTitle[k] < secondTitle[k]) {
                         break;
-                    }
-                    else if (firstTitle[k] > secondTitle[k]){
+                    } else if (firstTitle[k] > secondTitle[k]) {
                         actual = false;
                         break;
                     }
@@ -134,7 +164,6 @@ public class AdvancedSearchTest extends TestRunner {
             advSearch.clickOnNextPageButton();
         }
     }
-
 
 
 }
