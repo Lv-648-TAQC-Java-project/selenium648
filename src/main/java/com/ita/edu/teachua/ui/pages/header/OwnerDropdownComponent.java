@@ -6,10 +6,6 @@ import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import com.ita.edu.teachua.ui.pages.profile_page.AddCenterPopUpComponent;
 import com.ita.edu.teachua.ui.pages.profile_page.ProfilePage;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
 
 public class OwnerDropdownComponent extends BasePage {
 

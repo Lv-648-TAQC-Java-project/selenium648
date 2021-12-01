@@ -1,15 +1,12 @@
 package com.ita.edu.teachua.ui.pages.header;
 
-import com.ita.edu.teachua.ui.elements.ButtonElement;
 import com.ita.edu.teachua.ui.elements.DropDownElement;
 import com.ita.edu.teachua.ui.elements.LinkElement;
 import com.ita.edu.teachua.ui.locators.pageslocators.headerlocators.HeaderLocators;
 import com.ita.edu.teachua.ui.pages.aboutuspage.AboutUsPage;
-import com.ita.edu.teachua.ui.pages.advanced_search.AdvancedSearchPage;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import com.ita.edu.teachua.ui.pages.clubs_page.ClubsPage;
 import com.ita.edu.teachua.ui.pages.services_page.ServicesPage;
-import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;

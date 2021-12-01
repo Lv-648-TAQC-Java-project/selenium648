@@ -8,7 +8,7 @@ public enum OwnerDropdownLocators implements Locator {
     LOGIN_BUTTON(By.xpath("//span/div[contains(text(),'Увійти')]")),
     ADD_CENTER_BUTTON(By.xpath("//span/div[contains(text(),'Додати центр')]")),
     MY_PROFILE_BUTTON(By.xpath("//span/a[contains(text(),'Мій Профіль')]"));
-   // MY_PROFILE_BUTTON(By.xpath("//div[@class='ant-dropdown ant-dropdown-show-arrow ant-dropdown-placement-bottomCenter ']//li[3]"));
+    // MY_PROFILE_BUTTON(By.xpath("//div[@class='ant-dropdown ant-dropdown-show-arrow ant-dropdown-placement-bottomCenter ']//li[3]"));
 
     private final By path;
 

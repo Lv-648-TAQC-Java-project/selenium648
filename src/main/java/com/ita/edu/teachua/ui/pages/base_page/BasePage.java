@@ -26,12 +26,15 @@ public class BasePage {
     public WebElement waitVisibilityOf(WebElement element, int seconds) {
         return new WebDriverWait(driver, Duration.ofSeconds(seconds)).until(ExpectedConditions.visibilityOf(element));
     }
+
     public WebElement waitVisibilityOfElementLocated(Locator locator, int seconds) {
         return new WebDriverWait(driver, Duration.ofSeconds(seconds)).until(ExpectedConditions.visibilityOfElementLocated(locator.getPath()));
     }
+
     public WebElement waitElementToBeClickable(Locator locator, int seconds) {
         return new WebDriverWait(driver, Duration.ofSeconds(seconds)).until(ExpectedConditions.elementToBeClickable(locator.getPath()));
     }
+
     public WebElement waitPresenceOfElementLocated(Locator locator, int seconds) {
         return new WebDriverWait(driver, Duration.ofSeconds(seconds)).until(ExpectedConditions.presenceOfElementLocated(locator.getPath()));
     }

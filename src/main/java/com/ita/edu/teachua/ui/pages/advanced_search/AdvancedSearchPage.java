@@ -3,9 +3,7 @@ package com.ita.edu.teachua.ui.pages.advanced_search;
 import com.ita.edu.teachua.ui.elements.*;
 import com.ita.edu.teachua.ui.locators.pageslocators.advancedsearchlocators.AdvancedSearchPageLocators;
 import com.ita.edu.teachua.ui.locators.pageslocators.clubslocators.ClubsPageLocators;
-import com.ita.edu.teachua.ui.locators.pageslocators.profilelocators.AddClubPopUpComponentLocators;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
-import com.ita.edu.teachua.ui.pages.clubs_page.ClubsPage;
 import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
@@ -47,7 +45,6 @@ public class AdvancedSearchPage extends BasePage {
 
     public AdvancedSearchPage(WebDriver driver) {
         super(driver);
-        initElements();
     }
 
     public AdvancedSearchPage setValueAgeInput(String input) {
@@ -56,127 +53,184 @@ public class AdvancedSearchPage extends BasePage {
         return this;
     }
 
-
-    private void initElements() {
-        clubsRadioButton = new RadioButtonElement(driver, AdvancedSearchPageLocators.CLUB_RADIOBUTTON);
-        cityLabel = new LabelElement(driver, AdvancedSearchPageLocators.CITY_LABEL);
-        citiesDropdown = new DropDownElement(driver, AdvancedSearchPageLocators.CITIES_DROPDOWN);
-        districtLabel = new LabelElement(driver, AdvancedSearchPageLocators.DISTRICT_LABEL);
-        districtDropdown = new DropDownElement(driver, AdvancedSearchPageLocators.DISTRICT_DROPDOWN);
-        metroStationLabel = new LabelElement(driver, AdvancedSearchPageLocators.NEAREST_STATION_LABEL);
-        metroDropdown = new DropDownElement(driver, AdvancedSearchPageLocators.NEAREST_STATION_DROPDOWN);
-        remoteLabel = new LabelElement(driver, AdvancedSearchPageLocators.REMOTE_LABEL);
-        availableOnlineCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.AVAILABLE_ONLINE_RADIOBUTTON);
-        categoriesLabel = new LabelElement(driver, AdvancedSearchPageLocators.CATEGORIES_LABEL);
-        sportSectionsCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.SPORT_SECTIONS_RADIOBUTTON);
-        danceChoreographyCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.DANCE_CHOREOGRAPHY_RADIOBUTTON);
-        earlyDevelopStudiesCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.EARLY_DEVELOPMENT_STUDIES_RADIOBUTTON);
-        programmingStemCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.PROGRAMING_STEM_RADIOBUTTON);
-        artDesignCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.ART_DESIGN_RADIOBUTTON);
-        vocalMusicCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.VOCAL_MUSIC_RADIOBUTTON);
-        actorsTheaterCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.ACTORS_THEATER_RADIOBUTTON);
-        personalDevelopmentCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.PERSONAL_DEVELOPMENT_RADIOBUTTON);
-        journalismEditVideoCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.JOURNALISM_EDITING_VIDEO_RADIOBUTTON);
-        developCenterCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.DEVELOPMENT_CENTER_RADIOBUTTON);
-        otherCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.OTHER_RADIOBUTTON);
-        ageLabel = new LabelElement(driver, AdvancedSearchPageLocators.AGE_LABEL);
-        ageInput = new InputElement(driver, AdvancedSearchPageLocators.AGE_INPUT);
-    }
-
     public CheckBoxElement getVocalMusicCheckBox() {
+        try {
+            vocalMusicCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.VOCAL_MUSIC_RADIOBUTTON);
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return null;
+        }
         return vocalMusicCheckBox;
     }
 
     public RadioButtonElement getClubsRadioButton() {
+        clubsRadioButton = new RadioButtonElement(driver, AdvancedSearchPageLocators.CLUB_RADIOBUTTON);
         return clubsRadioButton;
     }
 
     public LabelElement getCityLabel() {
+        cityLabel = new LabelElement(driver, AdvancedSearchPageLocators.CITY_LABEL);
         return cityLabel;
     }
 
     public DropDownElement getDistrictDropdown() {
+        districtDropdown = new DropDownElement(driver, AdvancedSearchPageLocators.DISTRICT_DROPDOWN);
         return districtDropdown;
     }
 
     public DropDownElement getMetroDropdown() {
+        metroDropdown = new DropDownElement(driver, AdvancedSearchPageLocators.NEAREST_STATION_DROPDOWN);
         return metroDropdown;
     }
 
     public CheckBoxElement getAvailableOnlineCheckBox() {
+        try {
+            availableOnlineCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.AVAILABLE_ONLINE_RADIOBUTTON);
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return null;
+        }
         return availableOnlineCheckBox;
     }
 
     public CheckBoxElement getSportSectionsCheckBox() {
+        try {
+            sportSectionsCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.SPORT_SECTIONS_RADIOBUTTON);
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return null;
+        }
         return sportSectionsCheckBox;
     }
 
     public CheckBoxElement getDanceChoreographyCheckBox() {
+        try {
+            danceChoreographyCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.DANCE_CHOREOGRAPHY_RADIOBUTTON);
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return null;
+        }
         return danceChoreographyCheckBox;
     }
 
     public CheckBoxElement getEarlyDevelopStudiesCheckBox() {
+        try {
+            earlyDevelopStudiesCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.EARLY_DEVELOPMENT_STUDIES_RADIOBUTTON);
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return null;
+        }
         return earlyDevelopStudiesCheckBox;
     }
 
     public CheckBoxElement getProgrammingStemCheckBox() {
+        try {
+            programmingStemCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.PROGRAMING_STEM_RADIOBUTTON);
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return null;
+        }
         return programmingStemCheckBox;
     }
 
     public CheckBoxElement getArtDesignCheckBox() {
+        try {
+            artDesignCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.ART_DESIGN_RADIOBUTTON);
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return null;
+        }
         return artDesignCheckBox;
     }
 
     public CheckBoxElement getActorsTheaterCheckBox() {
+        try {
+            actorsTheaterCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.ACTORS_THEATER_RADIOBUTTON);
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return null;
+        }
         return actorsTheaterCheckBox;
     }
 
     public CheckBoxElement getPersonalDevelopmentCheckBox() {
+        try {
+            personalDevelopmentCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.PERSONAL_DEVELOPMENT_RADIOBUTTON);
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return null;
+        }
         return personalDevelopmentCheckBox;
     }
 
     public CheckBoxElement getJournalismEditVideoCheckBox() {
+        try {
+            journalismEditVideoCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.JOURNALISM_EDITING_VIDEO_RADIOBUTTON);
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return null;
+        }
         return journalismEditVideoCheckBox;
     }
 
     public CheckBoxElement getDevelopCenterCheckBox() {
+        try {
+            developCenterCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.DEVELOPMENT_CENTER_RADIOBUTTON);
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return null;
+        }
         return developCenterCheckBox;
     }
 
     public CheckBoxElement getOtherCheckBox() {
+        try {
+            otherCheckBox = new CheckBoxElement(driver, AdvancedSearchPageLocators.OTHER_RADIOBUTTON);
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return null;
+        }
         return otherCheckBox;
     }
 
     public InputElement getAgeInput() {
+        ageInput = new InputElement(driver, AdvancedSearchPageLocators.AGE_INPUT);
         return ageInput;
     }
 
     public AdvancedSearchPage pressEnterAgeInput() {
+        ageInput = new InputElement(driver, AdvancedSearchPageLocators.AGE_INPUT);
         ageInput.pressEnter();
         return this;
     }
 
     public DropDownElement getCitiesDropdown() {
+        citiesDropdown = new DropDownElement(driver, AdvancedSearchPageLocators.CITIES_DROPDOWN);
         return citiesDropdown;
     }
 
     public LabelElement getDistrictLabel() {
+        districtLabel = new LabelElement(driver, AdvancedSearchPageLocators.DISTRICT_LABEL);
         return districtLabel;
     }
 
     public LabelElement getMetroStationLabel() {
+        metroStationLabel = new LabelElement(driver, AdvancedSearchPageLocators.NEAREST_STATION_LABEL);
         return metroStationLabel;
     }
 
     public LabelElement getRemoteLabel() {
+        try {
+            remoteLabel = new LabelElement(driver, AdvancedSearchPageLocators.REMOTE_LABEL);
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return null;
+        }
         return remoteLabel;
     }
 
     public LabelElement getCategoriesLabel() {
+        try {
+            categoriesLabel = new LabelElement(driver, AdvancedSearchPageLocators.CATEGORIES_LABEL);
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return null;
+        }
         return categoriesLabel;
     }
 
     public LabelElement getAgeLabel() {
+        try {
+            ageLabel = new LabelElement(driver, AdvancedSearchPageLocators.AGE_LABEL);
+        } catch (org.openqa.selenium.NoSuchElementException e) {
+            return null;
+        }
         return ageLabel;
     }
 
@@ -202,7 +256,7 @@ public class AdvancedSearchPage extends BasePage {
         return this;
     }
 
-    public List<ClubsItemComponent> getCards(){
+    public List<ClubsItemComponent> getCards() {
         List<WebElement> centerBlocks = driver.findElements(By.cssSelector(".ant-card.ant-card-bordered.card.center-list-rectangle-item"));
         List<ClubsItemComponent> clubBlocks = new ArrayList<>();
         for (WebElement j : centerBlocks) {
