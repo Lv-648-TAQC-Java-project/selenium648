@@ -12,21 +12,23 @@ public class RestoringPopUpComponent extends BasePage {
 
     public RestoringPopUpComponent(WebDriver driver) {
         super(driver);
-        initElements();
+        //initElements();
     }
 
-    private void initElements() {
+    /*private void initElements() {
         editEmail = new InputElement(driver, RestoringPopUpLocators.EDIT_EMAIL_FIELD);
         restore = new ButtonElement(driver, RestoringPopUpLocators.RESTORE);
-    }
+    }*/
 
     public RestoringPopUpComponent inputEmail(String email) {
-        editEmail.click();
+        editEmail = new InputElement(driver, RestoringPopUpLocators.EDIT_EMAIL_FIELD);
+        editEmail.clear();
         editEmail.sendKeys(email);
         return this;
     }
 
     public RestoringPasswordPopUpComponent clickOnRestore() {
+        restore = new ButtonElement(driver, RestoringPopUpLocators.RESTORE);
         restore.click();
         return new RestoringPasswordPopUpComponent(driver);
     }

@@ -9,51 +9,56 @@ import org.openqa.selenium.WebDriver;
 
 public class LoginPopUpComponent extends BasePage {
     private ButtonElement logInButton;
-    private LinkElement forgotPassword;
+    private LinkElement forgotPasswordButton;
     private LinkElement loginSubmitButton;
 
     private InputElement emailField;
     private InputElement passwordField;
     private ButtonElement submitButton;
 
+
+
     public LoginPopUpComponent(WebDriver driver) {
         super(driver);
-        initElements();
+        //initElements();
     }
 
-    private void initElements() {
+   /* private void initElements() {
         logInButton = new ButtonElement(driver, LoginPopUpComponentLocators.LOG_IN_BUTTON);
         forgotPassword = new LinkElement(driver, LoginPopUpComponentLocators.FORGOT_PASSWORD);
         emailField = new InputElement(driver, LoginPopUpComponentLocators.EMAIL_FIELD);
         passwordField = new InputElement(driver, LoginPopUpComponentLocators.PASSWORD_FIELD);
         submitButton = new ButtonElement(driver, LoginPopUpComponentLocators.SUBMIT_BUTTON);
-    }
+    }*/
 
     public void clickRegisterButton() {
         logInButton.click();
     }
 
     public LoginPopUpComponent sendKeysEmailField(String emailValue) {
+        emailField = new InputElement(driver, LoginPopUpComponentLocators.EMAIL_FIELD);
+        emailField.clear();
         emailField.sendKeys(emailValue);
         return this;
     }
 
     public LoginPopUpComponent sendKeysPasswordField(String passwordValue) {
+        passwordField = new InputElement(driver, LoginPopUpComponentLocators.PASSWORD_FIELD);
+        passwordField.clear();
         passwordField.sendKeys(passwordValue);
         return this;
     }
 
     public HeaderPage clickLogInButton() {
+        logInButton = new ButtonElement(driver, LoginPopUpComponentLocators.LOG_IN_BUTTON);
         logInButton.click();
         return new HeaderPage(driver);
     }
 
     public HeaderPage fillLoginFields(String email, String password) {
-        emailField.clear();
-        emailField.sendKeys(email);
-        passwordField.clear();
-        passwordField.sendKeys(password);
-        submitButton.click();
+        sendKeysEmailField(email);
+        sendKeysPasswordField(password);
+        clickSubmitButton();
         return new HeaderPage(driver);
     }
 
@@ -71,5 +76,11 @@ public class LoginPopUpComponent extends BasePage {
         sleep(2000);
         //  new WebDriverWait(driver,Duration.ofSeconds(10)).until(ExpectedConditions.presenceOfElementLocated(By.xpath("//span[text()='Вийти']")));
         return new HeaderPage(driver);
+    }
+
+    public RestoringPopUpComponent clickOnForgotPasswordButton(){
+        forgotPasswordButton = new LinkElement(driver,LoginPopUpComponentLocators.FORGOT_PASSWORD);
+        forgotPasswordButton.click();
+        return new RestoringPopUpComponent(driver);
     }
 }
