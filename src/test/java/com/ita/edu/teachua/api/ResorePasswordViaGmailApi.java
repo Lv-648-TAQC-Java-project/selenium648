@@ -1,9 +1,10 @@
 package com.ita.edu.teachua.api;
 
 import com.ita.edu.teachua.ui.pages.header.HeaderPage;
+import com.ita.edu.teachua.utils.GmailContentExtractor;
 import org.testng.annotations.Test;
 
-public class ResorePasswordViaGoogleApi extends TestRunner {
+public class ResorePasswordViaGmailApi extends TestRunner {
 
     @Test
     public void VerifyNewPasswordValidationWhenRestoringPasswordViaForgotPassword(){
@@ -12,7 +13,10 @@ public class ResorePasswordViaGoogleApi extends TestRunner {
                 .clickOnLoginButton()
                 .clickOnForgotPasswordButton()
                 .inputEmail("speak.ukrainian.atqc.test@gmail.com")
-                .clickOnRestore();
+                .clickOnRestore()
+                .setNewRandomPassword();
+
+
 
         try {
             Thread.sleep(3000);

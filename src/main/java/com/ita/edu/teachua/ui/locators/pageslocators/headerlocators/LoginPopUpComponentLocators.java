@@ -8,7 +8,7 @@ public enum LoginPopUpComponentLocators implements Locator {
     PASSWORD_FIELD(By.id("basic_password")),
     SUBMIT_BUTTON(By.cssSelector("button[type='submit']")),
     LOG_IN_BUTTON(By.xpath("//span[contains(text(),'Увійти')]")),
-    FORGOT_PASSWORD(By.className("restore-password-button"));
+    FORGOT_PASSWORD_BUTTON(By.className("restore-password-button"));
 
     private final By path;
 
