@@ -23,3 +23,5 @@ test-output
 # project
 data.properties
 credentials.json
+StoredCredential
+allure-results

@@ -9,6 +9,7 @@ import com.ita.edu.teachua.ui.pages.advanced_search.AdvancedSearchPage;
 import com.ita.edu.teachua.ui.pages.base_page.BasePage;
 import com.ita.edu.teachua.ui.pages.clubs_page.ClubsPage;
 import com.ita.edu.teachua.ui.pages.services_page.ServicesPage;
+import io.qameta.allure.Step;
 import org.checkerframework.checker.units.qual.A;
 import org.openqa.selenium.StaleElementReferenceException;
 import org.openqa.selenium.TimeoutException;
@@ -70,12 +71,13 @@ public class HeaderPage extends BasePage {
         return new OwnerDropdownComponent(driver);
     }
 
+    @Step("Type {email} / {password}.")
     public HeaderPage authorize(String email, String password) {
         clickOnGuestDropdown().clickOnLoginButton().fillLoginFields(email, password);
         sleep(3000);
         return new HeaderPage(driver);
     }
-
+    @Step("Click on OwnerDropdown")
     public OwnerDropdownComponent clickOnOwnerDropdown() {
         DropDownElement ownerDropdown = new DropDownElement(driver, HeaderLocators.OWNER_DROPDOWN);
         ownerDropdown.click();
