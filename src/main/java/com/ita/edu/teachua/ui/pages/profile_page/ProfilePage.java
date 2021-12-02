@@ -14,15 +14,11 @@ public class ProfilePage extends BasePage {
 
     public ProfilePage(WebDriver driver) {
         super(driver);
-        initElements();
-
     }
 
-    private void initElements() {
-        addButton = new ButtonElement(driver, ProfilePageLocators.ADD_BUTTON);
-    }
 
     public AddDropdownComponent clickOnAddButton() {
+        addButton = new ButtonElement(driver, ProfilePageLocators.ADD_BUTTON);
         addButton.click();
         return new AddDropdownComponent(driver);
     }

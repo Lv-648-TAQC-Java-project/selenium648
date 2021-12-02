@@ -58,7 +58,12 @@ public class ProfileEditPopUpComponent extends BasePage {
 
     public ProfileEditPopUpComponent clickOnChangePasswordCheckBox() {
         CheckBoxElement changePassword = new CheckBoxElement(driver, ProfileEditPopUpLocators.PASSWORD_EDIT_CHECKBOX);
-        changePassword.click();
+        try {
+            changePassword.click();
+        }catch (org.openqa.selenium.ElementClickInterceptedException e){
+            sleep(100);
+            return clickOnChangePasswordCheckBox();
+        }
         return this;
     }
 

@@ -16,7 +16,6 @@ public class BasicSearchTest extends TestRunner {
                 {"Театральна Студія \"Зоряні Діти''"},
                 {"Студія танцю \"Несамовиті\""},
                 {"LESKIV-SCHOOL"},
-                {"Професійний клуб Айкідо Йошинкан в Києві - MISOGI"},
                 {"Школа танців Dream Team"}
         };
     }
