@@ -37,7 +37,7 @@ public enum AdvancedSearchPageLocators implements Locator {
     ADVANCED_SEARCH_BLOCK(By.cssSelector("aside.ant-layout-sider.ant-layout-sider-dark.club-list-sider")),
     CENTER_ITEM(By.xpath("//*[@class='ant-card-body']")),
     CENTER_ADDRESS(By.xpath("//*[@class='oneAddress']")),
-    NEXT_PAGE_BUTTON(By.xpath("//li[@title='Next Page']//button[class='ant-pagination-item-link']")),
+    NEXT_PAGE_BUTTON(By.xpath("//span[@aria-label='right']//*[name()='svg']")),
     LAST_PAGE_BUTTON(By.xpath("//li[@title='Next Page']/preceding-sibling::*[1]"));
 
     private final By path;

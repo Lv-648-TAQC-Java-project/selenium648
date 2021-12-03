@@ -9,6 +9,7 @@ import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
+import java.time.Duration;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -291,10 +292,68 @@ public class AdvancedSearchPage extends BasePage {
     }
 
     public List<WebElement> getAllTitlesOfCards() {
+        try {
+            Thread.sleep(500);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         return driver.findElements(ClubsPageLocators.CARD_TITLE.getPath());
     }
 
+    public List<String> getTitlesFromAllPages() {
+        List<WebElement> titles = new ArrayList<>();
+        int n = this.getNumberOfPagesWithClubs();
+        for (int i = 0; i < n; i++) {
+            try {
+                Thread.sleep(500);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+            titles.addAll(this.getAllTitlesOfCards());
+            if (i <= n - 1) {
+                this.clickOnNextPageButton();
+            }
+        }
+        List<String> stringCards = new ArrayList<>();
+        for (WebElement card: titles) {
+            stringCards.add(card.getText());
+        }
+        return stringCards;
+    }
+
+    public boolean isAlphabeticallySorted(List<String> titles, boolean asc) {
+        for (int j = 0; j < titles.size() - 1; j++) {
+            char[] firstTitle = titles.get(j).toLowerCase().replaceAll(" ", "").toCharArray();
+            char[] secondTitle = titles.get(j + 1).toLowerCase().replaceAll(" ", "").toCharArray();
+            int wordLength = Math.min(firstTitle.length, secondTitle.length);
+            for (int k = 0; k < wordLength; k++) {
+                System.out.println("fw letter: " + firstTitle[k]);
+                System.out.println("sw letter: " + secondTitle[k]);
+                if (asc) {
+                    if (firstTitle[k] < secondTitle[k]) {
+                        break;
+                    } else if (firstTitle[k] > secondTitle[k]) {
+                        return false;
+                    }
+                }
+                if (!asc) {
+                    if (firstTitle[k] > secondTitle[k]) {
+                        break;
+                    } else if (firstTitle[k] < secondTitle[k]) {
+                        return false;
+                    }
+                }
+            }
+        }
+        return true;
+    }
+
     public int getNumberOfPagesWithClubs() {
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
         ButtonElement lastPageButton = new ButtonElement(driver, AdvancedSearchPageLocators.LAST_PAGE_BUTTON);
         return Integer.parseInt(lastPageButton.getInnerText());
     }

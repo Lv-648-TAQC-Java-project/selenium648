@@ -21,5 +21,6 @@ resources/*
 resources
 
 # project
-/allure-results/*
-/allure-results
+data.properties
+credentials.json
+StoredCredential
